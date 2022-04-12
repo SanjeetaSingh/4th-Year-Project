@@ -20,14 +20,14 @@
 }
 
 .boardcontainer {
-    margin-top: 7%;
+    margin-top: 5%;
     margin-left: 8%;
     flex: 0 0 45%;
 }
 
 .top-panel {
     flex: 1;
-    margin-top: 7%;
+    margin-top: 5%;
     margin-right: 5%;
 
 }

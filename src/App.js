@@ -17,7 +17,7 @@ function App() {
       <div className='App'>
         <Header />
         <Switch>
-          <Route path='/home'><Home /></Route>
+          <Route path='/'><Home /></Route>
           <Route path='/about'><About /></Route>
           <Route path='/help'><Help /></Route>
         </Switch>

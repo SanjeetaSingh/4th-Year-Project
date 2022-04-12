@@ -1,27 +1,27 @@
 .header {
-  position: fixed;
+  position: sticky;
   display: flex;
-  padding-left: 30px;
-  top: 0;
-  width: 100%;
-
-  z-index: 10;
-  border-bottom: 2px solid #000;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2%;
 }
 
 .header_logo > img {
   object-fit: contain;
-  width: 50px;
+  width: 45px;
+  margin-left: 10px;
 }
 
 .header_links {
+  position: absolute;
   display: flex;
+  width: 50%;
   align-items: center;
-  justify-content: space-between;
-  width: 15vw;
-  padding-right: 0px;
+  justify-content: flex-end;
+  right: 15px;
 }
 
 .header_links > p {
-  border-bottom: 3px solid #000;
+  border-bottom: 3px solid #407056;
+  margin: 0 2%;
 }
