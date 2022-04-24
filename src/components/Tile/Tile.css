@@ -1,0 +1,18 @@
+.tile {
+    display: grid;
+    place-content: center;
+    width: 100px;
+    height: 100px;
+}
+
+.black-tile {
+    background-image: url("../assets/tile.jpg");
+}
+
+.white-tile{
+    background-image: url("../assets/tile.jpg");
+}
+
+.tile img {
+    width: 80px;
+}
