@@ -2,49 +2,100 @@ import React from "react"
 import "./Board.css"
 import BottomPanel from "../Panel/BottomPanel"
 import TopPanel from "../Panel/TopPanel"
-import Tile from "../Tile/Tiles"
-import Objects from "../objects"
-// import dog from './assets/dog.png'
-const col = ["1", "2", "3", "4", "5"];
-const row = ["1", "2", "3", "4", "5"];
 
-const p = [Objects];
 
-    p.push({ image: "assets/dog.png", x: 2, y: 2 });
-
+const state = {
+    board: Array(25).fill(null),
+    player: null
+}
 
 const Board = () => {
 
-    let board = [];
-
-    for (let i = col.length - 1; i >= 0; i--) {
-        for (let j = 0; j < row.length; j++) {
-            const num = j + i + 2
-            let image = undefined;
-
-            p.forEach((el) => {
-                if (el.x === j && el.y === i) {
-                    image = el.image;
-                }
-            });
-
-            console.log(image)
-            board.push(<Tile image={image} num={num} />);
-        }
+    const renderBoxes = () => {
+        return state.board.map(
+            (box, index) =>
+                <div className="box" data-row={parseInt(index / 5)} data-col={index % 5}>
+                    {box}
+                </div>
+        )
     }
 
-    return (
-        <div className="container">
-            <div className="boardcontainer">
-                <div className="board"> {board}</div>
+    function moveLeft() {
+        var element = document.getElementById('dog');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) - 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        newBox.append(element);
+    }
 
+    function moveRight() {
+        var element = document.getElementById('dog');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) + 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        newBox.append(element);
+    }
+
+    function moveUp() {
+        var element = document.getElementById('dog');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) - 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        newBox.append(element);
+    }
+
+    function moveDown() {
+        var element = document.getElementById('dog');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) + 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        newBox.append(element);
+    }
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                moveLeft();
+                break;
+            case 39:
+                moveRight();
+                break;
+            case 38:
+                moveUp();
+                break;
+            case 40:
+                moveDown();
+                break;
+            default:
+        }
+    };
+
+    function docReady() {
+        window.addEventListener('keydown', moveSelection);
+    }
+
+    state.board[12] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>
+
+    return (
+        <div className="container" >
+            <div className="boardcontainer">
+                <div className="board" onLoad={docReady} >
+                    {renderBoxes()}
+
+                </div>
             </div>
+
             <div className="top-panel">
                 <TopPanel />
-                <div>
+                <div className="bottom-panel">
                     <BottomPanel />
                 </div>
             </div>
+
 
         </div>
     )
