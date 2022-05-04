@@ -4,7 +4,13 @@ import "./TopPanel.css"
 const TopPanel = () => {
     return (
         <div class="borders">
-            <p>code will show here</p>
+            <div class="instuct">
+                <p class="title"> Instuctions: </p>
+                <p>
+                    Use the buttons below to get the dog to his food! Once you have entered your sequence press submit
+                    to let the dog move to get to his food! </p>
+            </div>
+
         </div>
     );
 }
