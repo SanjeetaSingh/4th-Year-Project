@@ -32,3 +32,8 @@
 .image {
   width: 80px;
 }
+
+.bone {
+  width: 80px;
+  align-self: center;
+}

@@ -37,7 +37,7 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
     }
-
+    
     return (
         <div>
             <button class="button" onClick={moveLeft}>Left</button>
