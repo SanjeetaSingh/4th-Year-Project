@@ -1,11 +1,11 @@
 import React from 'react'
 import "./BottomPanel.css"
+import Controls from '../Controls/Controls';
 
 const BottomPanel = () => {
     return (
         <div class="border">
-            <p>Instructions and buttons</p>
-            <p>will go here</p>
+            <Controls/>
         </div>
     );
 }
