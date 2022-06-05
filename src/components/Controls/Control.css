@@ -1,0 +1,21 @@
+.borders {
+    background-color: beige;  
+    height: 75%;
+
+}
+
+.instuct {
+    margin-right: 80%;
+    text-align: left;
+    margin-left: 2%;
+    border: 2px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.but {
+    background-color: white;
+}
