@@ -20,7 +20,7 @@ const Board = () => {
 
     state.board[12] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>
 
-    state.board[0] = <img class="bone" src="assets/food.png" alt="d" id="food"></img>
+    state.board[0] = <img class="bone" src="assets/food.png" alt="f" id="food"></img>
 
     return (
         <div className="container" >

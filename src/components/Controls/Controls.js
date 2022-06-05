@@ -24,6 +24,8 @@ const Controls = () => {
 
 
         document.getElementById("action").innerHTML += item + "<br/>"
+
+        statement()
     }
 
     function moveRight() {
@@ -43,6 +45,8 @@ const Controls = () => {
 
 
         document.getElementById("action").innerHTML += item + "<br/>"
+
+        statement()
 
     }
 
@@ -64,6 +68,7 @@ const Controls = () => {
 
         document.getElementById("action").innerHTML += item + "<br/>"
 
+        statement()
     }
 
     function moveDown() {
@@ -84,20 +89,47 @@ const Controls = () => {
 
         document.getElementById("action").innerHTML += item + "<br/>"
 
+        statement()
     }
 
+
+    function statement() {
+
+        var dog = document.getElementById('dog');
+        var foodel = document.getElementById('food');
+
+        console.log('function called');
+        if (dog != null || foodel != null) {
+            const box = dog.parentElement;
+            const foodbox = foodel.parentElement;
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+            // const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+            const foodrow = parseInt(foodbox.getAttribute('data-row'))
+            const foodcol = parseInt(foodbox.getAttribute('data-col'))
+            // const boxs = document.querySelector(`[data-row="${foodrow}"][data-col="${foodcol}"]`);
+
+
+            if (row === foodrow && col === foodcol) {
+                return alert("win");
+            }
+        }
+        return //
+    }
+    
 
     return (
         <div>
             <div class="borderPanel">
-
                 <div class="toppart">
                     <p class="title">Sequence:</p>
                     <p id="action" class="lists"></p>
                 </div>
 
 
-                <div class="bubble bubble-bottom-left" contenteditable>
+                <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
                     sequence then go ahead and click the submit button
                 </div>
@@ -109,7 +141,7 @@ const Controls = () => {
                 <button class="button" onClick={moveRight}>Right</button>
                 <button class="button" onClick={moveUp}>Up</button>
                 <button class="button" onClick={moveDown}>Down</button>
-                <button class="button" > Submit</button>
+                <button class="button"> Submit</button>
             </div>
 
 
