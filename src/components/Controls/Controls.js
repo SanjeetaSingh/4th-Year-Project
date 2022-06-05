@@ -1,12 +1,11 @@
 import React from 'react'
 const Controls = () => {
 
-    //String that will show when button is clicked
-    let value = ""
+     //String that will show when button is clicked
+     let value = ""
 
-    //List of strings
-    let list = []
-
+     //List of strings
+     let list = [] 
 
     function moveLeft() {
         var element = document.getElementById('dog');
@@ -22,7 +21,8 @@ const Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
 
-        console.log(item)
+
+        document.getElementById("action").innerHTML += item
     }
 
     function moveRight() {
@@ -34,14 +34,14 @@ const Controls = () => {
         newBox.append(element);
 
         value = "moveRight()"
-
         list.push(value)
 
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
 
-        console.log(item)
+
+        document.getElementById("action").innerHTML += item
 
     }
 
@@ -60,7 +60,8 @@ const Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
 
-        console.log(item)
+
+        document.getElementById("action").innerHTML += item
 
     }
 
@@ -79,18 +80,27 @@ const Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
 
-        console.log(item)
+
+        document.getElementById("action").innerHTML += item
 
     }
 
 
     return (
         <div>
+            <div class="borders">
+                <div class="instuct">
+                    <p class="title">Instructions:</p>
+                    <p id="action" class="lists"></p>
+                </div>
+            </div>
+
             <button class="button" onClick={moveLeft}>Left</button>
             <button class="button" onClick={moveRight}>Right</button>
             <button class="button" onClick={moveUp}>Up</button>
             <button class="button" onClick={moveDown}>Down</button>
-            <button class="submit" id="sub">Submit</button>
+            <button class="submit" id="sub" >Submit</button>
+
         </div>
     );
 }
