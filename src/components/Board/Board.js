@@ -1,8 +1,6 @@
 import React from "react"
 import "./Board.css"
 import BottomPanel from "../Panel/BottomPanel"
-import TopPanel from "../Panel/TopPanel"
-import Controls from "../Controls/Controls"
 
 const state = {
     board: Array(25).fill(null),
@@ -32,13 +30,10 @@ const Board = () => {
                 </div>
             </div>
 
-            <div className="top-panel">
-                <TopPanel />
-                <div className="bottom-panel">
-                    <BottomPanel />
-                </div>
-            </div>
 
+            <div className="bottom-panel">
+                <BottomPanel />
+            </div>
 
         </div>
     )
