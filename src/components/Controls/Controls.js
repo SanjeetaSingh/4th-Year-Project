@@ -1,11 +1,12 @@
 import React from 'react'
+import "./Control.css"
 const Controls = () => {
 
-     //String that will show when button is clicked
-     let value = ""
+    //String that will show when button is clicked
+    let value = ""
 
-     //List of strings
-     let list = [] 
+    //List of strings
+    let list = []
 
     function moveLeft() {
         var element = document.getElementById('dog');
@@ -14,7 +15,7 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-        value = "moveLeft()"
+        value = "moveLeft();"
         list.push(value)
 
         //Getting the last element of the list
@@ -33,7 +34,7 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        value = "moveRight()"
+        value = "moveRight();"
         list.push(value)
 
         //Getting the last element of the list
@@ -53,7 +54,7 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        value = "moveUp()"
+        value = "moveUp();"
         list.push(value)
 
         //Getting the last element of the list
@@ -73,7 +74,7 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        value = "moveDown()"
+        value = "moveDown();"
         list.push(value)
 
         //Getting the last element of the list
@@ -88,18 +89,29 @@ const Controls = () => {
 
     return (
         <div>
-            <div class="borders">
-                <div class="instuct">
-                    <p class="title">Instructions:</p>
+            <div class="borderPanel">
+
+                <div class="toppart">
+                    <p class="title">Sequence:</p>
                     <p id="action" class="lists"></p>
                 </div>
+
+
+                <div class="bubble bubble-bottom-left" contenteditable>
+                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
+                    sequence then go ahead and click the submit button
+                </div>
+
             </div>
 
-            <button class="button" onClick={moveLeft}>Left</button>
-            <button class="button" onClick={moveRight}>Right</button>
-            <button class="button" onClick={moveUp}>Up</button>
-            <button class="button" onClick={moveDown}>Down</button>
-            <button class="submit" id="sub" >Submit</button>
+            <div class="outside">
+                <button class="button" onClick={moveLeft}>Left</button>
+                <button class="button" onClick={moveRight}>Right</button>
+                <button class="button" onClick={moveUp}>Up</button>
+                <button class="button" onClick={moveDown}>Down</button>
+                <button class="button" > Submit</button>
+            </div>
+
 
         </div>
     );
