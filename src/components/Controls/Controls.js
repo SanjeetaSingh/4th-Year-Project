@@ -22,7 +22,7 @@ const Controls = () => {
         const item = list[lastVal]
 
 
-        document.getElementById("action").innerHTML += item
+        document.getElementById("action").innerHTML += item + "<br/>"
     }
 
     function moveRight() {
@@ -41,7 +41,7 @@ const Controls = () => {
         const item = list[lastVal]
 
 
-        document.getElementById("action").innerHTML += item
+        document.getElementById("action").innerHTML += item + "<br/>"
 
     }
 
@@ -61,7 +61,7 @@ const Controls = () => {
         const item = list[lastVal]
 
 
-        document.getElementById("action").innerHTML += item
+        document.getElementById("action").innerHTML += item + "<br/>"
 
     }
 
@@ -81,7 +81,7 @@ const Controls = () => {
         const item = list[lastVal]
 
 
-        document.getElementById("action").innerHTML += item
+        document.getElementById("action").innerHTML += item + "<br/>"
 
     }
 
