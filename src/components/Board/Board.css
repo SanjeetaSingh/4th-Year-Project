@@ -1,5 +1,5 @@
 .boardcontainer {
-  margin-top: 6%;
+  margin-top: 3%;
   margin-left: 4%;
   flex: 0 0 45%;
 }
@@ -26,7 +26,7 @@
 .board {
   display: inline-flex;
   flex-wrap: wrap;
-  width: 400px;
+  width: 600px;
 }
 
 .image {
