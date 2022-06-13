@@ -1,4 +1,5 @@
 import React from 'react'
+
 import "./Control.css"
 const Controls = () => {
 
@@ -8,6 +9,9 @@ const Controls = () => {
     //List of strings
     let list = []
 
+    // Stores all the moves to be done on submit
+    let moves = []
+
     function moveLeft() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -15,15 +19,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-        value = "moveLeft();"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-
-        document.getElementById("action").innerHTML += item + "<br/>"
 
         statement()
     }
@@ -35,16 +30,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        value = "moveRight();"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-
-        document.getElementById("action").innerHTML += item + "<br/>"
 
         statement()
 
@@ -58,16 +43,6 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        value = "moveUp();"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-
-        document.getElementById("action").innerHTML += item + "<br/>"
-
         statement()
     }
 
@@ -79,16 +54,6 @@ const Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        value = "moveDown();"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-
-        document.getElementById("action").innerHTML += item + "<br/>"
-
         statement()
     }
 
@@ -96,29 +61,103 @@ const Controls = () => {
     function statement() {
 
         var dog = document.getElementById('dog');
-        var foodel = document.getElementById('food');
+        var food = document.getElementById('food');
 
-        console.log('function called');
-        if (dog != null || foodel != null) {
+        if (dog != null || food != null) {
             const box = dog.parentElement;
-            const foodbox = foodel.parentElement;
+            let foodbox = food.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
-            // const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
             const foodrow = parseInt(foodbox.getAttribute('data-row'))
             const foodcol = parseInt(foodbox.getAttribute('data-col'))
-            // const boxs = document.querySelector(`[data-row="${foodrow}"][data-col="${foodcol}"]`);
-
 
             if (row === foodrow && col === foodcol) {
-                return alert("win");
+                document.getElementById('food').src = "assets/dog.png"
             }
         }
-        return //
     }
-    
+
+
+    function addLeft() {
+        let left = "left"
+
+        moves.push(left)
+
+        value = "moveLeft();"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+        document.getElementById("action").innerHTML += item + "<br/>"
+    }
+
+    function addRight() {
+        let right = "right"
+
+        moves.push(right)
+
+        value = "moveRight();"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+        document.getElementById("action").innerHTML += item + "<br/>"
+    }
+
+    function addDown() {
+        let down = "down"
+
+        moves.push(down)
+        value = "moveDown();"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+        document.getElementById("action").innerHTML += item + "<br/>"
+    }
+
+    function addUp() {
+        let up = "up"
+
+        moves.push(up)
+
+        value = "moveUp();"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+        document.getElementById("action").innerHTML += item + "<br/>"
+    }
+
+    function submit() {
+
+        let items = moves.values();
+
+        for (let i = 0; i < moves.length; i++) {
+            for (let element of items) {
+                if (element === "left") {
+                    moveLeft()
+                }
+                if (element === "right") {
+                    moveRight()
+                }
+                if (element === "down") {
+                    moveDown()
+                }
+                if (element === "up") {
+                    moveUp()
+                }
+            }
+            console.log(i)
+        }
+    }
+
 
     return (
         <div>
@@ -128,7 +167,6 @@ const Controls = () => {
                     <p id="action" class="lists"></p>
                 </div>
 
-
                 <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
                     sequence then go ahead and click the submit button
@@ -137,11 +175,11 @@ const Controls = () => {
             </div>
 
             <div class="outside">
-                <button class="button" onClick={moveLeft}>Left</button>
-                <button class="button" onClick={moveRight}>Right</button>
-                <button class="button" onClick={moveUp}>Up</button>
-                <button class="button" onClick={moveDown}>Down</button>
-                <button class="button"> Submit</button>
+                <button class="button" id='left' onClick={addLeft} value="left">Left</button>
+                <button class="button" onClick={addRight}>Right</button>
+                <button class="button" onClick={addUp}>Up</button>
+                <button class="button" onClick={addDown}>Down</button>
+                <button class="button" onClick={submit}> Submit</button>
             </div>
 
 
