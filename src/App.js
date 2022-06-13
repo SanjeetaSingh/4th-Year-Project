@@ -7,7 +7,6 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Help from './pages/Help';
 import Header from './components/Header/Header';
 
 function App() {
@@ -18,7 +17,6 @@ function App() {
         <Switch>
           <Route exact path='/'> <Home /></Route>
           <Route path='/about'><About /></Route>
-          <Route path='/help'><Help /></Route>
         </Switch>
       </div>
     </Router>

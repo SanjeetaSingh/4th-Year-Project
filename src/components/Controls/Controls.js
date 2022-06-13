@@ -163,7 +163,7 @@ const Controls = () => {
         <div>
             <div class="borderPanel">
                 <div class="toppart">
-                    <p class="title">Sequence:</p>
+                    <p class="titles">Sequence:</p>
                     <p id="action" class="lists"></p>
                 </div>
 
