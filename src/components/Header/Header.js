@@ -7,8 +7,8 @@ function Header() {
         <div className="header">
 
             <div className="header_links">
-                <p><Link to='/' style={{ color: "black", fontSize: "15px", fontWeight: 'bold', textDecoration: 'none' }}>Home</Link></p>
-                <p><Link to='/about' style={{ color: "black", fontSize: "15px", fontWeight: 'bold', textDecoration: 'none' }}>About</Link></p>
+                <p><Link to='/' class="home">Home</Link></p>
+                <p><Link to='/about' class="about">About</Link></p>
             </div>
         </div>
     )

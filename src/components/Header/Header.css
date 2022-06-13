@@ -6,7 +6,7 @@
   margin-top: 2%;
 }
 
-.header_logo > img {
+.header_logo>img {
   object-fit: contain;
   width: 45px;
   margin-left: 10px;
@@ -21,7 +21,22 @@
   right: 15px;
 }
 
-.header_links > p {
-  border-bottom: 3px solid #407056;
+.header_links>p {
+  border-bottom: 3px solid #483C32;
   margin: 0 2%;
+}
+
+
+.home {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+}
+
+.about {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
 }
