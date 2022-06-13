@@ -160,8 +160,9 @@ const Controls = () => {
 
 
     return (
-        <div>
+        <div class="containers">
             <div class="borderPanel">
+                <h2>Level 1:</h2>
                 <div class="toppart">
                     <p class="titles">Sequence:</p>
                     <p id="action" class="lists"></p>
@@ -169,13 +170,13 @@ const Controls = () => {
 
                 <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
-                    sequence then go ahead and click the submit button
+                    sequence then go ahead and click the submit button!
                 </div>
 
             </div>
 
             <div class="outside">
-                <button class="button" id='left' onClick={addLeft} value="left">Left</button>
+                <button class="button" onClick={addLeft} >Left</button>
                 <button class="button" onClick={addRight}>Right</button>
                 <button class="button" onClick={addUp}>Up</button>
                 <button class="button" onClick={addDown}>Down</button>

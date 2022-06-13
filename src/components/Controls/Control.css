@@ -1,9 +1,13 @@
+.containers {
+    width: 550px;
+    height: 500px;
+}
+
 .borderPanel {
-    margin-top: 15%;
-    background: white;
-    width: 45vw;
-    height: 20vw;
-    
+    margin-top: 8%;
+    color: white;
+    border-radius: 5px;
+
 }
 
 .button {
@@ -14,10 +18,10 @@
 }
 
 .instuct {
-   
     text-align: left;
-    margin-left: 2%;
     border: 2px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
 }
 
 .titles {
@@ -29,10 +33,11 @@
 }
 
 .lists {
-    background-color: white;
+    background-color: #483C32;
     font-size: 12px;
     margin-right: 55%;
     top: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position:relative;
 }
 
@@ -42,31 +47,43 @@
     font-size: 11px;
     line-height: 24px;
     width: 160px;
-    background: #4AC948;
     border-radius: 40px;
     padding: 24px;
     text-align: center;
     color: #000;
-    margin-left: 60%;
+    margin-left: 58%;
     top:5%;
-}
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: wheat;
+    font-weight: bold;
+}   
 
 .bubble-bottom-left:before {
     content: "";
     width: 0px;
     height: 0px;
     position: absolute;
-    border-right: 24px solid #4AC948    ;
+    border-right: 24px solid wheat    ;
     border-left: 12px solid transparent;
-    border-top: 12px solid #4AC948;
+    border-top: 12px solid wheat;
     border-bottom: 20px solid transparent;
-    left: 55%;
-    bottom: -24px;
+    left: 60%;
+    bottom: -25px;
 }
 
 .toppart{
-    width: 50%; 
-    height: 100px; 
+    width: 55%; 
+    height: 350px; 
     float: left; 
+    background: #483C32 ;
+    border-radius: 5px;
+}
 
+.outside {
+    float: left;
+}
+
+h2 {
+    color: black;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
