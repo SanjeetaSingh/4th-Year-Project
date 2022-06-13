@@ -19,7 +19,7 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-        
+
         statement()
     }
 
@@ -72,9 +72,9 @@ const Controls = () => {
 
             const foodrow = parseInt(foodbox.getAttribute('data-row'))
             const foodcol = parseInt(foodbox.getAttribute('data-col'))
-            
+
             if (row === foodrow && col === foodcol) {
-                alert("You won")
+                document.getElementById('food').src = "assets/dog.png"
             }
         }
     }
