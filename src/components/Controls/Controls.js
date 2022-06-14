@@ -1,8 +1,6 @@
 import React from 'react'
-
 import "./Control.css"
 const Controls = () => {
-
     //String that will show when button is clicked
     let value = ""
 
@@ -11,6 +9,38 @@ const Controls = () => {
 
     // Stores all the moves to be done on submit
     let moves = []
+
+    let pressed = false
+
+    function submit() {
+
+        let items = moves.values();
+
+        pressed = true
+
+        for (let i = 0; i < moves.length; i++) {
+            for (let element of items) {
+                if (element === "left") {
+                    moveLeft()
+                }
+                if (element === "right") {
+                    moveRight()
+                }
+                if (element === "down") {
+                    moveDown()
+                }
+                if (element === "up") {
+                    moveUp()
+                }
+            }
+            console.log(i)
+        }
+
+        if (list.length > 10) {
+            console.log("can u do better")
+        }
+
+    }
 
     function moveLeft() {
         var element = document.getElementById('dog');
@@ -76,6 +106,7 @@ const Controls = () => {
             if (row === foodrow && col === foodcol) {
                 document.getElementById('food').src = "assets/dog.png"
             }
+
         }
     }
 
@@ -91,7 +122,9 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
     function addRight() {
@@ -105,7 +138,10 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
     function addDown() {
@@ -118,7 +154,10 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
     function addUp() {
@@ -132,31 +171,12 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
-    }
 
-    function submit() {
-
-        let items = moves.values();
-
-        for (let i = 0; i < moves.length; i++) {
-            for (let element of items) {
-                if (element === "left") {
-                    moveLeft()
-                }
-                if (element === "right") {
-                    moveRight()
-                }
-                if (element === "down") {
-                    moveDown()
-                }
-                if (element === "up") {
-                    moveUp()
-                }
-            }
-            console.log(i)
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
         }
     }
+
 
 
     return (
@@ -176,11 +196,11 @@ const Controls = () => {
             </div>
 
             <div class="outside">
-                <button class="button" onClick={addLeft} >Left</button>
-                <button class="button" onClick={addRight}>Right</button>
-                <button class="button" onClick={addUp}>Up</button>
-                <button class="button" onClick={addDown}>Down</button>
-                <button class="button" onClick={submit}> Submit</button>
+                <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
+                <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
+                <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
+                <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
+                <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
             </div>
 
 
