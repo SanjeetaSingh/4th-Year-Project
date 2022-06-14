@@ -1,8 +1,6 @@
 import React from 'react'
-
 import "./Control.css"
 const Controls = () => {
-
     //String that will show when button is clicked
     let value = ""
 
@@ -12,6 +10,48 @@ const Controls = () => {
     // Stores all the moves to be done on submit
     let moves = []
 
+    // Checking if the submit button is pressed
+    let pressed = false
+
+    /**
+     * Submits the sequence that the user
+     * has entered for the dog object to move.
+     * The dog object will move after submit is pressed
+     */
+    function submit() {
+
+        let items = moves.values();
+
+        pressed = true
+
+        // Iterating through all the moves in the array to know which move to do
+        for (let i = 0; i < moves.length; i++) {
+            for (let element of items) {
+                if (element === "left") {
+                    moveLeft()
+                }
+                if (element === "right") {
+                    moveRight()
+                }
+                if (element === "down") {
+                    moveDown()
+                }
+                if (element === "up") {
+                    moveUp()
+                }
+            }
+            console.log(i)
+        }
+
+        if (list.length > 10) {
+            console.log("can u do better")
+        }
+
+    }
+
+    /**
+     * Moves the dog object one tile to the left
+     */
     function moveLeft() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -23,6 +63,9 @@ const Controls = () => {
         statement()
     }
 
+    /**
+     * Move the dog object one tile to the right
+     */
     function moveRight() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -35,6 +78,10 @@ const Controls = () => {
 
     }
 
+
+    /**
+     * Moves the dog object one tile up
+     */
     function moveUp() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -46,6 +93,9 @@ const Controls = () => {
         statement()
     }
 
+    /**
+     * Moves the dog object one tile down
+     */
     function moveDown() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -58,6 +108,11 @@ const Controls = () => {
     }
 
 
+    /**
+     * Method checks if the dog object is at the 
+     * end postion and if the user has completed
+     * the level successfully
+     */
     function statement() {
 
         var dog = document.getElementById('dog');
@@ -80,6 +135,12 @@ const Controls = () => {
     }
 
 
+    /**
+     * Adds a string to an array to that
+     * represents the movement left. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addLeft() {
         let left = "left"
 
@@ -91,9 +152,18 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement right. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addRight() {
         let right = "right"
 
@@ -105,9 +175,19 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement down. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addDown() {
         let down = "down"
 
@@ -118,9 +198,19 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement up. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addUp() {
         let up = "up"
 
@@ -132,29 +222,9 @@ const Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-        document.getElementById("action").innerHTML += item + "<br/>"
-    }
 
-    function submit() {
-
-        let items = moves.values();
-
-        for (let i = 0; i < moves.length; i++) {
-            for (let element of items) {
-                if (element === "left") {
-                    moveLeft()
-                }
-                if (element === "right") {
-                    moveRight()
-                }
-                if (element === "down") {
-                    moveDown()
-                }
-                if (element === "up") {
-                    moveUp()
-                }
-            }
-            console.log(i)
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
         }
     }
 
@@ -176,11 +246,11 @@ const Controls = () => {
             </div>
 
             <div class="outside">
-                <button class="button" onClick={addLeft} >Left</button>
-                <button class="button" onClick={addRight}>Right</button>
-                <button class="button" onClick={addUp}>Up</button>
-                <button class="button" onClick={addDown}>Down</button>
-                <button class="button" onClick={submit}> Submit</button>
+                <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
+                <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
+                <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
+                <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
+                <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
             </div>
 
 
