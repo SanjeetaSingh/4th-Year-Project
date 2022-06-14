@@ -10,14 +10,21 @@ const Controls = () => {
     // Stores all the moves to be done on submit
     let moves = []
 
+    // Checking if the submit button is pressed
     let pressed = false
 
+    /**
+     * Submits the sequence that the user
+     * has entered for the dog object to move.
+     * The dog object will move after submit is pressed
+     */
     function submit() {
 
         let items = moves.values();
 
         pressed = true
 
+        // Iterating through all the moves in the array to know which move to do
         for (let i = 0; i < moves.length; i++) {
             for (let element of items) {
                 if (element === "left") {
@@ -42,6 +49,9 @@ const Controls = () => {
 
     }
 
+    /**
+     * Moves the dog object one tile to the left
+     */
     function moveLeft() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -53,6 +63,9 @@ const Controls = () => {
         statement()
     }
 
+    /**
+     * Move the dog object one tile to the right
+     */
     function moveRight() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -65,6 +78,10 @@ const Controls = () => {
 
     }
 
+
+    /**
+     * Moves the dog object one tile up
+     */
     function moveUp() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -76,6 +93,9 @@ const Controls = () => {
         statement()
     }
 
+    /**
+     * Moves the dog object one tile down
+     */
     function moveDown() {
         var element = document.getElementById('dog');
         const box = element.parentElement;
@@ -88,6 +108,11 @@ const Controls = () => {
     }
 
 
+    /**
+     * Method checks if the dog object is at the 
+     * end postion and if the user has completed
+     * the level successfully
+     */
     function statement() {
 
         var dog = document.getElementById('dog');
@@ -106,11 +131,16 @@ const Controls = () => {
             if (row === foodrow && col === foodcol) {
                 document.getElementById('food').src = "assets/dog.png"
             }
-
         }
     }
 
 
+    /**
+     * Adds a string to an array to that
+     * represents the movement left. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addLeft() {
         let left = "left"
 
@@ -127,6 +157,13 @@ const Controls = () => {
         }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement right. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addRight() {
         let right = "right"
 
@@ -144,6 +181,13 @@ const Controls = () => {
         }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement down. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addDown() {
         let down = "down"
 
@@ -160,6 +204,13 @@ const Controls = () => {
         }
     }
 
+    
+    /**
+     * Adds a string to an array to that
+     * represents the movement up. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addUp() {
         let up = "up"
 
@@ -176,7 +227,6 @@ const Controls = () => {
             document.getElementById("action").innerHTML += item + "<br/>"
         }
     }
-
 
 
     return (
