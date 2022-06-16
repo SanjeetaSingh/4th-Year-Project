@@ -13,6 +13,10 @@ const Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
+    let count = 0
+    let commands = []
+
+    let total = 0
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -40,11 +44,12 @@ const Controls = () => {
                     moveUp()
                 }
             }
-            console.log(i)
+
         }
 
+
         if (list.length > 10) {
-            console.log("can u do better")
+            alert("too many commands")
         }
 
     }
@@ -153,11 +158,21 @@ const Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 10) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+        }
+
+        count += 1
+        commands.push(count)
+
+        for (const element of commands) {
+            total = element
+            document.getElementById("count").innerHTML = total + "/10"
         }
     }
 
-    
+
     /**
      * Adds a string to an array to that
      * represents the movement right. This
@@ -177,11 +192,20 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 10) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+        }
+        count += 1
+        commands.push(count)
+
+        for (const element of commands) {
+            total = element
+            document.getElementById("count").innerHTML = total + "/10"
         }
     }
 
-    
+
     /**
      * Adds a string to an array to that
      * represents the movement down. This
@@ -200,11 +224,20 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 10) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+        }
+        count += 1
+        commands.push(count)
+
+        for (const element of commands) {
+            total = element
+            document.getElementById("count").innerHTML = total + "/10"
         }
     }
 
-    
+
     /**
      * Adds a string to an array to that
      * represents the movement up. This
@@ -224,19 +257,32 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 10) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+        }
+        count += 1
+        commands.push(count)
+       
+        for (const element of commands) {
+            total = element
+            document.getElementById("count").innerHTML = total + "/10"
         }
     }
-
 
     return (
         <div class="containers">
             <div class="borderPanel">
                 <h2>Level 1:</h2>
                 <div class="toppart">
+                    <div class="containing">
+                        <p id="count" class="number">0/10</p>
+                    </div>
                     <p class="titles">Sequence:</p>
                     <p id="action" class="lists"></p>
+
                 </div>
+
 
                 <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
@@ -247,9 +293,9 @@ const Controls = () => {
 
             <div class="outside">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
-                <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
+                <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
             </div>
 
