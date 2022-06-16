@@ -1,6 +1,11 @@
 import React from 'react'
 import "./Control.css"
 const Controls = () => {
+
+    /**
+     * Variables
+     */
+    
     //String that will show when button is clicked
     let value = ""
 
@@ -13,10 +18,15 @@ const Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
+    // Counting how many times a button has been selected
     let count = 0
+    // Adding the count to an array
     let commands = []
 
+    // To sum up the values of the commands array
     let total = 0
+
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -29,22 +39,19 @@ const Controls = () => {
         pressed = true
 
         // Iterating through all the moves in the array to know which move to do
-        for (let i = 0; i < moves.length; i++) {
-            for (let element of items) {
-                if (element === "left") {
-                    moveLeft()
-                }
-                if (element === "right") {
-                    moveRight()
-                }
-                if (element === "down") {
-                    moveDown()
-                }
-                if (element === "up") {
-                    moveUp()
-                }
+        for (let element of items) {
+            if (element === "left") {
+                moveLeft()
             }
-
+            if (element === "right") {
+                moveRight()
+            }
+            if (element === "down") {
+                moveDown()
+            }
+            if (element === "up") {
+                moveUp()
+            }
         }
     }
 
