@@ -46,12 +46,6 @@ const Controls = () => {
             }
 
         }
-
-
-        if (list.length > 10) {
-            alert("too many commands")
-        }
-
     }
 
     /**
@@ -161,14 +155,13 @@ const Controls = () => {
             if (list.length <= 10) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
-        }
+            count += 1
+            commands.push(count)
 
-        count += 1
-        commands.push(count)
-
-        for (const element of commands) {
-            total = element
-            document.getElementById("count").innerHTML = total + "/10"
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/10"
+            }
         }
     }
 
@@ -195,13 +188,14 @@ const Controls = () => {
             if (list.length <= 10) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
-        }
-        count += 1
-        commands.push(count)
 
-        for (const element of commands) {
-            total = element
-            document.getElementById("count").innerHTML = total + "/10"
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/10"
+            }
         }
     }
 
@@ -227,13 +221,14 @@ const Controls = () => {
             if (list.length <= 10) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
-        }
-        count += 1
-        commands.push(count)
 
-        for (const element of commands) {
-            total = element
-            document.getElementById("count").innerHTML = total + "/10"
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/10"
+            }
         }
     }
 
@@ -260,13 +255,13 @@ const Controls = () => {
             if (list.length <= 10) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
-        }
-        count += 1
-        commands.push(count)
-       
-        for (const element of commands) {
-            total = element
-            document.getElementById("count").innerHTML = total + "/10"
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/10"
+            }
         }
     }
 
@@ -285,7 +280,7 @@ const Controls = () => {
 
 
                 <div class="bubble bubble-bottom-left" >
-                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your 
+                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
                     sequence, so try to find the shortest path to get to the food.Once you are done with creating your sequence then go ahead and click the submit button!
                 </div>
 
