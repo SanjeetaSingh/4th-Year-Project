@@ -285,8 +285,8 @@ const Controls = () => {
 
 
                 <div class="bubble bubble-bottom-left" >
-                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. Once you are done with creating your
-                    sequence then go ahead and click the submit button!
+                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your 
+                    sequence, so try to find the shortest path to get to the food.Once you are done with creating your sequence then go ahead and click the submit button!
                 </div>
 
             </div>
