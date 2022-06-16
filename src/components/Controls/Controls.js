@@ -1,11 +1,12 @@
 import React from 'react'
+import Popup from 'react-popup';
 import "./Control.css"
 const Controls = () => {
 
     /**
      * Variables
      */
-    
+
     //String that will show when button is clicked
     let value = ""
 
@@ -136,6 +137,48 @@ const Controls = () => {
 
             if (row === foodrow && col === foodcol) {
                 document.getElementById('food').src = "assets/dog.png"
+                if (count <= 10) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Success',
+                            content: 'You completed the level, Good Work! ',
+                            buttons: {
+                                right: [{
+                                    text: 'Okay',
+                                    className: 'success',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        //instead of reloading the page i will have to move to next level
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+                    </div>
+
+                }
+            } else {
+                <div>
+                    {Popup.clearQueue()}
+                    {Popup.create({
+                        title: 'Failed',
+                        content: 'You failed to complete the level, Try Again!',
+                        buttons: {
+                            right: [{
+                                text: 'Try Again',
+                                className: 'danger',
+                                action: function () {
+                                    window.location.reload(true)
+                                    Popup.clearQueue();
+                                    Popup.close()
+                                }
+                            }]
+                        }
+                    }, true)}
+
+                </div>
             }
         }
     }
