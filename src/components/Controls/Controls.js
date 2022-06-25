@@ -315,6 +315,11 @@ const Controls = () => {
         }
     }
 
+    /**
+     * Added a clear button to remove the 
+     * sequence from the panel. And reset the 
+     * game.
+     */
     function clearAll () {
         list = []
         moves = []
