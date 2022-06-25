@@ -1,17 +1,17 @@
 .containers {
-    width: 550px;
+    width: 700px;
     height: 500px;
 }
 
 .borderPanel {
-    margin-top: 8%;
+    margin-top: 5%;
     color: white;
     border-radius: 5px;
 
 }
 
 .button {
-    margin-top: 10%;
+    margin-top: 7%;
     display: inline-block;
     vertical-align: top;
 
@@ -30,6 +30,7 @@
     margin-right: 50%;
     top: 5%;
     position: relative;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .lists {

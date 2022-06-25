@@ -148,7 +148,7 @@ const Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
+                                        // window.location.reload(true)
                                         //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
@@ -315,6 +315,20 @@ const Controls = () => {
         }
     }
 
+    /**
+     * Added a clear button to remove the 
+     * sequence from the panel. And reset the 
+     * game.
+     */
+    function clearAll () {
+        list = []
+        moves = []
+        commands = []
+        count = 0
+        document.getElementById("action").innerHTML = ""
+        document.getElementById("count").innerHTML = "/10"
+    }
+
     return (
         <div class="containers">
             <div class="borderPanel">
@@ -331,9 +345,8 @@ const Controls = () => {
 
                 <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
-                    sequence, so try to find the shortest path to get to the food.Once you are done with creating your sequence then go ahead and click the submit button!
+                    sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button!
                 </div>
-
             </div>
 
             <div class="outside">
@@ -342,6 +355,7 @@ const Controls = () => {
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
 
 
