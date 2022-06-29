@@ -22,9 +22,9 @@ const Level2Board = () => {
 
     state.board[0] = <img class="food" src="assets/food.png" alt="f" id="food"></img>
 
-    state.board[7] = <img class="hole" src="assets/hole.png" alt="h" id="hole"></img>
+    state.board[7] = <img class="hole" src="assets/hole.png" alt="h" id="holeOne"></img>
 
-    state.board[38] = <img class="hole" src="assets/hole.png" alt="h" id="hole"></img>
+    state.board[38] = <img class="hole" src="assets/hole.png" alt="h" id="holeTwo"></img>
 
     state.board[13] = <img class="food" src="assets/food.png" alt="f" id="food"></img>
 
