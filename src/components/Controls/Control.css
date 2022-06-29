@@ -3,15 +3,20 @@
     height: 500px;
 }
 
+.level2Contain {
+    width: 580px;
+    height: 500px;
+}
+
 .borderPanel {
-    margin-top: 5%;
+    margin-top: 4%;
     color: white;
     border-radius: 5px;
 
 }
 
 .button {
-    margin-top: 7%;
+    margin-top: 4%;
     display: inline-block;
     vertical-align: top;
 
@@ -59,6 +64,23 @@
     font-weight: bold;
 }
 
+.speech {
+    position: relative;
+    font-family: sans-serif;
+    font-size: 11px;
+    line-height: 24px;
+    width: 300px;
+    border-radius: 40px;
+    padding: 24px;
+    text-align: center;
+    color: #000;
+    margin-left: 58%;
+    top: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: wheat;
+    font-weight: bold;
+}
+
 .bubble-bottom-left:before {
     content: "";
     width: 0px;
@@ -71,6 +93,7 @@
     left: 60%;
     bottom: -25px;
 }
+
 
 .toppart {
     width: 55%;

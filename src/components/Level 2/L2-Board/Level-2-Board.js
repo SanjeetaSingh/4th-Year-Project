@@ -7,7 +7,7 @@ const state = {
     player: null
 }
 
-const Board2 = () => {                                                                                                                                                                                                                                                                                                   
+const Level2Board = () => {                                                                                                                                                                                                                                                                                                   
 
     const renderBoxes = () => {
         return state.board.map(
@@ -49,4 +49,4 @@ const Board2 = () => {
     )
 }
 
-export default Board2;
+export default Level2Board;
