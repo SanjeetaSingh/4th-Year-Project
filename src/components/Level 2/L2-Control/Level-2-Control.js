@@ -213,8 +213,7 @@ const Level2Controls = () => {
                 document.getElementById('holeOne').src = "assets/dog.png"
 
                 const change = document.getElementById('dog');
-                change.setAttribute('src', '');
-                change.style.display = 'none';
+                change.style.visibility = 'hidden'
 
                 if (count <= 17) {
                     <div>
@@ -242,8 +241,7 @@ const Level2Controls = () => {
             if (row === hole2Row && col === hole2Col) {
                 document.getElementById('holeTwo').src = "assets/dog.png"
 
-                const change = document.getElementById('dog');
-                // change.setAttribute('src', '');
+                const change = document.getElementById('dog')
                 change.style.visibility = 'hidden'
 
                 if (count <= 17) {
