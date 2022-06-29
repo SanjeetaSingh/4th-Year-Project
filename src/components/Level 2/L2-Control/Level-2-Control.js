@@ -1,7 +1,8 @@
 import React from 'react'
 import Popup from 'react-popup';
-import "./Level-2-Control.css"
-const Controls = () => {
+import '../../Controls/Control.css'
+
+const Level2Controls = () => {
 
     /**
      * Variables
@@ -137,7 +138,7 @@ const Controls = () => {
 
             if (row === foodrow && col === foodcol) {
                 document.getElementById('food').src = "assets/dog.png"
-                if (count <= 10) {
+                if (count <= 17) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -148,7 +149,7 @@ const Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
+                                        // window.location.reload(true)
                                         //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
@@ -202,7 +203,7 @@ const Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 10) {
+            if (list.length <= 17) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
@@ -210,7 +211,7 @@ const Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/10"
+                document.getElementById("count").innerHTML = total + "/17"
             }
         }
     }
@@ -235,7 +236,7 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 10) {
+            if (list.length <= 17) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
@@ -244,7 +245,7 @@ const Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/10"
+                document.getElementById("count").innerHTML = total + "/17"
             }
         }
     }
@@ -268,7 +269,7 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 10) {
+            if (list.length <= 17) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
@@ -277,7 +278,7 @@ const Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/10"
+                document.getElementById("count").innerHTML = total + "/17"
             }
         }
     }
@@ -302,7 +303,7 @@ const Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 10) {
+            if (list.length <= 17) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
@@ -310,7 +311,7 @@ const Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/10"
+                document.getElementById("count").innerHTML = total + "/17"
             }
         }
     }
@@ -326,16 +327,16 @@ const Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/10"
+        document.getElementById("count").innerHTML = "/17"
     }
 
     return (
-        <div class="containers">
+        <div class="level2Contain">
             <div class="borderPanel">
                 <h2>Level 2:</h2>
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/10</p>
+                        <p id="count" class="number">0/17</p>
                     </div>
                     <p class="titles">Sequence:</p>
                     <p id="action" class="lists"></p>
@@ -343,9 +344,12 @@ const Controls = () => {
                 </div>
 
 
-                <div class="bubble bubble-bottom-left" >
-                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
-                    sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button!
+                <div class="speech bubble-bottom-left" >
+                    Hi there! Your aim for this level is to help the owner get their dog past the obstacles present, such as the holes and the cat,
+                    and get the dog to both of the food bowls. If the dog lands on one of the holes then the game will restart, however if the the 
+                    dog is less than 1 tile away from the cat obstacle the dog must bark to scare off the cat however if the dog doesn't bark the cat will scare the dog 
+                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 17 or less commands as your sequence. 
+                    Once you are done with creating your sequence then go ahead and click the submit button! <br/> Good luck!
                 </div>
             </div>
 
@@ -354,6 +358,8 @@ const Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
+                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>If statement</button>
+                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
@@ -363,4 +369,4 @@ const Controls = () => {
     );
 }
 
-export default Controls;
+export default Level2Controls;

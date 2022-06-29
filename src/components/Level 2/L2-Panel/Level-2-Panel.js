@@ -2,7 +2,7 @@ import React from 'react'
 import "./Level-2-Panel.css"
 import Controls from "../L2-Control/Level-2-Control"
 
-const BottomPanel = () => {
+const Panel = () => {
     return (
         <div class="border">
             <Controls/>
@@ -10,4 +10,4 @@ const BottomPanel = () => {
     );
 }
 
-export default BottomPanel;
+export default Panel;
