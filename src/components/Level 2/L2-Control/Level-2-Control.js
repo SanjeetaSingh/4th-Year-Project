@@ -1,6 +1,6 @@
 import React from 'react'
 import Popup from 'react-popup';
-import "./Control.css"
+import "./Level-2-Control.css"
 const Controls = () => {
 
     /**
@@ -148,10 +148,10 @@ const Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level2")
+                                        window.location.reload(true)
+                                        //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
-                                        Popup.close();
-
+                                        Popup.close()
                                     }
                                 }]
                             }
@@ -332,7 +332,7 @@ const Controls = () => {
     return (
         <div class="containers">
             <div class="borderPanel">
-                <h2>Level 1:</h2>
+                <h2>Level 2:</h2>
                 <div class="toppart">
                     <div class="containing">
                         <p id="count" class="number">0/10</p>
