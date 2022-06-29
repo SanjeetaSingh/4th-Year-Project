@@ -148,10 +148,10 @@ const Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        // window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
+                                        window.location.replace("/level2")
                                         Popup.clearQueue();
-                                        Popup.close()
+                                        Popup.close();
+
                                     }
                                 }]
                             }
@@ -320,7 +320,7 @@ const Controls = () => {
      * sequence from the panel. And reset the 
      * game.
      */
-    function clearAll () {
+    function clearAll() {
         list = []
         moves = []
         commands = []
