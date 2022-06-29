@@ -69,6 +69,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         statement()
+        fallen()
     }
 
     /**
@@ -83,6 +84,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         statement()
+        fallen()
 
     }
 
@@ -99,6 +101,8 @@ const Level2Controls = () => {
         newBox.append(element);
 
         statement()
+        fallen()
+
     }
 
     /**
@@ -113,6 +117,8 @@ const Level2Controls = () => {
         newBox.append(element);
 
         statement()
+        fallen()
+
     }
 
 
@@ -158,7 +164,6 @@ const Level2Controls = () => {
                             }
                         }, true)}
                     </div>
-
                 }
             } else {
                 <div>
@@ -183,6 +188,89 @@ const Level2Controls = () => {
             }
         }
     }
+
+    function fallen() {
+
+        var dog = document.getElementById('dog');
+        var hole1 = document.getElementById('holeOne');
+        var hole2 = document.getElementById('holeTwo')
+
+        if (dog != null || hole1 != null || hole2 != null) {
+            const box = dog.parentElement;
+            let holeBox = hole1.parentElement;
+            let hole2Box = hole2.parentElement;
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const hole1Row = parseInt(holeBox.getAttribute('data-row'))
+            const hole1Col = parseInt(holeBox.getAttribute('data-col'))
+
+            const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
+            const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
+
+            if (row === hole1Row && col === hole1Col) {
+                document.getElementById('holeOne').src = "assets/dog.png"
+
+                const change = document.getElementById('dog');
+                change.style.visibility = 'hidden'
+
+                if (count <= 17) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Failed',
+                            content: 'The dog fell in one of the holes! Try again!',
+                            buttons: {
+                                right: [{
+                                    text: 'Try Again',
+                                    className: 'danger',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+
+                    </div>
+                }
+            }
+
+            if (row === hole2Row && col === hole2Col) {
+                document.getElementById('holeTwo').src = "assets/dog.png"
+
+                const change = document.getElementById('dog')
+                change.style.visibility = 'hidden'
+
+                if (count <= 17) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Failed',
+                            content: 'The dog fell in one of the holes! Try again!',
+                            buttons: {
+                                right: [{
+                                    text: 'Try Again',
+                                    className: 'danger',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+
+                    </div>
+
+                }
+            }
+        }
+    }
+
+
 
 
     /**
@@ -346,10 +434,10 @@ const Level2Controls = () => {
 
                 <div class="speech bubble-bottom-left" >
                     Hi there! Your aim for this level is to help the owner get their dog past the obstacles present, such as the holes and the cat,
-                    and get the dog to both of the food bowls. If the dog lands on one of the holes then the game will restart, however if the the 
-                    dog is less than 1 tile away from the cat obstacle the dog must bark to scare off the cat however if the dog doesn't bark the cat will scare the dog 
-                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 17 or less commands as your sequence. 
-                    Once you are done with creating your sequence then go ahead and click the submit button! <br/> Good luck!
+                    and get the dog to both of the food bowls. If the dog lands on one of the holes then the game will restart, however if the the
+                    dog is less than 1 tile away from the cat obstacle the dog must bark to scare off the cat however if the dog doesn't bark the cat will scare the dog
+                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 17 or less commands as your sequence.
+                    Once you are done with creating your sequence then go ahead and click the submit button! <br /> Good luck!
                 </div>
             </div>
 
