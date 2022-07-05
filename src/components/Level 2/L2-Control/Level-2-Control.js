@@ -29,12 +29,16 @@ const Level2Controls = () => {
     let total = 0
 
 
+    function delay(time) {
+        return new Promise(res => setTimeout(res, time));
+    }
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
      * The dog object will move after submit is pressed
      */
-    function submit() {
+    const submit = async () => {
 
         let items = moves.values();
 
@@ -44,17 +48,22 @@ const Level2Controls = () => {
         for (let element of items) {
             if (element === "left") {
                 moveLeft()
+                await delay(800) 
             }
             if (element === "right") {
                 moveRight()
+                await delay(800); 
             }
             if (element === "down") {
                 moveDown()
+                await delay(800);
             }
             if (element === "up") {
                 moveUp()
+                await delay(800);
             }
         }
+        statement()
     }
 
     /**
@@ -68,7 +77,6 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        statement()
         fallen()
     }
 
@@ -83,9 +91,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        statement()
         fallen()
-
     }
 
 
@@ -100,9 +106,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        statement()
         fallen()
-
     }
 
     /**
@@ -116,9 +120,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        statement()
         fallen()
-
     }
 
 
