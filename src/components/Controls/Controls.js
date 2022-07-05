@@ -28,12 +28,16 @@ const Controls = () => {
     let total = 0
 
 
+    function delay(time) {
+        return new Promise(res => setTimeout(res, time));
+    }
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
      * The dog object will move after submit is pressed
      */
-    function submit() {
+    const submit = async () => {
 
         let items = moves.values();
 
@@ -43,18 +47,24 @@ const Controls = () => {
         for (let element of items) {
             if (element === "left") {
                 moveLeft()
+                await delay(800) 
             }
             if (element === "right") {
                 moveRight()
+                await delay(800); 
             }
             if (element === "down") {
                 moveDown()
+                await delay(800);
             }
             if (element === "up") {
                 moveUp()
+                await delay(800);
             }
         }
+        statement()
     }
+
 
     /**
      * Moves the dog object one tile to the left
@@ -66,8 +76,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        statement()
     }
 
     /**
@@ -80,9 +88,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        statement()
-
     }
 
 
@@ -96,8 +101,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        statement()
     }
 
     /**
@@ -110,8 +113,6 @@ const Controls = () => {
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        statement()
     }
 
 
@@ -345,7 +346,7 @@ const Controls = () => {
 
                 <div class="bubble bubble-bottom-left" >
                     Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
-                    sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button! <br/>
+                    sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button! <br />
                     Good Luck!
                 </div>
             </div>
