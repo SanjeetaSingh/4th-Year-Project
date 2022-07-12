@@ -472,6 +472,57 @@ const Level2Controls = () => {
         }
     }
 
+    function addIf() {
+        let ifS = "if"
+
+        moves.push(ifS)
+
+        value = "if cat <= 2 :"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 17) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/17"
+            }
+        }
+    }
+
+    function bark() {
+        let barks = "barks"
+
+        moves.push(barks)
+
+        value = "dog.bark"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 17) {
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+            }
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/17"
+            }
+        }
+    }
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 
@@ -514,8 +565,8 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>If statement</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Bark</button>
+                <button type='submit' class="button" onClick={addIf} disabled={pressed === true}>If statement</button>
+                <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
