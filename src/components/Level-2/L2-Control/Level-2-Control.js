@@ -48,11 +48,11 @@ const Level2Controls = () => {
         for (let element of items) {
             if (element === "left") {
                 moveLeft()
-                await delay(800) 
+                await delay(800)
             }
             if (element === "right") {
                 moveRight()
-                await delay(800); 
+                await delay(800);
             }
             if (element === "down") {
                 moveDown()
@@ -64,6 +64,8 @@ const Level2Controls = () => {
             }
         }
         statement()
+        changed()
+        fallen()
     }
 
     /**
@@ -77,6 +79,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        changed()
         fallen()
     }
 
@@ -91,6 +94,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        changed()
         fallen()
     }
 
@@ -106,6 +110,7 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        changed()
         fallen()
     }
 
@@ -120,9 +125,40 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        changed()
         fallen()
     }
 
+    function changed() {
+        var dog = document.getElementById('dog');
+        var foodBowl1 = document.getElementById('foodOne')
+        var foodBowl2 = document.getElementById('foodTwo')
+
+        if (dog != null || foodBowl1 != null || foodBowl2 != null) {
+            const box = dog.parentElement;
+            let foodbox = foodBowl1.parentElement;
+            let foodBox2 = foodBowl2.parentElement
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const bowlRow1 = parseInt(foodbox.getAttribute('data-row'))
+            const bowlCol1 = parseInt(foodbox.getAttribute('data-col'))
+
+            const bowlRow2 = parseInt(foodBox2.getAttribute('data-row'))
+            const bowlCol2 = parseInt(foodBox2.getAttribute('data-col'))
+
+            if (row === bowlRow1 && col === bowlCol1) {
+                const change = document.getElementById('foodOne');
+                change.style.visibility = 'hidden'
+
+            }
+            if (row === bowlRow2 && col === bowlCol2) {
+                const change = document.getElementById('foodTwo');
+                change.style.visibility = 'hidden'
+            }
+        }
+    }
 
     /**
      * Method checks if the dog object is at the 
@@ -132,11 +168,14 @@ const Level2Controls = () => {
     function statement() {
 
         var dog = document.getElementById('dog');
-        var food = document.getElementById('food');
+        var food = document.getElementById('foodOne');
+        var food2 = document.getElementById('foodTwo');
 
-        if (dog != null || food != null) {
+
+        if (dog != null || food != null || food2 != null) {
             const box = dog.parentElement;
             let foodbox = food.parentElement;
+            let foodBox2 = food2.parentElement
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -144,8 +183,11 @@ const Level2Controls = () => {
             const foodrow = parseInt(foodbox.getAttribute('data-row'))
             const foodcol = parseInt(foodbox.getAttribute('data-col'))
 
+            const foodrow2 = parseInt(foodBox2.getAttribute('data-row'))
+            const foodcol2 = parseInt(foodBox2.getAttribute('data-col'))
+
             if (row === foodrow && col === foodcol) {
-                document.getElementById('food').src = "assets/dog.png"
+                document.getElementById('foodOne').src = "assets/dog.png"
                 if (count <= 17) {
                     <div>
                         {Popup.clearQueue()}
@@ -167,7 +209,33 @@ const Level2Controls = () => {
                         }, true)}
                     </div>
                 }
-            } else {
+            }
+            else if (row === foodrow2 && col === foodcol2) {
+                document.getElementById('foodTwo').src = "assets/dog.png"
+                if (count <= 17) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Success',
+                            content: 'You completed the level, Good Work! ',
+                            buttons: {
+                                right: [{
+                                    text: 'Okay',
+                                    className: 'success',
+                                    action: function () {
+                                        // window.location.reload(true)
+                                        //instead of reloading the page i will have to move to next level
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+                    </div>
+                }
+            }
+
+            else {
                 <div>
                     {Popup.clearQueue()}
                     {Popup.create({
@@ -238,9 +306,7 @@ const Level2Controls = () => {
 
                     </div>
                 }
-            }
-
-            if (row === hole2Row && col === hole2Col) {
+            } else if (row === hole2Row && col === hole2Col) {
                 document.getElementById('holeTwo').src = "assets/dog.png"
 
                 const change = document.getElementById('dog')
