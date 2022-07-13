@@ -477,7 +477,7 @@ const Level2Controls = () => {
 
         moves.push(ifS)
 
-        value = "if cat <= 2 :"
+        value = "if cat == dog {"
         list.push(value)
 
         //Getting the last element of the list
@@ -513,6 +513,7 @@ const Level2Controls = () => {
         if (pressed !== true) {
             if (list.length <= 17) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+                document.getElementById("action").innerHTML += "}" + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -523,6 +524,7 @@ const Level2Controls = () => {
             }
         }
     }
+
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 

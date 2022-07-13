@@ -45,7 +45,8 @@
     top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
-    text-align: center; 
+    text-align: left; 
+    left: 10px;
 
 }
 
@@ -65,6 +66,10 @@
     top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
+}
+
+backward{
+    margin-left: 0px;
 }
 
 .bubble {
