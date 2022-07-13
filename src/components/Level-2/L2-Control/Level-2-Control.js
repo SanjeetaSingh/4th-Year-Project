@@ -62,8 +62,15 @@ const Level2Controls = () => {
                 moveUp()
                 await delay(800);
             }
+            if (element === "if") {
+
+                ifAction()
+                await delay(1000)
+
+            }
         }
         statement()
+
         changed()
         fallen()
     }
@@ -80,6 +87,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
         fallen()
     }
 
@@ -94,7 +102,8 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        changed()
+        changed()        
+        ifAction()
         fallen()
     }
 
@@ -111,6 +120,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
         fallen()
     }
 
@@ -126,6 +136,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
         fallen()
     }
 
@@ -472,6 +483,33 @@ const Level2Controls = () => {
         }
     }
 
+    function ifAction () {
+        var dog = document.getElementById('dog');
+        var cat = document.getElementById('cat')
+
+        if (dog != null || cat != null) {
+            const box = dog.parentElement;
+            let catBox = cat.parentElement;
+
+
+            const row = parseInt(box.getAttribute('data-row')) 
+            const col = parseInt(box.getAttribute('data-col')) + 1
+
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+            const catCol = parseInt(catBox.getAttribute('data-col'))
+
+
+            if (row === catRow && col === catCol) {
+
+                console.log("bark")
+                const change = document.getElementById('cat')
+                change.style.visibility = 'hidden'
+            }
+        }
+
+
+    }
+
     function addIf() {
         let ifS = "if"
 
@@ -495,8 +533,14 @@ const Level2Controls = () => {
                 total = element
                 document.getElementById("count").innerHTML = total + "/17"
             }
+
+            // ifAction()
         }
+
     }
+
+
+
 
     function bark() {
         let barks = "barks"
