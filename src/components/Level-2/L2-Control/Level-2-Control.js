@@ -28,7 +28,6 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
-
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
@@ -63,14 +62,11 @@ const Level2Controls = () => {
                 await delay(800);
             }
             if (element === "if") {
-
                 ifAction()
-                await delay(1000)
-
+                await delay(2000);
             }
         }
         statement()
-
         changed()
         fallen()
     }
@@ -160,13 +156,14 @@ const Level2Controls = () => {
             const bowlCol2 = parseInt(foodBox2.getAttribute('data-col'))
 
             if (row === bowlRow1 && col === bowlCol1) {
-                const change = document.getElementById('foodOne');
-                change.style.visibility = 'hidden'
+                document.getElementById('foodOne').src = "assets/dog.png"
+                // change.style.visibility = 'hidden'
 
             }
             if (row === bowlRow2 && col === bowlCol2) {
-                const change = document.getElementById('foodTwo');
-                change.style.visibility = 'hidden'
+                 document.getElementById('foodTwo').src = "assets/dog.png"
+
+                // change.style.visibility = 'hidden'
             }
         }
     }
@@ -198,7 +195,9 @@ const Level2Controls = () => {
             const foodcol2 = parseInt(foodBox2.getAttribute('data-col'))
 
             if (row === foodrow && col === foodcol) {
-                document.getElementById('foodOne').src = "assets/dog.png"
+                document.getElementById('foodOne').src = "assets/dog.png"       
+                let change = document.getElementById('foodOne') 
+                change.style.visibility = 'visible'
                 if (count <= 17) {
                     <div>
                         {Popup.clearQueue()}
@@ -210,7 +209,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        // window.location.reload(true)
+                                        window.location.reload(true)
                                         //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
@@ -223,6 +222,8 @@ const Level2Controls = () => {
             }
             else if (row === foodrow2 && col === foodcol2) {
                 document.getElementById('foodTwo').src = "assets/dog.png"
+                let change = document.getElementById('foodTwo') 
+                change.style.visibility = 'visible'
                 if (count <= 17) {
                     <div>
                         {Popup.clearQueue()}
@@ -385,10 +386,7 @@ const Level2Controls = () => {
 
 
     /**
-     * Adds a string to an array to that
-     * represents the movement right. This
-     * will be compared in the submit method
-     * that will move the dog object at the end
+     * Adds a string to an array to thatchange.style.visibility = 'visible'
      */
     function addRight() {
         let right = "right"
@@ -483,7 +481,7 @@ const Level2Controls = () => {
         }
     }
 
-    function ifAction () {
+    const ifAction = async () =>{
         var dog = document.getElementById('dog');
         var cat = document.getElementById('cat')
 
@@ -493,21 +491,21 @@ const Level2Controls = () => {
 
 
             const row = parseInt(box.getAttribute('data-row')) 
-            const col = parseInt(box.getAttribute('data-col')) + 1
+            const col = parseInt(box.getAttribute('data-col'))
 
             const catRow = parseInt(catBox.getAttribute('data-row'))
-            const catCol = parseInt(catBox.getAttribute('data-col'))
 
-
-            if (row === catRow && col === catCol) {
-
-                console.log("bark")
-                const change = document.getElementById('cat')
-                change.style.visibility = 'hidden'
-            }
+                if (row === catRow && col === 2) {
+                    await delay(100);
+                    const change = document.getElementById('cat')
+                    change.style.visibility = 'hidden'
+                    await delay(800)
+                    change.style.visibility = 'visible'
+                    document.getElementById('cat').src = "assets/dog.png"
+                    await delay(700)
+                    change.style.visibility = 'hidden'
+                }
         }
-
-
     }
 
     function addIf() {
@@ -534,7 +532,7 @@ const Level2Controls = () => {
                 document.getElementById("count").innerHTML = total + "/17"
             }
 
-            // ifAction()
+            ifAction()
         }
 
     }
@@ -546,7 +544,7 @@ const Level2Controls = () => {
         let barks = "barks"
 
         moves.push(barks)
-
+        .src = "assets/dog.png"
         value = "dog.bark"
         list.push(value)
 
