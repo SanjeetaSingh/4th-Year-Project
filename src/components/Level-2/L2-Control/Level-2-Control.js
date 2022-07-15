@@ -63,7 +63,10 @@ const Level2Controls = () => {
             }
             if (element === "if") {
                 ifAction()
-                await delay(2000);
+            }
+            if (element === "barks") {
+                sound()
+                await delay(800);
             }
         }
         statement()
@@ -84,6 +87,7 @@ const Level2Controls = () => {
 
         changed()
         ifAction()
+        sound()
         fallen()
     }
 
@@ -100,6 +104,7 @@ const Level2Controls = () => {
 
         changed()        
         ifAction()
+        sound()
         fallen()
     }
 
@@ -133,6 +138,7 @@ const Level2Controls = () => {
 
         changed()
         ifAction()
+        sound()
         fallen()
     }
 
@@ -544,7 +550,7 @@ const Level2Controls = () => {
         let barks = "barks"
 
         moves.push(barks)
-        .src = "assets/dog.png"
+        
         value = "dog.bark"
         list.push(value)
 
@@ -565,6 +571,27 @@ const Level2Controls = () => {
                 document.getElementById("count").innerHTML = total + "/17"
             }
         }
+    }
+
+    function sound () {
+        var dog = document.getElementById('dog');
+        var cat = document.getElementById('cat')
+
+        if (dog != null || cat != null) {
+            const box = dog.parentElement;
+            let catBox = cat.parentElement;
+
+
+            const row = parseInt(box.getAttribute('data-row')) 
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+
+                if (row === catRow && col === 2) {
+                    console.log("dog barks")
+                }
+            
+            }
     }
 
     /**
