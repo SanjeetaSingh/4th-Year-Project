@@ -3,7 +3,7 @@ import Popup from 'react-popup';
 import '../../Controls/Control.css'
 
 
-import { Howl, Howler } from 'howler';
+import { Howl } from 'howler';
 
 const Level2Controls = () => {
 
