@@ -2,7 +2,16 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Controls/Control.css'
 
+
+import { Howl, Howler } from 'howler';
+
 const Level2Controls = () => {
+
+
+
+    const music = new Howl({
+        src: ['assets/bark.mp3']
+    });
 
     /**
      * letiables
@@ -66,7 +75,6 @@ const Level2Controls = () => {
             }
             if (element === "barks") {
                 sound()
-                // await delay(800);
             }
         }
         statement()
@@ -570,12 +578,10 @@ const Level2Controls = () => {
                 total = element
                 document.getElementById("count").innerHTML = total + "/14"
             }
-
-            sound()
         }
     }
 
-    function sound() {
+    const sound = async () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
 
@@ -590,10 +596,10 @@ const Level2Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
 
             if (row === catRow && col === 2) {
-                console.log("dog barks");
-                < audio controls
-                    src="./bell.mp3" >
-                </audio>
+                console.log("bark")
+                music.play()
+                await delay(800)
+
             }
 
         }
@@ -625,7 +631,6 @@ const Level2Controls = () => {
                     <p id="action" class="lists"></p>
 
                 </div>
-
 
                 <div class="speech bubble-bottom-left" >
                     Hi there! Your aim for this level is to help the owner get their dog past the obstacles present, such as the holes and the cat,
