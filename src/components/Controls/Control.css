@@ -41,10 +41,35 @@
 .lists {
     background-color: #483C32;
     font-size: 12px;
-    margin-right: 55%;
+    margin-right: 64%;
     top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
+    text-align: left; 
+    left: 10px;
+
+}
+
+.state {
+    background-color: #483C32;
+    font-size: 12px;
+    top: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+    text-align: center; 
+}
+
+.bracket {
+    background-color: #483C32;
+    font-size: 2px;
+    margin-right: 0%;
+    top: 5%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
+}
+
+backward{
+    margin-left: 0px;
 }
 
 .bubble {

@@ -2,10 +2,19 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Controls/Control.css'
 
+
+import { Howl } from 'howler';
+
 const Level2Controls = () => {
 
+
+
+    const music = new Howl({
+        src: ['assets/bark.mp3']
+    });
+
     /**
-     * Variables
+     * letiables
      */
 
     //String that will show when button is clicked
@@ -27,7 +36,6 @@ const Level2Controls = () => {
 
     // To sum up the values of the commands array
     let total = 0
-
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
@@ -62,6 +70,12 @@ const Level2Controls = () => {
                 moveUp()
                 await delay(800);
             }
+            if (element === "if") {
+                ifAction()
+            }
+            if (element === "barks") {
+                sound()
+            }
         }
         statement()
         changed()
@@ -72,7 +86,7 @@ const Level2Controls = () => {
      * Moves the dog object one tile to the left
      */
     function moveLeft() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
@@ -80,6 +94,8 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
+        sound()
         fallen()
     }
 
@@ -87,7 +103,7 @@ const Level2Controls = () => {
      * Move the dog object one tile to the right
      */
     function moveRight() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
@@ -95,6 +111,8 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
+        sound()
         fallen()
     }
 
@@ -103,7 +121,7 @@ const Level2Controls = () => {
      * Moves the dog object one tile up
      */
     function moveUp() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -111,6 +129,7 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
         fallen()
     }
 
@@ -118,7 +137,7 @@ const Level2Controls = () => {
      * Moves the dog object one tile down
      */
     function moveDown() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -126,13 +145,15 @@ const Level2Controls = () => {
         newBox.append(element);
 
         changed()
+        ifAction()
+        sound()
         fallen()
     }
 
     function changed() {
-        var dog = document.getElementById('dog');
-        var foodBowl1 = document.getElementById('foodOne')
-        var foodBowl2 = document.getElementById('foodTwo')
+        let dog = document.getElementById('dog');
+        let foodBowl1 = document.getElementById('foodOne')
+        let foodBowl2 = document.getElementById('foodTwo')
 
         if (dog != null || foodBowl1 != null || foodBowl2 != null) {
             const box = dog.parentElement;
@@ -149,13 +170,14 @@ const Level2Controls = () => {
             const bowlCol2 = parseInt(foodBox2.getAttribute('data-col'))
 
             if (row === bowlRow1 && col === bowlCol1) {
-                const change = document.getElementById('foodOne');
-                change.style.visibility = 'hidden'
+                document.getElementById('foodOne').src = "assets/dog.png"
+                // change.style.visibility = 'hidden'
 
             }
             if (row === bowlRow2 && col === bowlCol2) {
-                const change = document.getElementById('foodTwo');
-                change.style.visibility = 'hidden'
+                document.getElementById('foodTwo').src = "assets/dog.png"
+
+                // change.style.visibility = 'hidden'
             }
         }
     }
@@ -167,9 +189,9 @@ const Level2Controls = () => {
      */
     function statement() {
 
-        var dog = document.getElementById('dog');
-        var food = document.getElementById('foodOne');
-        var food2 = document.getElementById('foodTwo');
+        let dog = document.getElementById('dog');
+        let food = document.getElementById('foodOne');
+        let food2 = document.getElementById('foodTwo');
 
 
         if (dog != null || food != null || food2 != null) {
@@ -188,7 +210,9 @@ const Level2Controls = () => {
 
             if (row === foodrow && col === foodcol) {
                 document.getElementById('foodOne').src = "assets/dog.png"
-                if (count <= 17) {
+                let change = document.getElementById('foodOne')
+                change.style.visibility = 'visible'
+                if (count <= 14) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -199,7 +223,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        // window.location.reload(true)
+                                        window.location.reload(true)
                                         //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
@@ -212,7 +236,9 @@ const Level2Controls = () => {
             }
             else if (row === foodrow2 && col === foodcol2) {
                 document.getElementById('foodTwo').src = "assets/dog.png"
-                if (count <= 17) {
+                let change = document.getElementById('foodTwo')
+                change.style.visibility = 'visible'
+                if (count <= 14) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -261,9 +287,9 @@ const Level2Controls = () => {
 
     function fallen() {
 
-        var dog = document.getElementById('dog');
-        var hole1 = document.getElementById('holeOne');
-        var hole2 = document.getElementById('holeTwo')
+        let dog = document.getElementById('dog');
+        let hole1 = document.getElementById('holeOne');
+        let hole2 = document.getElementById('holeTwo')
 
         if (dog != null || hole1 != null || hole2 != null) {
             const box = dog.parentElement;
@@ -285,7 +311,7 @@ const Level2Controls = () => {
                 const change = document.getElementById('dog');
                 change.style.visibility = 'hidden'
 
-                if (count <= 17) {
+                if (count <= 14) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -312,7 +338,7 @@ const Level2Controls = () => {
                 const change = document.getElementById('dog')
                 change.style.visibility = 'hidden'
 
-                if (count <= 17) {
+                if (count <= 14) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -359,7 +385,7 @@ const Level2Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 17) {
+            if (list.length <= 14) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
@@ -367,17 +393,14 @@ const Level2Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/17"
+                document.getElementById("count").innerHTML = total + "/14"
             }
         }
     }
 
 
     /**
-     * Adds a string to an array to that
-     * represents the movement right. This
-     * will be compared in the submit method
-     * that will move the dog object at the end
+     * Adds a string to an array to thatchange.style.visibility = 'visible'
      */
     function addRight() {
         let right = "right"
@@ -392,7 +415,7 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 17) {
+            if (list.length <= 14) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
@@ -401,7 +424,7 @@ const Level2Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/17"
+                document.getElementById("count").innerHTML = total + "/14"
             }
         }
     }
@@ -425,7 +448,7 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 17) {
+            if (list.length <= 14) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
@@ -434,7 +457,7 @@ const Level2Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/17"
+                document.getElementById("count").innerHTML = total + "/14"
             }
         }
     }
@@ -459,7 +482,7 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 17) {
+            if (list.length <= 14) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
@@ -467,8 +490,118 @@ const Level2Controls = () => {
 
             for (const element of commands) {
                 total = element
-                document.getElementById("count").innerHTML = total + "/17"
+                document.getElementById("count").innerHTML = total + "/14"
             }
+        }
+    }
+
+    const ifAction = async () => {
+        let dog = document.getElementById('dog');
+        let cat = document.getElementById('cat')
+
+        if (dog != null || cat != null) {
+            const box = dog.parentElement;
+            let catBox = cat.parentElement;
+
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+
+            if (row === catRow && col === 2) {
+                await delay(100);
+                const change = document.getElementById('cat')
+                change.style.visibility = 'hidden'
+                await delay(800)
+                change.style.visibility = 'visible'
+                document.getElementById('cat').src = "assets/dog.png"
+                await delay(700)
+                change.style.visibility = 'hidden'
+            }
+        }
+    }
+
+    function addIf() {
+        let ifS = "if"
+
+        moves.push(ifS)
+
+        value = "if cat == dog {"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 14) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/14"
+            }
+
+            ifAction()
+        }
+
+    }
+
+
+
+
+    function bark() {
+        let barks = "barks"
+
+        moves.push(barks)
+
+        value = "dog.bark"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 14) {
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+                document.getElementById("action").innerHTML += "} <br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            for (const element of commands) {
+                total = element
+                document.getElementById("count").innerHTML = total + "/14"
+            }
+        }
+    }
+
+    const sound = async () => {
+        let dog = document.getElementById('dog');
+        let cat = document.getElementById('cat')
+
+        if (dog != null || cat != null) {
+            const box = dog.parentElement;
+            let catBox = cat.parentElement;
+
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+
+            if (row === catRow && col === 2) {
+                console.log("bark")
+                music.play()
+                await delay(800)
+
+            }
+
         }
     }
 
@@ -483,7 +616,7 @@ const Level2Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/17"
+        document.getElementById("count").innerHTML = "/14"
     }
 
     return (
@@ -492,19 +625,18 @@ const Level2Controls = () => {
                 <h2>Level 2:</h2>
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/17</p>
+                        <p id="count" class="number">0/14</p>
                     </div>
                     <p class="titles">Sequence:</p>
                     <p id="action" class="lists"></p>
 
                 </div>
 
-
                 <div class="speech bubble-bottom-left" >
                     Hi there! Your aim for this level is to help the owner get their dog past the obstacles present, such as the holes and the cat,
                     and get the dog to both of the food bowls. If the dog lands on one of the holes then the game will restart, however if the the
                     dog is less than 1 tile away from the cat obstacle the dog must bark to scare off the cat however if the dog doesn't bark the cat will scare the dog
-                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 17 or less commands as your sequence.
+                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 14 or less commands as your sequence.
                     Once you are done with creating your sequence then go ahead and click the submit button! <br /> Good luck!
                 </div>
             </div>
@@ -514,8 +646,8 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>If statement</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Bark</button>
+                <button type='submit' class="button" onClick={addIf} disabled={pressed === true}>If statement</button>
+                <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
