@@ -37,6 +37,8 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
+    let used  = false
+
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
@@ -78,8 +80,33 @@ const Level2Controls = () => {
             }
         }
         statement()
+        commandUse()
         changed()
         fallen()
+    }
+
+    function commandUse () {
+        if (pressed === true && used !== true){
+            <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'No If Statement used!',
+                content: 'You failed you have to use if statement for this level!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+        }
     }
 
     /**
@@ -562,6 +589,8 @@ const Level2Controls = () => {
         let ifS = "if"
 
         moves.push(ifS)
+
+        used = true
 
         value = "if cat == dog {"
         list.push(value)
