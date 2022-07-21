@@ -37,6 +37,8 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
+    let used  = false
+
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
@@ -78,8 +80,33 @@ const Level2Controls = () => {
             }
         }
         statement()
+        commandUse()
         changed()
         fallen()
+    }
+
+    function commandUse () {
+        if (pressed === true && used !== true){
+            <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'No If Statement used!',
+                content: 'You failed you have to use if statement for this level!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+        }
     }
 
     /**
@@ -150,7 +177,7 @@ const Level2Controls = () => {
         fallen()
     }
 
-    function changed() {
+    const changed = async () => {
         let dog = document.getElementById('dog');
         let foodBowl1 = document.getElementById('foodOne')
         let foodBowl2 = document.getElementById('foodTwo')
@@ -171,13 +198,16 @@ const Level2Controls = () => {
 
             if (row === bowlRow1 && col === bowlCol1) {
                 document.getElementById('foodOne').src = "assets/dog.png"
-                // change.style.visibility = 'hidden'
+                let change = document.getElementById('foodOne')
+                await delay(800)
+                change.style.visibility = 'hidden'
 
             }
             if (row === bowlRow2 && col === bowlCol2) {
                 document.getElementById('foodTwo').src = "assets/dog.png"
-
-                // change.style.visibility = 'hidden'
+                let change = document.getElementById('foodTwo')
+                await delay(800)
+                change.style.visibility = 'hidden'
             }
         }
     }
@@ -290,11 +320,13 @@ const Level2Controls = () => {
         let dog = document.getElementById('dog');
         let hole1 = document.getElementById('holeOne');
         let hole2 = document.getElementById('holeTwo')
+        let hole3 = document.getElementById('holeThree')
 
-        if (dog != null || hole1 != null || hole2 != null) {
+        if (dog != null || hole1 != null || hole2 != null || hole3 != null) {
             const box = dog.parentElement;
             let holeBox = hole1.parentElement;
             let hole2Box = hole2.parentElement;
+            let hole3Box = hole3.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -304,6 +336,9 @@ const Level2Controls = () => {
 
             const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
             const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
+
+            const hole3Row = parseInt(hole3Box.getAttribute('data-row'))
+            const hole3Col = parseInt(hole3Box.getAttribute('data-col'))
 
             if (row === hole1Row && col === hole1Col) {
                 document.getElementById('holeOne').src = "assets/dog.png"
@@ -334,6 +369,34 @@ const Level2Controls = () => {
                 }
             } else if (row === hole2Row && col === hole2Col) {
                 document.getElementById('holeTwo').src = "assets/dog.png"
+
+                const change = document.getElementById('dog')
+                change.style.visibility = 'hidden'
+
+                if (count <= 14) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Failed',
+                            content: 'The dog fell in one of the holes! Try again!',
+                            buttons: {
+                                right: [{
+                                    text: 'Try Again',
+                                    className: 'danger',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+
+                    </div>
+
+                }
+            } else if (row === hole3Row && col === hole3Col) {
+                document.getElementById('holeThree').src = "assets/dog.png"
 
                 const change = document.getElementById('dog')
                 change.style.visibility = 'hidden'
@@ -510,10 +573,10 @@ const Level2Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
 
             if (row === catRow && col === 2) {
-                await delay(100);
                 const change = document.getElementById('cat')
+                await delay(600)
                 change.style.visibility = 'hidden'
-                await delay(800)
+                await delay(200)
                 change.style.visibility = 'visible'
                 document.getElementById('cat').src = "assets/dog.png"
                 await delay(700)
@@ -526,6 +589,8 @@ const Level2Controls = () => {
         let ifS = "if"
 
         moves.push(ifS)
+
+        used = true
 
         value = "if cat == dog {"
         list.push(value)
