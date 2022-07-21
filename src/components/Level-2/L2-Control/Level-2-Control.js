@@ -698,11 +698,9 @@ const Level2Controls = () => {
                 </div>
 
                 <div class="speech bubble-bottom-left" >
-                    Hi there! Your aim for this level is to help the owner get their dog past the obstacles present, such as the holes and the cat,
-                    and get the dog to both of the food bowls. If the dog lands on one of the holes then the game will restart, however if the the
-                    dog is less than 1 tile away from the cat obstacle the dog must bark to scare off the cat however if the dog doesn't bark the cat will scare the dog
-                    and will make you restart the level. For this level you must use an if statement as part of your souliton and try to use only 14 or less commands as your sequence.
-                    Once you are done with creating your sequence then go ahead and click the submit button! <br /> Good luck!
+                    Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow 
+                    you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get both food bowls. The limit of commands
+                    this time is 14. Also becare of the holes if the dog falls in the holes you will lose<br /> Good luck!
                 </div>
             </div>
 
