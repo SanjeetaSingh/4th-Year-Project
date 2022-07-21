@@ -293,11 +293,13 @@ const Level2Controls = () => {
         let dog = document.getElementById('dog');
         let hole1 = document.getElementById('holeOne');
         let hole2 = document.getElementById('holeTwo')
+        let hole3 = document.getElementById('holeThree')
 
-        if (dog != null || hole1 != null || hole2 != null) {
+        if (dog != null || hole1 != null || hole2 != null || hole3 != null) {
             const box = dog.parentElement;
             let holeBox = hole1.parentElement;
             let hole2Box = hole2.parentElement;
+            let hole3Box = hole3.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -307,6 +309,9 @@ const Level2Controls = () => {
 
             const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
             const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
+
+            const hole3Row = parseInt(hole3Box.getAttribute('data-row'))
+            const hole3Col = parseInt(hole3Box.getAttribute('data-col'))
 
             if (row === hole1Row && col === hole1Col) {
                 document.getElementById('holeOne').src = "assets/dog.png"
@@ -337,6 +342,34 @@ const Level2Controls = () => {
                 }
             } else if (row === hole2Row && col === hole2Col) {
                 document.getElementById('holeTwo').src = "assets/dog.png"
+
+                const change = document.getElementById('dog')
+                change.style.visibility = 'hidden'
+
+                if (count <= 14) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Failed',
+                            content: 'The dog fell in one of the holes! Try again!',
+                            buttons: {
+                                right: [{
+                                    text: 'Try Again',
+                                    className: 'danger',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+
+                    </div>
+
+                }
+            } else if (row === hole3Row && col === hole3Col) {
+                document.getElementById('holeThree').src = "assets/dog.png"
 
                 const change = document.getElementById('dog')
                 change.style.visibility = 'hidden'
