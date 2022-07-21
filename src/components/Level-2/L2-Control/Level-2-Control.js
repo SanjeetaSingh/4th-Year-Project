@@ -150,7 +150,7 @@ const Level2Controls = () => {
         fallen()
     }
 
-    function changed() {
+    const changed = async () => {
         let dog = document.getElementById('dog');
         let foodBowl1 = document.getElementById('foodOne')
         let foodBowl2 = document.getElementById('foodTwo')
@@ -171,13 +171,16 @@ const Level2Controls = () => {
 
             if (row === bowlRow1 && col === bowlCol1) {
                 document.getElementById('foodOne').src = "assets/dog.png"
-                // change.style.visibility = 'hidden'
+                let change = document.getElementById('foodOne')
+                await delay(800)
+                change.style.visibility = 'hidden'
 
             }
             if (row === bowlRow2 && col === bowlCol2) {
                 document.getElementById('foodTwo').src = "assets/dog.png"
-
-                // change.style.visibility = 'hidden'
+                let change = document.getElementById('foodTwo')
+                await delay(800)
+                change.style.visibility = 'hidden'
             }
         }
     }
@@ -510,10 +513,10 @@ const Level2Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
 
             if (row === catRow && col === 2) {
-                await delay(100);
                 const change = document.getElementById('cat')
+                await delay(600)
                 change.style.visibility = 'hidden'
-                await delay(800)
+                await delay(200)
                 change.style.visibility = 'visible'
                 document.getElementById('cat').src = "assets/dog.png"
                 await delay(700)
