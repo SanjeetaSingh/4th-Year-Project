@@ -47,11 +47,11 @@ const Controls = () => {
         for (let element of items) {
             if (element === "left") {
                 moveLeft()
-                await delay(800) 
+                await delay(800)
             }
             if (element === "right") {
                 moveRight()
-                await delay(800); 
+                await delay(800);
             }
             if (element === "down") {
                 moveDown()
@@ -209,9 +209,11 @@ const Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/10"
+            if (count <= 10) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/10"
+                }
             }
         }
     }
@@ -243,9 +245,11 @@ const Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/10"
+            if (count <= 10) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/10"
+                }
             }
         }
     }
@@ -276,9 +280,11 @@ const Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/10"
+            if (count <= 10) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/10"
+                }
             }
         }
     }
@@ -309,9 +315,11 @@ const Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/10"
+            if (count <= 10) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/10"
+                }
             }
         }
     }
@@ -332,22 +340,20 @@ const Controls = () => {
 
     return (
         <div class="containers">
+            <h2>Level 1:</h2>
+            <div class="bubble" >
+                Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
+                sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button! <br />
+                Good Luck!
+            </div>
+
             <div class="borderPanel">
-                <h2>Level 1:</h2>
                 <div class="toppart">
                     <div class="containing">
                         <p id="count" class="number">0/10</p>
                     </div>
-                    <p class="titles">Sequence:</p>
+                    <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
-
-                </div>
-
-
-                <div class="bubble bubble-bottom-left" >
-                    Hi there! Your aim for this level is to get the dog to the food with the command butttons below. You are only allowed to use 10 commands for your
-                    sequence, so try to find the shortest path to get to the food. Once you are done with creating your sequence then go ahead and click the submit button! <br />
-                    Good Luck!
                 </div>
             </div>
 

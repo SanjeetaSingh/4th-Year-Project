@@ -424,9 +424,11 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
         }
     }
@@ -455,9 +457,11 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
         }
     }
@@ -488,9 +492,11 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
         }
     }
@@ -521,9 +527,11 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
         }
     }
@@ -576,17 +584,17 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
 
             ifAction()
         }
 
     }
-
-
 
 
     function bark() {
@@ -609,9 +617,11 @@ const Level2Controls = () => {
             count += 1
             commands.push(count)
 
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/14"
+            if (count <= 14) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/14"
+                }
             }
         }
     }
@@ -678,22 +688,24 @@ const Level2Controls = () => {
 
     return (
         <div class="level2Contain">
+            <h2>Level 2:</h2>
+
+            <div class="speech" >
+                Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
+                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get both food bowls. The limit of commands
+                this time is 14. Also be careful of the holes if the dog falls in the holes you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+            </div>
             <div class="borderPanel">
-                <h2>Level 2:</h2>
+
                 <div class="toppart">
                     <div class="containing">
                         <p id="count" class="number">0/14</p>
                     </div>
-                    <p class="titles">Sequence:</p>
+                    <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
 
                 </div>
 
-                <div class="speech bubble-bottom-left" >
-                    Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                    you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get both food bowls. The limit of commands
-                    this time is 14. Also becare of the holes if the dog falls in the holes you will lose<br /> Good luck! <br/> (To learn more about if statements click the i below)
-                </div>
             </div>
 
             <div class="outside">
@@ -706,7 +718,7 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
-                
+
             </div>
 
 

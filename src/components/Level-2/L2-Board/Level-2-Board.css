@@ -20,7 +20,7 @@
     height: 80px;
     display: inline-block;
     line-height: 80px;
-    background-image: url("../../assets/tile.jpg");
+    background-image: url("../../../../public/assets/tile.png");
 }
 
 .board {
@@ -30,7 +30,9 @@
 }
 
 .dog {
-    width: 80px;
+    width: 75px;
+    margin-left: 3px;
+    margin-top: 2px;
 }
 
 .food {
@@ -44,6 +46,7 @@
 }
 
 .cat {
-    width: 85px;
-    height: 80px;
+    width: 75px;
+    margin-left: 3px;
+    margin-top: 2px;
 }
