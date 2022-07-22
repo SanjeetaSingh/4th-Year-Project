@@ -35,7 +35,7 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
-    let used  = false
+    let used = false
 
 
 
@@ -85,31 +85,31 @@ const Level2Controls = () => {
         fallen()
     }
 
-    function commandUse () {
-        if (pressed === true && used !== true){
+    function commandUse() {
+        if (pressed === true && used !== true) {
             <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'No If Statement used!',
-                content: 'You failed you have to use if statement for this level!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
+                {Popup.clearQueue()}
+                {Popup.create({
+                    title: 'No If Statement used!',
+                    content: 'You failed you have to use if statement for this level!',
+                    buttons: {
+                        right: [{
+                            text: 'Try Again',
+                            className: 'danger',
+                            action: function () {
+                                window.location.reload(true)
+                                Popup.clearQueue();
+                                Popup.close()
+                            }
+                        }]
+                    }
+                }, true)}
 
-        </div>
+            </div>
         }
     }
 
-    
+
 
     /**
      * Moves the dog object one tile to the left
@@ -180,7 +180,7 @@ const Level2Controls = () => {
         fallen()
     }
 
-   
+
 
     /**
      * Method checks if the dog object is at the 
@@ -640,6 +640,28 @@ const Level2Controls = () => {
         }
     }
 
+    function information() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'If statement Information',
+                content: 'The Java if statement is the most simple decision-making statement. It is used to ' +
+                    'decide whether a certain statement or block of statements will be executed or not i.e if a certain ' +
+                    'condition is true then a block of statement is executed otherwise not. In the case of this level we are checking if' +
+                    'the dog and cat are at the same location the dog will bark.',
+                buttons: {
+                    right: [{
+                        text: 'Okay',
+                        action: function () {
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 
@@ -668,9 +690,9 @@ const Level2Controls = () => {
                 </div>
 
                 <div class="speech bubble-bottom-left" >
-                    Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow 
+                    Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
                     you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get both food bowls. The limit of commands
-                    this time is 14. Also becare of the holes if the dog falls in the holes you will lose<br /> Good luck!
+                    this time is 14. Also becare of the holes if the dog falls in the holes you will lose<br /> Good luck! <br/> (To learn more about if statements click the i below)
                 </div>
             </div>
 
@@ -680,9 +702,11 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <button type='submit' class="button" onClick={addIf} disabled={pressed === true}>If statement</button>
+                <button class="btn" onClick={information} disabled={pressed === true}><i class="fa fa-info" ></i></button>
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                
             </div>
 
 
