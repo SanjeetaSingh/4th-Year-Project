@@ -4,7 +4,7 @@
 }
 
 .level2Contain {
-    width: 580px;
+    width: 600px;
     height: 500px;
 }
 
@@ -45,7 +45,7 @@
     top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
-    text-align: left; 
+    text-align: left;
     left: 10px;
 
 }
@@ -56,7 +56,7 @@
     top: 5%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     position: relative;
-    text-align: center; 
+    text-align: center;
 }
 
 .bracket {
@@ -68,7 +68,7 @@
     position: relative;
 }
 
-backward{
+backward {
     margin-left: 0px;
 }
 
@@ -130,6 +130,7 @@ backward{
 
 .outside {
     float: left;
+    margin-right: 0px;
 }
 
 h2 {
@@ -147,6 +148,22 @@ h2 {
 .containing {
     float: right;
 }
+
+.btn {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    margin-top: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+.btn:hover {
+    background-color:#483C32
+}
+
 
 .mm-popup {
     display: none;
