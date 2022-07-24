@@ -570,7 +570,7 @@ const Level2Controls = () => {
 
         used = true
 
-        value = "if cat == dog {"
+        value = "if (dog.tile == cat.tile + 1) {"
         list.push(value)
 
         //Getting the last element of the list
