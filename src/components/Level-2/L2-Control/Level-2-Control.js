@@ -650,15 +650,25 @@ const Level2Controls = () => {
         }
     }
 
+    const left = "{"
+    const right = "}"
+
     function information() {
         <div>
             {Popup.clearQueue()}
             {Popup.create({
                 title: 'If statement Information',
-                content: 'The Java if statement is the most simple decision-making statement. It is used to ' +
-                    'decide whether a certain statement or block of statements will be executed or not i.e if a certain ' +
-                    'condition is true then a block of statement is executed otherwise not. In the case of this level we are checking if' +
-                    'the dog and cat are at the same location the dog will bark.',
+                content: <p>
+                    The Java if statement is the most simple decision-making statement. It is used to
+                    decide whether a certain statement or block of statements will be executed or not. <br/><br/>
+                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br/><br/>
+                    In the case of this level we are checking if the dogs tile is one tile away from the cat then we execute the statement to make the dog bark. <br />
+                    <br />
+                    <b>Syntax:</b>  <br />
+                    &nbsp; if (condtion)  {left}  <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p> 
+                    &nbsp;&nbsp;&nbsp;{right}
+                </p>,
                 buttons: {
                     right: [{
                         text: 'Okay',
@@ -713,12 +723,17 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
-                <button type='submit' class="button" onClick={addIf} disabled={pressed === true}>If statement</button>
-                <button class="btn" onClick={information} disabled={pressed === true}><i class="fa fa-info" ></i></button>
+                <div class="buttons-wrapper">
+                    <button class="seemingly-inner-button" onClick={information} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <button class="button" onClick={addIf} disabled={pressed === true}>
+                        If Statement
+                    </button>
+                </div>
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
-
             </div>
 
 
