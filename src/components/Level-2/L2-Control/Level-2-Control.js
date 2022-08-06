@@ -191,13 +191,10 @@ const Level2Controls = () => {
 
         let dog = document.getElementById('dog');
         let food = document.getElementById('foodOne');
-        let food2 = document.getElementById('foodTwo');
 
-
-        if (dog != null || food != null || food2 != null) {
+        if (dog != null || food != null) {
             const box = dog.parentElement;
             let foodbox = food.parentElement;
-            let foodBox2 = food2.parentElement
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -205,14 +202,11 @@ const Level2Controls = () => {
             const foodrow = parseInt(foodbox.getAttribute('data-row'))
             const foodcol = parseInt(foodbox.getAttribute('data-col'))
 
-            const foodrow2 = parseInt(foodBox2.getAttribute('data-row'))
-            const foodcol2 = parseInt(foodBox2.getAttribute('data-col'))
-
             if (row === foodrow && col === foodcol) {
                 document.getElementById('foodOne').src = "assets/dog.png"
                 let change = document.getElementById('foodOne')
                 change.style.visibility = 'visible'
-                if (count <= 14) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -224,32 +218,6 @@ const Level2Controls = () => {
                                     className: 'success',
                                     action: function () {
                                         window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-                    </div>
-                }
-            }
-            else if (row === foodrow2 && col === foodcol2) {
-                document.getElementById('foodTwo').src = "assets/dog.png"
-                let change = document.getElementById('foodTwo')
-                change.style.visibility = 'visible'
-                if (count <= 14) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Success',
-                            content: 'You completed the level, Good Work! ',
-                            buttons: {
-                                right: [{
-                                    text: 'Okay',
-                                    className: 'success',
-                                    action: function () {
-                                        // window.location.reload(true)
                                         //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
@@ -289,14 +257,10 @@ const Level2Controls = () => {
 
         let dog = document.getElementById('dog');
         let hole1 = document.getElementById('holeOne');
-        let hole2 = document.getElementById('holeTwo')
-        let hole3 = document.getElementById('holeThree')
 
-        if (dog != null || hole1 != null || hole2 != null || hole3 != null) {
+        if (dog != null || hole1 != null) {
             const box = dog.parentElement;
             let holeBox = hole1.parentElement;
-            let hole2Box = hole2.parentElement;
-            let hole3Box = hole3.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -304,11 +268,6 @@ const Level2Controls = () => {
             const hole1Row = parseInt(holeBox.getAttribute('data-row'))
             const hole1Col = parseInt(holeBox.getAttribute('data-col'))
 
-            const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
-            const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
-
-            const hole3Row = parseInt(hole3Box.getAttribute('data-row'))
-            const hole3Col = parseInt(hole3Box.getAttribute('data-col'))
 
             if (row === hole1Row && col === hole1Col) {
                 document.getElementById('holeOne').src = "assets/dog.png"
@@ -316,7 +275,7 @@ const Level2Controls = () => {
                 const change = document.getElementById('dog');
                 change.style.visibility = 'hidden'
 
-                if (count <= 14) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -336,62 +295,6 @@ const Level2Controls = () => {
                         }, true)}
 
                     </div>
-                }
-            } else if (row === hole2Row && col === hole2Col) {
-                document.getElementById('holeTwo').src = "assets/dog.png"
-
-                const change = document.getElementById('dog')
-                change.style.visibility = 'hidden'
-
-                if (count <= 14) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Failed',
-                            content: 'The dog fell in one of the holes! Try again!',
-                            buttons: {
-                                right: [{
-                                    text: 'Try Again',
-                                    className: 'danger',
-                                    action: function () {
-                                        window.location.reload(true)
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-
-                    </div>
-
-                }
-            } else if (row === hole3Row && col === hole3Col) {
-                document.getElementById('holeThree').src = "assets/dog.png"
-
-                const change = document.getElementById('dog')
-                change.style.visibility = 'hidden'
-
-                if (count <= 14) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Failed',
-                            content: 'The dog fell in one of the holes! Try again!',
-                            buttons: {
-                                right: [{
-                                    text: 'Try Again',
-                                    className: 'danger',
-                                    action: function () {
-                                        window.location.reload(true)
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-
-                    </div>
-
                 }
             }
         }
@@ -418,16 +321,16 @@ const Level2Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -450,17 +353,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -485,17 +388,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -521,16 +424,16 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -578,16 +481,16 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
 
@@ -610,17 +513,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 14) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                 document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 14) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/14"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -660,13 +563,13 @@ const Level2Controls = () => {
                 title: 'If statement Information',
                 content: <p>
                     The Java if statement is the most simple decision-making statement. It is used to
-                    decide whether a certain statement or block of statements will be executed or not. <br/><br/>
-                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br/><br/>
+                    decide whether a certain statement or block of statements will be executed or not. <br /><br />
+                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
                     In the case of this level we are checking if the dogs tile is one tile away from the cat then we execute the statement to make the dog bark. <br />
                     <br />
                     <b>Syntax:</b>  <br />
                     &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p> 
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
                     &nbsp;&nbsp;&nbsp;{right}
                 </p>,
                 buttons: {
@@ -693,7 +596,7 @@ const Level2Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/14"
+        document.getElementById("count").innerHTML = "/5"
     }
 
     return (
@@ -702,14 +605,14 @@ const Level2Controls = () => {
 
             <div class="speech" >
                 Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get both food bowls. The limit of commands
-                this time is 14. Also be careful of the holes if the dog falls in the holes you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
+                this time is 5. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/14</p>
+                        <p id="count" class="number">0/5</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
