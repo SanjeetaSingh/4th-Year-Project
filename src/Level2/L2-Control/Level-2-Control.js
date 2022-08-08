@@ -309,9 +309,9 @@ const Level2Controls = () => {
      * that will move the dog object at the end
      */
     function addLeft() {
-        let left = "left"
+        let lefts = "left"
 
-        moves.push(left)
+        moves.push(lefts)
 
         value = "moveLeft();"
         list.push(value)
@@ -340,9 +340,9 @@ const Level2Controls = () => {
      * Adds a string to an array to thatchange.style.visibility = 'visible'
      */
     function addRight() {
-        let right = "right"
+        let rights = "right"
 
-        moves.push(right)
+        moves.push(rights)
 
         value = "moveRight();"
         list.push(value)
