@@ -7,9 +7,9 @@ import {
 } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Board2 from './components/Level-2/L2-Board/Level-2-Board';
-import Board3 from './Level3/Board/Board-3'
-import Header from './components/Header/Header';
+import Board2 from './Level2/L2-Board/Level-2-Board';
+import Board3 from './Level3/L3-Board/Board-3'
+import Header from './Header/Header';
 
 function App() {
   return (

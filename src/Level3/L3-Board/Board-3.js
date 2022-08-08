@@ -1,6 +1,6 @@
 import React from "react"
-import "../../components/Level-2/L2-Board/Level-2-Board.css"
-import Panel from "../../Level3/Panel/Panel-3"
+import "../../Level2/L2-Board/Level-2-Board.css"
+import Panel from "../L3-Panel/Panel-3"
 
 const state = {
     board: Array(25).fill(null),
