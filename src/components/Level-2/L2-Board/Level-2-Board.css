@@ -26,6 +26,12 @@
 .board2 {
     display: inline-flex;
     flex-wrap: wrap;
+    width: 350px;
+}
+
+.board3 {
+    display: inline-flex;
+    flex-wrap: wrap;
     width: 450px;
 }
 

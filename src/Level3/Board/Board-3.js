@@ -36,7 +36,7 @@ const Level3Board = () => {
     return (
         <div className="container" >
             <div className="boardcontainer2">
-                <div className="board2" >
+                <div className="board3" >
                     {renderBoxes()}
                 </div>
             </div>
