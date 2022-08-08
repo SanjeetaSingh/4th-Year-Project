@@ -1,7 +1,7 @@
 import React from 'react'
 import Popup from 'react-popup';
-import '../../components/Controls/Control.css'
-import Check from '../../components/Level-2/L2-Control/Check';
+import '../../Level1/Controls/Control.css'
+import Check from './Check';
 
 import { Howl } from 'howler';
 
@@ -80,7 +80,6 @@ const Level2Controls = () => {
             }
         }
         statement()
-        secondFoodAte()
         commandUse()
         Check()
         fallen()
@@ -123,14 +122,6 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-
-        let dog2 = document.getElementById('dogTwo');
-        const box2 = dog2.parentElement;
-        const row2 = parseInt(box2.getAttribute('data-row'))
-        const col2 = parseInt(box2.getAttribute('data-col')) - 1;
-        const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
-
         Check()
         ifAction()
         sound()
@@ -147,13 +138,6 @@ const Level2Controls = () => {
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        let dog2 = document.getElementById('dogTwo');
-        const box2 = dog2.parentElement;
-        const row2 = parseInt(box2.getAttribute('data-row'))
-        const col2 = parseInt(box2.getAttribute('data-col')) + 1;
-        const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
 
         Check()
         ifAction()
@@ -173,13 +157,6 @@ const Level2Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
-        let dog2 = document.getElementById('dogTwo');
-        const box2 = dog2.parentElement;
-        const row2 = parseInt(box2.getAttribute('data-row')) - 1
-        const col2 = parseInt(box2.getAttribute('data-col'))
-        const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
-
         Check()
         ifAction()
         fallen()
@@ -196,13 +173,6 @@ const Level2Controls = () => {
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
-
-        let dog2 = document.getElementById('dogTwo');
-        const box2 = dog2.parentElement;
-        const row2 = parseInt(box2.getAttribute('data-row')) + 1
-        const col2 = parseInt(box2.getAttribute('data-col'))
-        const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
 
         Check()
         ifAction()
@@ -236,7 +206,7 @@ const Level2Controls = () => {
                 document.getElementById('foodOne').src = "assets/dog.png"
                 let change = document.getElementById('foodOne')
                 change.style.visibility = 'visible'
-                if (count <= 6) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -247,8 +217,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
+                                        window.location.replace("/level3")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -282,73 +251,6 @@ const Level2Controls = () => {
             }
         }
     }
-
-    function secondFoodAte() {
-
-        let dog = document.getElementById('dogTwo');
-        let food = document.getElementById('foodTwo');
-
-        if (dog != null || food != null) {
-            const box = dog.parentElement;
-            let foodbox = food.parentElement;
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-
-            const foodrow = parseInt(foodbox.getAttribute('data-row'))
-            const foodcol = parseInt(foodbox.getAttribute('data-col'))
-
-            if (row === foodrow && col === foodcol) {
-                document.getElementById('foodTwo').src = "assets/dog.png"
-                let change = document.getElementById('foodOne')
-                change.style.visibility = 'visible'
-                if (count <= 6) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Success',
-                            content: 'You completed the level, Good Work! ',
-                            buttons: {
-                                right: [{
-                                    text: 'Okay',
-                                    className: 'success',
-                                    action: function () {
-                                        window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-                    </div>
-                }
-            }
-
-            else {
-                <div>
-                    {Popup.clearQueue()}
-                    {Popup.create({
-                        title: 'Failed',
-                        content: 'You failed to complete the level, Try Again!',
-                        buttons: {
-                            right: [{
-                                text: 'Try Again',
-                                className: 'danger',
-                                action: function () {
-                                    window.location.reload(true)
-                                    Popup.clearQueue();
-                                    Popup.close()
-                                }
-                            }]
-                        }
-                    }, true)}
-
-                </div>
-            }
-        }
-    }
-
 
     function fallen() {
 
@@ -372,7 +274,7 @@ const Level2Controls = () => {
                 const change = document.getElementById('dog');
                 change.style.visibility = 'hidden'
 
-                if (count <= 6) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -418,16 +320,16 @@ const Level2Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -450,17 +352,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -485,17 +387,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
 
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -521,16 +423,16 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -540,25 +442,15 @@ const Level2Controls = () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
 
-        let dog2 = document.getElementById('dogTwo');
-        let cat2 = document.getElementById('catTwo')
-
-        if (dog != null || cat != null || dog2 != null || cat2 != null) {
+        if (dog != null || cat != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
-
-            const box2 = dog2.parentElement;
-            let catBox2 = cat2.parentElement;
 
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const row2 = parseInt(box2.getAttribute('data-row'))
-            const col2 = parseInt(box2.getAttribute('data-col'))
-
             const catRow = parseInt(catBox.getAttribute('data-row'))
-            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
 
             if (row === catRow && col === 2) {
                 const change = document.getElementById('cat')
@@ -570,26 +462,6 @@ const Level2Controls = () => {
                 await delay(700)
                 change.style.visibility = 'hidden'
             }
-            else if (row2 === catRow2 && col2 === 3) {
-                const change = document.getElementById('catTwo')
-                const a = document.getElementById('dogTwo')
-                await delay(600)
-                change.style.visibility = 'hidden'
-                a.style.visibility = 'hidden'
-
-                await delay(200)
-                a.style.visibility = 'hidden'
-                change.style.visibility = 'visible'
-                document.getElementById('catTwo').src = "assets/dog.png"
-
-                await delay(800)
-                change.style.visibility = 'hidden'
-                a.style.visibility = 'visible'
-                await delay(700)
-                a.style.visibility = 'hidden'
-                change.style.visibility = 'hidden'
-
-            }
         }
     }
 
@@ -600,7 +472,7 @@ const Level2Controls = () => {
 
         used = true
 
-        value = "if (cat == true) {"
+        value = "if (dog.tile == cat.tile + 1) {"
         list.push(value)
 
         //Getting the last element of the list
@@ -608,16 +480,16 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
 
@@ -640,17 +512,17 @@ const Level2Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                 document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -658,36 +530,23 @@ const Level2Controls = () => {
 
     const sound = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat');
+        let cat = document.getElementById('cat')
 
-        let dog2 = document.getElementById('dogTwo');
-        let cat2 = document.getElementById('catTwo')
-
-        if (dog != null || cat != null || dog2 != null || cat2 != null) {
+        if (dog != null || cat != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
 
-            const box1 = dog2.parentElement;
-            let catBox2 = cat2.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const row2 = parseInt(box1.getAttribute('data-row'))
-            const col2 = parseInt(box1.getAttribute('data-col'))
-
             const catRow = parseInt(catBox.getAttribute('data-row'))
 
-            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
-
-            if (row2 === catRow2 && col2 === 3) {
+            if (row === catRow && col === 2) {
                 console.log("bark")
                 music.play()
                 await delay(800)
-            } else if (row === catRow && col === 2) {
-                console.log("bark2")
-                music.play()
-                await delay(800)
+
             }
 
         }
@@ -736,23 +595,23 @@ const Level2Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/6"
+        document.getElementById("count").innerHTML = "/5"
     }
 
     return (
         <div class="level2Contain">
-            <h2>Level 3:</h2>
+            <h2>Level 2:</h2>
 
             <div class="speech" >
                 Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
                 you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
-                this time is 6. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                this time is 5. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/6</p>
+                        <p id="count" class="number">0/5</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>

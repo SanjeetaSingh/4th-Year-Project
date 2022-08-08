@@ -20,7 +20,7 @@
     height: 80px;
     display: inline-block;
     line-height: 80px;
-    background-image: url("../../../../public/assets/tile.png");
+    background-image: url("../../../public/assets/tile.png");
 }
 
 .board2 {
