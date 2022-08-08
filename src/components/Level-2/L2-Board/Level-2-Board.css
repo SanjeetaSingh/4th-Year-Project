@@ -29,6 +29,12 @@
     width: 350px;
 }
 
+.board3 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 450px;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
