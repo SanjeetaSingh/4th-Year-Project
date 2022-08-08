@@ -407,9 +407,9 @@ const Level2Controls = () => {
      * that will move the dog object at the end
      */
     function addLeft() {
-        let left = "left"
+        let lefts = "left"
 
-        moves.push(left)
+        moves.push(lefts)
 
         value = "moveLeft();"
         list.push(value)
@@ -438,9 +438,9 @@ const Level2Controls = () => {
      * Adds a string to an array to thatchange.style.visibility = 'visible'
      */
     function addRight() {
-        let right = "right"
+        let rights = "right"
 
-        moves.push(right)
+        moves.push(rights)
 
         value = "moveRight();"
         list.push(value)
@@ -744,9 +744,8 @@ const Level2Controls = () => {
             <h2>Level 3:</h2>
 
             <div class="speech" >
-                Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
-                this time is 6. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you 
+                will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
