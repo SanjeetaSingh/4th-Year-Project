@@ -780,9 +780,8 @@ const Level2Controls = () => {
             <h2>Level 4:</h2>
 
             <div class="speech" >
-                Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
-                this time is 8. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
+                you to pass the cat. In this level you can jump over the hole to avoid restarting and you must use the else statement.<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
@@ -815,7 +814,7 @@ const Level2Controls = () => {
                     <button class="seemingly-inner-button" onClick={elseInformation} disabled={pressed === true}>
                         <i class="fa fa-info" ></i>
                     </button>
-                    <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else IF</button>
+                    <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else If</button>
 
                 </div>
                 <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
