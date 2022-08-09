@@ -693,7 +693,7 @@ const Level2Controls = () => {
     const left = "{"
     const right = "}"
 
-    function information() {
+    function ifInformation() {
         <div>
             {Popup.clearQueue()}
             {Popup.create({
@@ -702,7 +702,7 @@ const Level2Controls = () => {
                     The Java if statement is the most simple decision-making statement. It is used to
                     decide whether a certain statement or block of statements will be executed or not. <br /><br />
                     <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
-                    In the case of this level we are checking if the dogs tile is one tile away from the cat then we execute the statement to make the dog bark. <br />
+                    In the case of this level we are checking if the cat is present at all the make the dog bark<br />
                     <br />
                     <b>Syntax:</b>  <br />
                     &nbsp; if (condtion)  {left}  <br />
@@ -722,6 +722,45 @@ const Level2Controls = () => {
 
         </div>
     }
+
+    function elseInformation() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Else statement Information',
+                content: <p>
+                    The Java else block is used to specify a new condition to test if the first condition is false. <br /><br />
+                    <b>i.e </b> If a previour condition is not true then an alternative statement is executed. <br /><br />
+                    In the case of this level we are checking if the cat is present then back else if there is a hole present then make the dog jump. <br />
+                    <br />
+                    <b>Syntax for else:</b>  <br />
+                    &nbsp; if (condtion)  {left}  <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right} else {left} <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right} <br /><br />
+
+                    <b>Syntax for else if:</b>  <br />
+                    &nbsp; if (condtion)  {left}  <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right} else if (condition) {left} <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right} <br /><br />
+                </p>,
+                buttons: {
+                    right: [{
+                        text: 'Okay',
+                        action: function () {
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
+
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 
@@ -741,9 +780,8 @@ const Level2Controls = () => {
             <h2>Level 4:</h2>
 
             <div class="speech" >
-                Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
-                this time is 8. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
+                you to pass the cat. In this level you can jump over the hole to avoid restarting and you must use the else statement.<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
@@ -764,7 +802,7 @@ const Level2Controls = () => {
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <div class="buttons-wrapper">
-                    <button class="seemingly-inner-button" onClick={information} disabled={pressed === true}>
+                    <button class="seemingly-inner-button" onClick={ifInformation} disabled={pressed === true}>
                         <i class="fa fa-info" ></i>
                     </button>
                     <button class="button" onClick={addIf} disabled={pressed === true}>
@@ -772,7 +810,13 @@ const Level2Controls = () => {
                     </button>
                 </div>
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
-                <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else IF</button>
+                <div class="buttons-wrapper">
+                    <button class="seemingly-inner-button" onClick={elseInformation} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else If</button>
+
+                </div>
                 <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
                 <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
