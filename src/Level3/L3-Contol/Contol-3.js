@@ -705,7 +705,7 @@ const Level2Controls = () => {
                     The Java if statement is the most simple decision-making statement. It is used to
                     decide whether a certain statement or block of statements will be executed or not. <br /><br />
                     <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
-                    In the case of this level we are checking if the dogs tile is one tile away from the cat then we execute the statement to make the dog bark. <br />
+                    In the case of this level we are checking if the cat is present at all the make the dog bark. <br />
                     <br />
                     <b>Syntax:</b>  <br />
                     &nbsp; if (condtion)  {left}  <br />
