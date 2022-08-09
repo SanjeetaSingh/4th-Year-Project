@@ -35,6 +35,12 @@
     width: 450px;
 }
 
+.board4 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 450px;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
@@ -48,7 +54,7 @@
 
 .hole {
     width: 85px;
-    height: 80px;
+    height: 100px;
 }
 
 .cat {
