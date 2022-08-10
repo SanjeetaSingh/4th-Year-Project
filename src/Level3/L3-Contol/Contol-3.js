@@ -247,8 +247,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
+                                        window.location.replace("/level4")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -313,8 +312,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
+                                        window.location.replace("/level4")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }

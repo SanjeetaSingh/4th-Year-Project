@@ -31,7 +31,7 @@ const Level3Board = () => {
 
     state.board[20] = <img class="food" src="assets/food.png" alt="f" id="foodTwo"></img>
 
-    state.board[22] = <img class="hole" src="assets/cat.png" alt="h" id="catTwo"></img>
+    state.board[22] = <img class="cat" src="assets/cat.png" alt="h" id="catTwo"></img>
 
     return (
         <div className="container" >
