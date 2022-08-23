@@ -41,6 +41,12 @@
     width: 450px;
 }
 
+.board5{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 450px;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
