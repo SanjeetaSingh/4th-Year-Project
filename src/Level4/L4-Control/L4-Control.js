@@ -5,7 +5,7 @@ import Check from '../../Level2/L2-Control/Check';
 
 import { Howl } from 'howler';
 
-const Level2Controls = () => {
+const Level4Controls = () => {
 
     const music = new Howl({
         src: ['assets/bark.mp3']
@@ -226,7 +226,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.reload(true)
+                                        window.location.replace("/level5")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -827,4 +827,4 @@ const Level2Controls = () => {
     );
 }
 
-export default Level2Controls;
+export default Level4Controls;
