@@ -1,18 +1,12 @@
 import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
-import Check from '../../Level2/L2-Control/Check';
-
-import { Howl } from 'howler';
+import Check from '../L5-Control/L5-Check';
 
 const Level5Controls = () => {
 
-    const music = new Howl({
-        src: ['assets/bark.mp3']
-    });
-
     /**
-     * letiables
+     * Variables
      */
 
     //String that will show when button is clicked
@@ -27,17 +21,13 @@ const Level5Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
-    // Counting how many times a button has been selected
-    let count = 0
-    // Adding the count to an array
-    let commands = []
-
-    // To sum up the values of the commands array
-    let total = 0
-
+    
+    //To check if a command has been used
     let used = false
 
-    let hasJumped = false
+
+    //Checking if the dog has reached a location 
+    let reached = false
 
 
 
@@ -45,51 +35,13 @@ const Level5Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
-    /**
-     * Submits the sequence that the user
-     * has entered for the dog object to move.
-     * The dog object will move after submit is pressed
-     */
-    const submit = async () => {
-
-        let items = moves.values();
-
-        pressed = true
-
-        // Iterating through all the moves in the array to know which move to do
-        for (let element of items) {
-            if (element === "left") {
-                moveLeft()
-                await delay(800)
-            }
-            if (element === "right") {
-                moveRight()
-                await delay(800);
-            }
-            if (element === "down") {
-                moveDown()
-                await delay(800);
-            }
-            if (element === "up") {
-                moveUp()
-                await delay(800);
-            }
-            if (element === "while") {
-                ifAction()
-            }
-        }
-        statement()
-        commandUse()
-        Check()
-    }
-
     function commandUse() {
         if (pressed === true && used !== true) {
             <div>
                 {Popup.clearQueue()}
                 {Popup.create({
-                    title: 'No If Statement used!',
-                    content: 'You failed you have to use if statement for this level!',
+                    title: 'No While Statement used!',
+                    content: 'You failed you have to use while statement for this level!',
                     buttons: {
                         right: [{
                             text: 'Try Again',
@@ -114,15 +66,22 @@ const Level5Controls = () => {
      */
     function moveLeft() {
         let element = document.getElementById('dog');
+
+        let food = document.getElementById('food');
+        let foodbox = food.parentElement;
+        const foodrow = parseInt(foodbox.getAttribute('data-row'))
+        const foodcol = parseInt(foodbox.getAttribute('data-col'))
+
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        if (row === foodrow && col === foodcol) {
+            reached = false
+        }
         Check()
-        ifAction()
-        jumpAction()
     }
 
     /**
@@ -130,15 +89,24 @@ const Level5Controls = () => {
      */
     function moveRight() {
         let element = document.getElementById('dog');
+
+        let food = document.getElementById('food');
+        let foodbox = food.parentElement;
+        const foodrow = parseInt(foodbox.getAttribute('data-row'))
+        const foodcol = parseInt(foodbox.getAttribute('data-col'))
+
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+
+        if (row === foodrow && col === foodcol) {
+            reached = false
+        }
+
         Check()
-        ifAction()
-        jumpAction()
     }
 
 
@@ -147,15 +115,23 @@ const Level5Controls = () => {
      */
     function moveUp() {
         let element = document.getElementById('dog');
+
+        let food = document.getElementById('food');
+        let foodbox = food.parentElement;
+        const foodrow = parseInt(foodbox.getAttribute('data-row'))
+        const foodcol = parseInt(foodbox.getAttribute('data-col'))
+
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        if (row === foodrow && col === foodcol) {
+            reached = false
+        }
+
         Check()
-        ifAction()
-        jumpAction()
     }
 
     /**
@@ -163,15 +139,23 @@ const Level5Controls = () => {
      */
     function moveDown() {
         let element = document.getElementById('dog');
+
+        let food = document.getElementById('food');
+        let foodbox = food.parentElement;
+        const foodrow = parseInt(foodbox.getAttribute('data-row'))
+        const foodcol = parseInt(foodbox.getAttribute('data-col'))
+
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
         newBox.append(element);
 
+        if (row === foodrow && col === foodcol) {
+            reached = false
+        }
+
         Check()
-        ifAction()
-        jumpAction()
     }
 
 
@@ -199,30 +183,27 @@ const Level5Controls = () => {
             if (row === foodrow && col === foodcol) {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
-                change.style.visibility = 'visible'
-                if (count <= 8) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Success',
-                            content: 'You completed the level, Good Work! ',
-                            buttons: {
-                                right: [{
-                                    text: 'Okay',
-                                    className: 'success',
-                                    action: function () {
-                                        window.reload(true)
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-                    </div>
-                }
-            }
+                change.style.visibility = 'visible';
+                <div>
+                    {Popup.clearQueue()}
+                    {Popup.create({
+                        title: 'Success',
+                        content: 'You completed the level, Good Work! ',
+                        buttons: {
+                            right: [{
+                                text: 'Okay',
+                                className: 'success',
+                                action: function () {
+                                    window.reload(true)
+                                    Popup.clearQueue();
+                                    Popup.close()
+                                }
+                            }]
+                        }
+                    }, true)}
+                </div>
 
-            else {
+            } else {
                 <div>
                     {Popup.clearQueue()}
                     {Popup.create({
@@ -266,24 +247,16 @@ const Level5Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
+            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
     }
 
 
     /**
-     * Adds a string to an array to thatchange.style.visibility = 'visible'
+     *Adds a string to an array to that
+     * represents the movement right. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
      */
     function addRight() {
         let rights = "right"
@@ -298,19 +271,7 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
+            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
     }
 
@@ -333,19 +294,7 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
+            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
     }
 
@@ -369,85 +318,79 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
+            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
 
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
         }
     }
 
-    const ifAction = async () => {
+    const whileAction = async () => {
+
+        value = "}"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += item + "<br/>"
+        }
+
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
+        let food = document.getElementById('food');
 
-        if (dog != null || cat != null) {
+        if (dog != null || food != null) {
             const box = dog.parentElement;
-            let catBox = cat.parentElement;
-
+            let foodbox = food.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const catRow = parseInt(catBox.getAttribute('data-row'))
+            const foodrow = parseInt(foodbox.getAttribute('data-row'))
+            const foodcol = parseInt(foodbox.getAttribute('data-col'))
 
-            if (row === catRow && col === 2) {
-                const change = document.getElementById('cat')
-                await delay(800)
-                change.style.visibility = 'hidden'
-                await delay(200)
-                change.style.visibility = 'visible'
-                document.getElementById('cat').src = "assets/dog.png"
-                await delay(700)
-                change.style.visibility = 'hidden'
+
+            if (row !== foodrow && col !== foodcol) {
+                reached = true;
             }
-        }
-    }
 
-    const jumpAction = async () => {
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('holeTwo')
+            while (reached) {
 
-        if (dog != null || hole != null) {
-            const box = dog.parentElement;
-            let holeBox = hole.parentElement;
+                let items = moves.values();
+                pressed = true
 
+                // Iterating through all the moves in the array to know which move to do
+                for (let element of items) {
+                    if (element === "left") {
+                        moveLeft()
+                        await delay(800)
+                    }
+                    if (element === "right") {
+                        moveRight()
+                        await delay(800);
+                    }
+                    if (element === "down") {
+                        moveDown()
+                        await delay(800);
+                    }
+                    if (element === "up") {
+                        moveUp()
+                        await delay(800);
 
-            let row = parseInt(box.getAttribute('data-row'))
-            let col = parseInt(box.getAttribute('data-col'))
-
-            const holeRow = parseInt(holeBox.getAttribute('data-row'))
-
-            if (hasJumped === true) {
-                if (row === holeRow && col === 3) {
-                    // console.log("ah")
-                    const change = document.getElementById('holeTwo')
-                    await delay(800)
-                    change.style.visibility = 'visible'
-                    document.getElementById('holeTwo').src = "assets/hole.png"
+                    }
 
                 }
+
             }
-
+            statement()
+            commandUse()
         }
-
     }
 
-    function addIf() {
-        let ifS = "if"
-
-        moves.push(ifS)
-
+    function addWhile() {
         used = true
 
-        value = "if (cat == true) {"
+        value = "while (dog != food) {"
         list.push(value)
 
         //Getting the last element of the list
@@ -455,86 +398,11 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
-
-            ifAction()
+            document.getElementById("action").innerHTML += item + "<br/>"
         }
 
     }
 
-    function elseIf() {
-        let elif = "elif"
-
-        moves.push(elif)
-
-        used = true
-
-        value = "else if (hole == true) {"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
-            jumpAction()
-        }
-    }
-
-
-    function bark() {
-        let barks = "barks"
-
-        moves.push(barks)
-
-        value = "dog.bark"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
-                document.getElementById("action").innerHTML += "} <br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
-        }
-    }
-
-   
 
     /**
      * Added a clear button to remove the 
@@ -544,26 +412,57 @@ const Level5Controls = () => {
     function clearAll() {
         list = []
         moves = []
-        commands = []
-        count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/8"
+    }
+
+
+    
+    const left = "{"
+    const right = "}"
+
+
+    function whileInformation() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'While statement Information',
+                content: <p>
+                   In Java a while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. 
+                   The while loop can be thought of as a repeating if statement and a while loop in Java comes into use when we need to 
+                   repeatedly execute a block of statements. 
+                    <br /><br />
+                    <b>i.e </b>  In the case of this level we are checking while the dog has not picked up the food then repeate the commands withing the block <br />
+                    <br />
+                    <b>Syntax:</b>  <br />
+                    &nbsp; while (condtion)  {left}  <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right}
+                </p>,
+                buttons: {
+                    right: [{
+                        text: 'Okay',
+                        action: function () {
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
     }
 
     return (
-        <div class="level2Contain">
+        <div class="level5Contain">
             <h2>Level 5:</h2>
 
             <div class="speech" >
-                Your aim for this level is to help the dog get to the food, you have to use the while command to limit 
+                Your aim for this level is to help the dog get to the food, you have to use the while command to limit
                 the amount of times you repeat the commands.<br /> Good luck! <br /> (To learn more about while statement click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
-                    <div class="containing">
-                        <p id="count" class="number">0/8</p>
-                    </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
 
@@ -576,9 +475,14 @@ const Level5Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
-                <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >While</button>
-                <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
+                <div class="buttons-wrapper5">
+                    <button class="seemingly-inner-button" onClick={whileInformation} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <button type='submit' class="button" onClick={addWhile} disabled={pressed === true}>While</button>
+                </div>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
 
 
