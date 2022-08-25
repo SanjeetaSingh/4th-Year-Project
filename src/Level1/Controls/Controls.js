@@ -28,10 +28,19 @@ const Controls = () => {
     let total = 0
 
 
+    /**
+     * The delay to get the dog walking a tile at a time
+     * 
+     * @param {*} time - the duration 
+     * @returns a promise
+     */
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
 
+    /**
+     * Sends an alert when user has passed the boundry of the board
+     */
     function boundry() {
         <div>
             {Popup.clearQueue()}
