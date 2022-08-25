@@ -5,14 +5,14 @@ import Check from '../../Level2/L2-Control/Check';
 
 import { Howl } from 'howler';
 
-const Level2Controls = () => {
+const Level4Controls = () => {
 
     const music = new Howl({
         src: ['assets/bark.mp3']
     });
 
     /**
-     * letiables
+     * Variables
      */
 
     //String that will show when button is clicked
@@ -35,17 +35,28 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
+    //To see if a command is used or not
     let used = false
 
+    //Checking if the dog has jumped
     let hasJumped = false
 
 
 
+    /**
+     * The delay to get the dog walking a tile at a time
+     * 
+     * @param {*} time - the duration 
+     * @returns a promise
+     */
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
 
 
+    /**
+     * Sends an alert when user has passed the boundry of the board
+     */
     function boundry() {
         <div>
             {Popup.clearQueue()}
@@ -113,6 +124,9 @@ const Level2Controls = () => {
         fallen()
     }
 
+    /**
+     * Sends an alert when a command must be used
+     */
     function commandUse() {
         if (pressed === true && used !== true) {
             <div>
@@ -280,7 +294,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.reload(true)
+                                        window.location.replace("/level5")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -315,6 +329,11 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * Check if the dog has fallen in any of the holes
+     * and notifying the user they have lost and restarting 
+     * the game if they did fall in any holes.
+     */
     function fallen() {
 
         let dog = document.getElementById('dog');
@@ -438,7 +457,10 @@ const Level2Controls = () => {
 
 
     /**
-     * Adds a string to an array to thatchange.style.visibility = 'visible'
+     * Adds a string to an array to that
+     * represents the movement right. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
      */
     function addRight() {
         let rights = "right"
@@ -539,6 +561,13 @@ const Level2Controls = () => {
         }
     }
 
+
+    /**
+     * The action that will take place when the 
+     * user uses the if statement command. Checks
+     * if the cat is one tile away from the dog
+     * and moves the dog accordingly for the animation.
+     */
     const ifAction = async () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
@@ -566,6 +595,11 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+    * The action that will take place when the 
+    * user uses the jump command and moves the
+    * dog accordingly for the animation.
+    */
     const jumpAction = async () => {
         let dog = document.getElementById('dog');
         let hole = document.getElementById('holeTwo')
@@ -582,7 +616,6 @@ const Level2Controls = () => {
 
             if (hasJumped === true) {
                 if (row === holeRow && col === 3) {
-                    // console.log("ah")
                     const change = document.getElementById('holeTwo')
                     await delay(800)
                     change.style.visibility = 'visible'
@@ -595,6 +628,12 @@ const Level2Controls = () => {
 
     }
 
+    /**
+     * Adds a string to an array to that
+     * represents the if statement. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addIf() {
         let ifS = "if"
 
@@ -628,6 +667,12 @@ const Level2Controls = () => {
 
     }
 
+    /**
+     * Adds a string to an array to that
+     * represents the else if statement. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function elseIf() {
         let elif = "elif"
 
@@ -660,6 +705,12 @@ const Level2Controls = () => {
     }
 
 
+    /**
+     * Adds a string to an array to that
+     * represents the bark command. This
+     * will be compared in the submit method
+     * this will make the dog bark when called. 
+     */
     function bark() {
         let barks = "barks"
 
@@ -689,6 +740,12 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * Adds a string to an array to that
+     * represents the movement jump. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function jump() {
         let jumping = "jump"
 
@@ -720,6 +777,10 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * This will be play the barking sound 
+     * when the bark command is used to move the cat
+     */
     const sound = async () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
@@ -735,7 +796,6 @@ const Level2Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
 
             if (row === catRow && col === 2) {
-                console.log("bark")
                 music.play()
                 await delay(800)
 
@@ -747,6 +807,10 @@ const Level2Controls = () => {
     const left = "{"
     const right = "}"
 
+    /**
+     * The information tab for the the user learn 
+     * more about the if statement definiton and syntax
+     */
     function ifInformation() {
         <div>
             {Popup.clearQueue()}
@@ -777,6 +841,10 @@ const Level2Controls = () => {
         </div>
     }
 
+    /**
+     * The if else statement information tabe that will help 
+     * the user learn more about the definiton and syntax
+     */
     function elseInformation() {
         <div>
             {Popup.clearQueue()}
@@ -881,4 +949,4 @@ const Level2Controls = () => {
     );
 }
 
-export default Level2Controls;
+export default Level4Controls;
