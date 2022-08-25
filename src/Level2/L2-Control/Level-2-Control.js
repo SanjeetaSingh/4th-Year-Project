@@ -12,7 +12,7 @@ const Level2Controls = () => {
     });
 
     /**
-     * letiables
+     * Variables
      */
 
     //String that will show when button is clicked
@@ -35,14 +35,24 @@ const Level2Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
+    
+    //To see if a command is used or not
     let used = false
 
 
-
+    /**
+     * The delay to get the dog walking a tile at a time
+     * 
+     * @param {*} time - the duration 
+     * @returns a promise
+     */
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
 
+    /**
+     * Sends an alert when user has passed the boundry of the board
+     */
     function boundry() {
         <div>
             {Popup.clearQueue()}
@@ -107,6 +117,9 @@ const Level2Controls = () => {
         fallen()
     }
 
+    /**
+     * Sends an alert when a command must be used
+     */
     function commandUse() {
         if (pressed === true && used !== true) {
             <div>
@@ -273,8 +286,7 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.reload(true)
-                                        //instead of reloading the page i will have to move to next level
+                                        window.location.replace("/level3")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -309,6 +321,11 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * Check if the dog has fallen in any of the holes
+     * and notifying the user they have lost and restarting 
+     * the game if they did fall in any holes.
+     */
     function fallen() {
 
         let dog = document.getElementById('dog');
@@ -495,6 +512,12 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * The action that will take place when the 
+     * user uses the if statement command. Checks
+     * if the cat is one tile away from the dog
+     * and moves the dog accordingly for the animation.
+     */
     const ifAction = async () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
@@ -522,6 +545,12 @@ const Level2Controls = () => {
         }
     }
 
+     /**
+     * Adds a string to an array to that
+     * represents the if statement. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addIf() {
         let ifS = "if"
 
@@ -556,6 +585,12 @@ const Level2Controls = () => {
     }
 
 
+    /**
+     * Adds a string to an array to that
+     * represents the bark command. This
+     * will be compared in the submit method
+     * this will make the dog bark when called. 
+     */
     function bark() {
         let barks = "barks"
 
@@ -585,6 +620,10 @@ const Level2Controls = () => {
         }
     }
 
+    /**
+     * This will be play the barking sound 
+     * when the bark command is used to move the cat
+     */
     const sound = async () => {
         let dog = document.getElementById('dog');
         let cat = document.getElementById('cat')
@@ -612,6 +651,10 @@ const Level2Controls = () => {
     const left = "{"
     const right = "}"
 
+    /**
+     * The information tab for the the user learn 
+     * more about the if statement definiton and syntax
+     */
     function information() {
         <div>
             {Popup.clearQueue()}

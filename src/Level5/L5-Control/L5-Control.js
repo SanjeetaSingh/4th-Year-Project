@@ -31,10 +31,19 @@ const Level5Controls = () => {
 
 
 
+    /**
+     * The delay to get the dog walking a tile at a time
+     * 
+     * @param {*} time - the duration 
+     * @returns a promise
+     */
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
 
+    /**
+     * Sends an alert when a command must be used
+     */
     function commandUse() {
         if (pressed === true && used !== true) {
             <div>
@@ -60,6 +69,9 @@ const Level5Controls = () => {
     }
 
 
+    /**
+     * Sends an alert when user has passed the boundry of the board
+     */
     function boundry() {
         <div>
             {Popup.clearQueue()}
@@ -249,7 +261,7 @@ const Level5Controls = () => {
                                 text: 'Okay',
                                 className: 'success',
                                 action: function () {
-                                    window.reload(true)
+                                    window.location.replace("/level5")
                                     Popup.clearQueue();
                                     Popup.close()
                                 }
@@ -378,6 +390,14 @@ const Level5Controls = () => {
         }
     }
 
+
+    /**
+     * Submits the sequence that the user
+     * has entered for the dog object to move.
+     * The dog object will move after submit is pressed
+     * and in a while loop. 
+     */
+
     const whileAction = async () => {
 
         value = "}"
@@ -442,6 +462,12 @@ const Level5Controls = () => {
         }
     }
 
+    /**
+     * Adds a string to an array to that
+     * represents the while statement command. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
     function addWhile() {
         used = true
 
@@ -475,6 +501,10 @@ const Level5Controls = () => {
     const right = "}"
 
 
+     /**
+     * The information tab for the the user learn 
+     * more about while loops definiton and syntax
+     */
     function whileInformation() {
         <div>
             {Popup.clearQueue()}
