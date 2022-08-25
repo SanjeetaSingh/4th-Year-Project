@@ -21,7 +21,7 @@ const Level5Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
-    
+
     //To check if a command has been used
     let used = false
 
@@ -60,6 +60,29 @@ const Level5Controls = () => {
     }
 
 
+    function boundry() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Oops past the boundry',
+                content: 'You have failed to get the dog to the goal!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
+
+
 
     /**
      * Moves the dog object one tile to the left
@@ -75,12 +98,21 @@ const Level5Controls = () => {
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
+
+        if (col < 0) {
+            boundry()
+        }
+
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (element !== null || newBox !== null) {
+            newBox.append(element);
+        }
 
         if (row === foodrow && col === foodcol) {
             reached = false
         }
+
         Check()
     }
 
@@ -99,8 +131,15 @@ const Level5Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
 
+
+        if (col > 4) {
+            boundry()
+        }
+
+        if (element !== null || newBox !== null) {
+            newBox.append(element);
+        }
 
         if (row === foodrow && col === foodcol) {
             reached = false
@@ -125,7 +164,14 @@ const Level5Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (row < 0) {
+            boundry()
+        }
+       
+        if (element !== null || newBox !== null) {
+            newBox.append(element);
+        }
 
         if (row === foodrow && col === foodcol) {
             reached = false
@@ -149,11 +195,20 @@ const Level5Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+
+        if (row > 4) {
+            boundry()
+        }
+
+        if (element !== null || newBox !== null) {
+            newBox.append(element);
+        }
 
         if (row === foodrow && col === foodcol) {
             reached = false
         }
+
 
         Check()
     }
@@ -400,7 +455,6 @@ const Level5Controls = () => {
         if (pressed !== true) {
             document.getElementById("action").innerHTML += item + "<br/>"
         }
-
     }
 
 
@@ -416,7 +470,7 @@ const Level5Controls = () => {
     }
 
 
-    
+
     const left = "{"
     const right = "}"
 
@@ -427,9 +481,9 @@ const Level5Controls = () => {
             {Popup.create({
                 title: 'While statement Information',
                 content: <p>
-                   In Java a while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition. 
-                   The while loop can be thought of as a repeating if statement and a while loop in Java comes into use when we need to 
-                   repeatedly execute a block of statements. 
+                    In Java a while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
+                    The while loop can be thought of as a repeating if statement and a while loop in Java comes into use when we need to
+                    repeatedly execute a block of statements.
                     <br /><br />
                     <b>i.e </b>  In the case of this level we are checking while the dog has not picked up the food then repeate the commands withing the block <br />
                     <br />
