@@ -2,28 +2,27 @@ import React from "react"
 import "../../Level2/L2-Board/Level-2-Board.css"
 import Panel from "../L5-Panel/L5-Panel"
 
-export const state = {
+const state = {
     board: Array(25).fill(null),
     player: null
 }
 
-export function renderBoxes () {
-    return state.board.map(
-        (box, index) =>
-            <div id="grid" className="box" data-row={parseInt(index / 5)} data-col={index % 5}>
-                {box}
-            </div>
-    )
-}
+const Level5Board = () => {                                                                                                                                                                                                                                                                                                   
 
-export const Level5Board = () => {
-
+    const renderBoxes = () => {
+        return state.board.map(
+            (box, index) =>
+                <div className="box" data-row={parseInt(index / 5)} data-col={index % 5}>
+                    {box}
+                </div>
+        )
+    }
 
     state.board[24] = <img class="dog" src="assets/dog.png" alt="d" id="dog"></img>
 
     state.board[6] = <img class="food" src="assets/food.png" alt="f" id="food"></img>
 
-
+    
     return (
         <div className="container" >
             <div className="boardcontainer2">
@@ -34,9 +33,11 @@ export const Level5Board = () => {
 
 
             <div className="bottom-panel">
-                <Panel />
+                <Panel/>
             </div>
 
         </div>
     )
 }
+
+export default Level5Board;

@@ -2,7 +2,6 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../L5-Control/L5-Check';
-import { state, renderBoxes } from '../L5-Board/L5-Board';
 
 const Level5Controls = () => {
 
