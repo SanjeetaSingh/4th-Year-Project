@@ -1,6 +1,6 @@
 import React from 'react'
 import Popup from 'react-popup';
-import '../../Level1/Controls/Control.css'
+import "../../Level1/Controls/Control.css"
 import Check from './Check';
 
 import { Howl } from 'howler';
@@ -41,6 +41,28 @@ const Level2Controls = () => {
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
+    }
+
+    function boundry() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Oops past the boundry',
+                content: 'You have failed to get the dog to the goal!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
     }
 
     /**
@@ -120,7 +142,16 @@ const Level2Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        
+
+        if (col < 0){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -137,7 +168,15 @@ const Level2Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        
+        if (col > 3){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -155,7 +194,16 @@ const Level2Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (row < 0){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
 
         Check()
         ifAction()
@@ -172,7 +220,15 @@ const Level2Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        
+        if (row > 3){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -217,7 +273,8 @@ const Level2Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level3")
+                                        window.location.reload(true)
+                                        //instead of reloading the page i will have to move to next level
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -309,9 +366,9 @@ const Level2Controls = () => {
      * that will move the dog object at the end
      */
     function addLeft() {
-        let lefts = "left"
+        let left = "left"
 
-        moves.push(lefts)
+        moves.push(left)
 
         value = "moveLeft();"
         list.push(value)
@@ -340,9 +397,9 @@ const Level2Controls = () => {
      * Adds a string to an array to thatchange.style.visibility = 'visible'
      */
     function addRight() {
-        let rights = "right"
+        let right = "right"
 
-        moves.push(rights)
+        moves.push(right)
 
         value = "moveRight();"
         list.push(value)

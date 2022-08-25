@@ -32,6 +32,29 @@ const Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    function boundry() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Oops past the boundry',
+                content: 'You have failed to get the dog to the goal!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
+
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -75,7 +98,15 @@ const Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (col < 0){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
     }
 
     /**
@@ -87,7 +118,15 @@ const Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (col > 6){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
     }
 
 
@@ -100,7 +139,16 @@ const Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        
+        if (row < 0){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
     }
 
     /**
@@ -112,7 +160,16 @@ const Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        
+        if (row > 6){
+            boundry()
+        }
+        
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
     }
 
 

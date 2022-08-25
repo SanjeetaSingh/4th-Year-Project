@@ -5,7 +5,7 @@ import Check from '../../Level2/L2-Control/Check';
 
 import { Howl } from 'howler';
 
-const Level4Controls = () => {
+const Level2Controls = () => {
 
     const music = new Howl({
         src: ['assets/bark.mp3']
@@ -43,6 +43,29 @@ const Level4Controls = () => {
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
+    }
+
+
+    function boundry() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Oops past the boundry',
+                content: 'You have failed to get the dog to the goal!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
     }
 
     /**
@@ -125,8 +148,15 @@ const Level4Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
 
+        if (col < 0) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
         Check()
         ifAction()
         jumpAction()
@@ -143,7 +173,15 @@ const Level4Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (col > 4) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -162,7 +200,15 @@ const Level4Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (row < 0) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -180,7 +226,15 @@ const Level4Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (row > 2) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         Check()
         ifAction()
@@ -226,7 +280,7 @@ const Level4Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level5")
+                                        window.reload(true)
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -827,4 +881,4 @@ const Level4Controls = () => {
     );
 }
 
-export default Level4Controls;
+export default Level2Controls;

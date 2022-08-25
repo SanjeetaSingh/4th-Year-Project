@@ -43,6 +43,29 @@ const Level3Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    function boundry() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Oops past the boundry',
+                content: 'You have failed to get the dog to the goal!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
+
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -121,15 +144,31 @@ const Level3Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
 
+        if (col < 0) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
 
         let dog2 = document.getElementById('dogTwo');
         const box2 = dog2.parentElement;
         const row2 = parseInt(box2.getAttribute('data-row'))
         const col2 = parseInt(box2.getAttribute('data-col')) - 1;
         const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
+
+        if (col2 < 0) {
+            boundry()
+        }
+
+        if (newBox2 !== null || dog2 !== null) {
+            newBox2.append(dog2);
+
+        }
+
 
         Check()
         ifAction()
@@ -146,14 +185,32 @@ const Level3Controls = () => {
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (col > 4) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
 
         let dog2 = document.getElementById('dogTwo');
         const box2 = dog2.parentElement;
         const row2 = parseInt(box2.getAttribute('data-row'))
         const col2 = parseInt(box2.getAttribute('data-col')) + 1;
         const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
+
+        if (col2 > 4) {
+            boundry()
+        }
+
+        if (newBox2 !== null || dog2 !== null) {
+            newBox2.append(dog2);
+
+        }
+
 
         Check()
         ifAction()
@@ -171,14 +228,29 @@ const Level3Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+
+        if (row < 0) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+        }
 
         let dog2 = document.getElementById('dogTwo');
         const box2 = dog2.parentElement;
         const row2 = parseInt(box2.getAttribute('data-row')) - 1
         const col2 = parseInt(box2.getAttribute('data-col'))
         const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
+
+
+        if (row2 < 0) {
+            boundry()
+        }
+
+        if (newBox2 !== null || dog2 !== null) {
+            newBox2.append(dog2);
+        }
 
         Check()
         ifAction()
@@ -195,14 +267,27 @@ const Level3Controls = () => {
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-        newBox.append(element);
+        if (row > 4) {
+            boundry()
+        }
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+        }
 
         let dog2 = document.getElementById('dogTwo');
         const box2 = dog2.parentElement;
         const row2 = parseInt(box2.getAttribute('data-row')) + 1
         const col2 = parseInt(box2.getAttribute('data-col'))
         const newBox2 = document.querySelector(`[data-row="${row2}"][data-col="${col2}"]`);
-        newBox2.append(dog2);
+
+        if (row2 > 4) {
+            boundry()
+        }
+
+        if (newBox2 !== null || dog2 !== null) {
+            newBox2.append(dog2);
+        }
 
         Check()
         ifAction()
@@ -247,7 +332,7 @@ const Level3Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level4")
+                                        window.location.reload(true)
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -312,7 +397,7 @@ const Level3Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level4")
+                                        window.location.reload(true)
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -742,7 +827,7 @@ const Level3Controls = () => {
             <h2>Level 3:</h2>
 
             <div class="speech" >
-                Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you 
+                Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you
                 will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
