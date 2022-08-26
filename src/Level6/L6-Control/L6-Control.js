@@ -1,9 +1,9 @@
 import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
-import Check from '../L5-Control/L5-Check';
+import Check from '../L6-Control/L6-Check';
 
-const Level5Controls = () => {
+const Level6Controls = () => {
 
     /**
      * Variables
@@ -21,10 +21,19 @@ const Level5Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
+    // Counting how many times a button has been selected
+    let count = 0
+    // Adding the count to an array
+    let commands = []
 
-    //To check if a command has been used
+    // To sum up the values of the commands array
+    let total = 0
+
+    //To see if a command is used or not
     let used = false
 
+    //Checking if the dog has jumped
+    let hasJumped = false
 
     //Checking if the dog has reached a location 
     let reached = false
@@ -126,6 +135,8 @@ const Level5Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
     /**
@@ -158,6 +169,8 @@ const Level5Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
 
@@ -180,7 +193,7 @@ const Level5Controls = () => {
         if (row < 0) {
             boundry()
         }
-       
+
         if (element !== null || newBox !== null) {
             newBox.append(element);
         }
@@ -190,6 +203,8 @@ const Level5Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
     /**
@@ -221,8 +236,9 @@ const Level5Controls = () => {
             reached = false
         }
 
-
         Check()
+        jumpAction()
+        fallen()
     }
 
 
@@ -294,7 +310,95 @@ const Level5Controls = () => {
         }
     }
 
+    /**
+        * Check if the dog has fallen in any of the holes
+        * and notifying the user they have lost and restarting 
+        * the game if they did fall in any holes.
+        */
+    function fallen() {
 
+        let dog = document.getElementById('dog');
+        let hole1 = document.getElementById('holeOne');
+        let hole2 = document.getElementById('holeTwo');
+
+
+        if (dog != null || hole1 != null || hole2 != null) {
+            const box = dog.parentElement;
+            let holeBox = hole1.parentElement;
+            let hole2Box = hole2.parentElement;
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const hole1Row = parseInt(holeBox.getAttribute('data-row'))
+            const hole1Col = parseInt(holeBox.getAttribute('data-col'))
+
+            const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
+            const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
+
+
+            if (row === hole1Row && col === hole1Col) {
+                document.getElementById('holeOne').src = "assets/dog.png"
+
+                const change = document.getElementById('dog');
+                change.style.visibility = 'hidden'
+
+                if (count <= 8) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Failed',
+                            content: 'The dog fell in one of the holes! Try again!',
+                            buttons: {
+                                right: [{
+                                    text: 'Try Again',
+                                    className: 'danger',
+                                    action: function () {
+                                        window.location.reload(true)
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+
+                    </div>
+                }
+            }
+
+            if (hasJumped !== true) {
+                if (row === hole2Row && col === hole2Col) {
+                    document.getElementById('holeTwo').src = "assets/dog.png"
+
+                    const change = document.getElementById('dog');
+                    change.style.visibility = 'hidden'
+
+                    if (count <= 8) {
+                        <div>
+                            {Popup.clearQueue()}
+                            {Popup.create({
+                                title: 'Failed',
+                                content: 'The dog fell in one of the holes! Try again!',
+                                buttons: {
+                                    right: [{
+                                        text: 'Try Again',
+                                        className: 'danger',
+                                        action: function () {
+                                            window.location.reload(true)
+                                            Popup.clearQueue();
+                                            Popup.close()
+                                        }
+                                    }]
+                                }
+                            }, true)}
+
+                        </div>
+                    }
+                }
+            }
+
+        }
+    }
 
     /**
      * Adds a string to an array to that
@@ -453,6 +557,10 @@ const Level5Controls = () => {
                         await delay(800);
 
                     }
+                    if (element === "if") {
+                        jumpAction()
+                    }
+                   
 
                 }
 
@@ -483,6 +591,114 @@ const Level5Controls = () => {
         }
     }
 
+    /**
+    * The action that will take place when the 
+    * user uses the jump command and moves the
+    * dog accordingly for the animation.
+    */
+    const jumpAction = async () => {
+        let dog = document.getElementById('dog');
+        let hole = document.getElementById('holeTwo')
+
+        if (dog != null || hole != null) {
+            const box = dog.parentElement;
+            let holeBox = hole.parentElement;
+
+
+            let row = parseInt(box.getAttribute('data-row'))
+            let col = parseInt(box.getAttribute('data-col'))
+
+            const holeRow = parseInt(holeBox.getAttribute('data-row'))
+
+            if (hasJumped === true) {
+                if (row === holeRow && col === 2) {
+                    const change = document.getElementById('holeTwo')
+                    // await delay(800)
+                    change.style.visibility = 'visible'
+                    document.getElementById('holeTwo').src = "assets/hole.png"
+
+                }
+            }
+
+        }
+
+    }
+
+    /**
+     * Adds a string to an array to that
+     * represents the if statement. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
+    function addIf() {
+        let ifS = "if"
+
+        moves.push(ifS)
+
+        used = true
+
+        value = "if (hole == true) {"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 8) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 8) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/8"
+                }
+            }
+        }
+
+    }
+
+
+    /**
+     * Adds a string to an array to that
+     * represents the movement jump. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
+    function jump() {
+        let jumping = "jump"
+
+        moves.push(jumping)
+
+        value = "dog.jump"
+        list.push(value)
+
+        hasJumped = true
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 8) {
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+                document.getElementById("action").innerHTML += "} <br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 8) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/8"
+                }
+            }
+        }
+    }
+
 
     /**
      * Added a clear button to remove the 
@@ -492,19 +708,55 @@ const Level5Controls = () => {
     function clearAll() {
         list = []
         moves = []
+        commands = []
+        count = 0
         document.getElementById("action").innerHTML = ""
+        document.getElementById("count").innerHTML = "/8"
     }
-
-
 
     const left = "{"
     const right = "}"
 
-
-     /**
+    /**
      * The information tab for the the user learn 
-     * more about while loops definiton and syntax
+     * more about the if statement definiton and syntax
      */
+    function ifInformation() {
+        <div>
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'If statement Information',
+                content: <p>
+                    The Java if statement is the most simple decision-making statement. It is used to
+                    decide whether a certain statement or block of statements will be executed or not. <br /><br />
+                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
+                    In the case of this level we are checking if the cat is present at all the make the dog bark<br />
+                    <br />
+                    <b>Syntax:</b>  <br />
+                    &nbsp; if (condtion)  {left}  <br />
+                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
+                    &nbsp;&nbsp;&nbsp;{right}
+                </p>,
+                buttons: {
+                    right: [{
+                        text: 'Okay',
+                        action: function () {
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+
+        </div>
+    }
+
+
+
+    /**
+    * The information tab for the the user learn 
+    * more about while loops definiton and syntax
+    */
     function whileInformation() {
         <div>
             {Popup.clearQueue()}
@@ -538,7 +790,7 @@ const Level5Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 5:</h2>
+            <h2>Level 6:</h2>
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
@@ -565,6 +817,16 @@ const Level5Controls = () => {
                     </button>
                     <button type='submit' class="button" onClick={addWhile} disabled={pressed === true}>While</button>
                 </div>
+                <div class="buttons-wrapper">
+                    <button class="seemingly-inner-button" onClick={ifInformation} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <button class="button" onClick={addIf} disabled={pressed === true}>
+                        If Statement
+                    </button>
+                </div>
+               
+                <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
@@ -574,4 +836,4 @@ const Level5Controls = () => {
     );
 }
 
-export default Level5Controls;
+export default Level6Controls;
