@@ -47,6 +47,13 @@
     width: 450px;
 }
 
+
+.board6{
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
