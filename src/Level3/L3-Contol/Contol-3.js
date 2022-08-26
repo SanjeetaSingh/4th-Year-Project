@@ -2,6 +2,9 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../../Level2/L2-Control/Check';
+import ifInformation from '../../Informations/ifInformation'
+import boundry from '../../Checks/boundry'
+import commandUse from '../../Checks/commandIfUse';
 
 import { Howl } from 'howler';
 
@@ -49,33 +52,6 @@ const Level3Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
-
-    /**
-     * Sends an alert when user has passed the boundry of the board
-     */
-    function boundry() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Oops past the boundry',
-                content: 'You have failed to get the dog to the goal!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
-
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -114,39 +90,12 @@ const Level3Controls = () => {
         }
         statement()
         secondFoodAte()
-        commandUse()
+        if (pressed === true && used !== true) {
+            commandUse()
+        }
         Check()
         fallen()
     }
-
-    /**
-     * Sends an alert when a command must be used
-     */
-    function commandUse() {
-        if (pressed === true && used !== true) {
-            <div>
-                {Popup.clearQueue()}
-                {Popup.create({
-                    title: 'No If Statement used!',
-                    content: 'You failed you have to use if statement for this level!',
-                    buttons: {
-                        right: [{
-                            text: 'Try Again',
-                            className: 'danger',
-                            action: function () {
-                                window.location.reload(true)
-                                Popup.clearQueue();
-                                Popup.close()
-                            }
-                        }]
-                    }
-                }, true)}
-
-            </div>
-        }
-    }
-
-
 
     /**
      * Moves the dog object one tile to the left
@@ -819,43 +768,7 @@ const Level3Controls = () => {
         }
     }
 
-    const left = "{"
-    const right = "}"
 
-    
-    /**
-     * The information tab for the the user learn 
-     * more about the if statement definiton and syntax
-     */
-    function information() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'If statement Information',
-                content: <p>
-                    The Java if statement is the most simple decision-making statement. It is used to
-                    decide whether a certain statement or block of statements will be executed or not. <br /><br />
-                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
-                    In the case of this level we are checking if the cat is present at all the make the dog bark. <br />
-                    <br />
-                    <b>Syntax:</b>  <br />
-                    &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right}
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 
@@ -897,7 +810,7 @@ const Level3Controls = () => {
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <div class="buttons-wrapper">
-                    <button class="seemingly-inner-button" onClick={information} disabled={pressed === true}>
+                    <button class="seemingly-inner-button" onClick={ifInformation} disabled={pressed === true}>
                         <i class="fa fa-info" ></i>
                     </button>
                     <button class="button" onClick={addIf} disabled={pressed === true}>

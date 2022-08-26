@@ -2,6 +2,10 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../L6-Control/L6-Check';
+import ifInformation from '../../Informations/ifInformation';
+import whileInformation from '../../Informations/whileInformation';
+import boundry from '../../Checks/boundry';
+import commandUse from '../../Checks/commandIfUse';
 
 const Level6Controls = () => {
 
@@ -47,61 +51,6 @@ const Level6Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
-
-    /**
-     * Sends an alert when a command must be used
-     */
-    function commandUse() {
-        if (pressed === true && used !== true) {
-            <div>
-                {Popup.clearQueue()}
-                {Popup.create({
-                    title: 'No While Statement used!',
-                    content: 'You failed you have to use while statement for this level!',
-                    buttons: {
-                        right: [{
-                            text: 'Try Again',
-                            className: 'danger',
-                            action: function () {
-                                window.location.reload(true)
-                                Popup.clearQueue();
-                                Popup.close()
-                            }
-                        }]
-                    }
-                }, true)}
-
-            </div>
-        }
-    }
-
-
-    /**
-     * Sends an alert when user has passed the boundry of the board
-     */
-    function boundry() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Oops past the boundry',
-                content: 'You have failed to get the dog to the goal!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
-
 
     /**
      * Moves the dog object one tile to the left
@@ -528,7 +477,9 @@ const Level6Controls = () => {
 
             }
             statement()
-            commandUse()
+            if (pressed === true && used !== true) {
+                commandUse()
+            }
         }
     }
 
@@ -676,79 +627,6 @@ const Level6Controls = () => {
         document.getElementById("count").innerHTML = "/8"
     }
 
-    const left = "{"
-    const right = "}"
-
-    /**
-     * The information tab for the the user learn 
-     * more about the if statement definiton and syntax
-     */
-    function ifInformation() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'If statement Information',
-                content: <p>
-                    The Java if statement is the most simple decision-making statement. It is used to
-                    decide whether a certain statement or block of statements will be executed or not. <br /><br />
-                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
-                    In the case of this level we are checking if the cat is present at all the make the dog bark<br />
-                    <br />
-                    <b>Syntax:</b>  <br />
-                    &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right}
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
-
-
-    /**
-    * The information tab for the the user learn 
-    * more about while loops definiton and syntax
-    */
-    function whileInformation() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'While statement Information',
-                content: <p>
-                    In Java a while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
-                    The while loop can be thought of as a repeating if statement and a while loop in Java comes into use when we need to
-                    repeatedly execute a block of statements.
-                    <br /><br />
-                    <b>i.e </b>  In the case of this level we are checking while the dog has not picked up the food then repeate the commands withing the block <br />
-                    <br />
-                    <b>Syntax:</b>  <br />
-                    &nbsp; while (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right}
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
 
     return (
         <div class="level5Contain">
