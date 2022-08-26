@@ -3,14 +3,7 @@ import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../L6-Control/L6-Check';
 
-
-import { Howl } from 'howler';
-
 const Level6Controls = () => {
-
-    const music = new Howl({
-        src: ['assets/bark.mp3']
-    });
 
     /**
      * Variables
@@ -142,6 +135,8 @@ const Level6Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
     /**
@@ -174,6 +169,8 @@ const Level6Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
 
@@ -206,6 +203,8 @@ const Level6Controls = () => {
         }
 
         Check()
+        jumpAction()
+        fallen()
     }
 
     /**
@@ -237,8 +236,9 @@ const Level6Controls = () => {
             reached = false
         }
 
-
         Check()
+        jumpAction()
+        fallen()
     }
 
 
@@ -420,9 +420,6 @@ const Level6Controls = () => {
         if (pressed !== true) {
             document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
-        ifAction()
-        jumpAction()
-        fallen()
     }
 
 
@@ -447,9 +444,6 @@ const Level6Controls = () => {
         if (pressed !== true) {
             document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
-        ifAction()
-        jumpAction()
-        fallen()
     }
 
 
@@ -473,9 +467,6 @@ const Level6Controls = () => {
         if (pressed !== true) {
             document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
         }
-        ifAction()
-        jumpAction()
-        fallen()
     }
 
 
@@ -501,9 +492,6 @@ const Level6Controls = () => {
             document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
 
         }
-        ifAction()
-        jumpAction()
-        fallen()
     }
 
 
@@ -603,40 +591,6 @@ const Level6Controls = () => {
         }
     }
 
-
-    /**
-     * The action that will take place when the 
-     * user uses the if statement command. Checks
-     * if the cat is one tile away from the dog
-     * and moves the dog accordingly for the animation.
-     */
-    const ifAction = async () => {
-        let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
-
-        if (dog != null || cat != null) {
-            const box = dog.parentElement;
-            let catBox = cat.parentElement;
-
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-
-            const catRow = parseInt(catBox.getAttribute('data-row'))
-
-            if (row === catRow && col === 2) {
-                const change = document.getElementById('cat')
-                await delay(800)
-                change.style.visibility = 'hidden'
-                await delay(200)
-                change.style.visibility = 'visible'
-                document.getElementById('cat').src = "assets/dog.png"
-                await delay(700)
-                change.style.visibility = 'hidden'
-            }
-        }
-    }
-
     /**
     * The action that will take place when the 
     * user uses the jump command and moves the
@@ -657,7 +611,7 @@ const Level6Controls = () => {
             const holeRow = parseInt(holeBox.getAttribute('data-row'))
 
             if (hasJumped === true) {
-                if (row === holeRow && col === 1) {
+                if (row === holeRow && col === 2) {
                     const change = document.getElementById('holeTwo')
                     // await delay(800)
                     change.style.visibility = 'visible'
@@ -703,8 +657,6 @@ const Level6Controls = () => {
                     document.getElementById("count").innerHTML = total + "/8"
                 }
             }
-
-            ifAction()
         }
 
     }
