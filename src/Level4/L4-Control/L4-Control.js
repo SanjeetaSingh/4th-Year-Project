@@ -2,6 +2,10 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../../Level2/L2-Control/Check';
+import ifInformation from '../../Informations/ifInformation';
+import elseInformation from '../../Informations/elseInformation';
+import boundry from '../../Checks/boundry'
+import commandUse from '../../Checks/commandIfUse';
 
 import { Howl } from 'howler';
 
@@ -53,32 +57,6 @@ const Level4Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
-
-    /**
-     * Sends an alert when user has passed the boundry of the board
-     */
-    function boundry() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Oops past the boundry',
-                content: 'You have failed to get the dog to the goal!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -119,39 +97,12 @@ const Level4Controls = () => {
             }
         }
         statement()
-        commandUse()
+        if (pressed === true && used !== true) {
+            commandUse()
+        }
         Check()
         fallen()
     }
-
-    /**
-     * Sends an alert when a command must be used
-     */
-    function commandUse() {
-        if (pressed === true && used !== true) {
-            <div>
-                {Popup.clearQueue()}
-                {Popup.create({
-                    title: 'No If Statement used!',
-                    content: 'You failed you have to use if statement for this level!',
-                    buttons: {
-                        right: [{
-                            text: 'Try Again',
-                            className: 'danger',
-                            action: function () {
-                                window.location.reload(true)
-                                Popup.clearQueue();
-                                Popup.close()
-                            }
-                        }]
-                    }
-                }, true)}
-
-            </div>
-        }
-    }
-
-
 
     /**
      * Moves the dog object one tile to the left
@@ -804,84 +755,6 @@ const Level4Controls = () => {
         }
     }
 
-    const left = "{"
-    const right = "}"
-
-    /**
-     * The information tab for the the user learn 
-     * more about the if statement definiton and syntax
-     */
-    function ifInformation() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'If statement Information',
-                content: <p>
-                    The Java if statement is the most simple decision-making statement. It is used to
-                    decide whether a certain statement or block of statements will be executed or not. <br /><br />
-                    <b>i.e </b> If a certain condition is true then a block of statement is executed otherwise not. <br /><br />
-                    In the case of this level we are checking if the cat is present at all the make the dog bark<br />
-                    <br />
-                    <b>Syntax:</b>  <br />
-                    &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right}
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
-    /**
-     * The if else statement information tabe that will help 
-     * the user learn more about the definiton and syntax
-     */
-    function elseInformation() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Else statement Information',
-                content: <p>
-                    The Java else block is used to specify a new condition to test if the first condition is false. <br /><br />
-                    <b>i.e </b> If a previour condition is not true then an alternative statement is executed. <br /><br />
-                    In the case of this level we are checking if the cat is present then back else if there is a hole present then make the dog jump. <br />
-                    <br />
-                    <b>Syntax for else:</b>  <br />
-                    &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right} else {left} <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right} <br /><br />
-
-                    <b>Syntax for else if:</b>  <br />
-                    &nbsp; if (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right} else if (condition) {left} <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;other block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right} <br /><br />
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
 
     /**
      * Added a clear button to remove the 

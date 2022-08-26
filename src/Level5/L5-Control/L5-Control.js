@@ -2,6 +2,9 @@ import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
 import Check from '../L5-Control/L5-Check';
+import whileInformation from '../../Informations/whileInformation';
+import boundry from '../../Checks/boundry';
+import commandUse from '../../Checks/commandWhileUse';
 
 const Level5Controls = () => {
 
@@ -40,60 +43,6 @@ const Level5Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
-
-    /**
-     * Sends an alert when a command must be used
-     */
-    function commandUse() {
-        if (pressed === true && used !== true) {
-            <div>
-                {Popup.clearQueue()}
-                {Popup.create({
-                    title: 'No While Statement used!',
-                    content: 'You failed you have to use while statement for this level!',
-                    buttons: {
-                        right: [{
-                            text: 'Try Again',
-                            className: 'danger',
-                            action: function () {
-                                window.location.reload(true)
-                                Popup.clearQueue();
-                                Popup.close()
-                            }
-                        }]
-                    }
-                }, true)}
-
-            </div>
-        }
-    }
-
-
-    /**
-     * Sends an alert when user has passed the boundry of the board
-     */
-    function boundry() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Oops past the boundry',
-                content: 'You have failed to get the dog to the goal!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
 
 
     /**
@@ -180,7 +129,7 @@ const Level5Controls = () => {
         if (row < 0) {
             boundry()
         }
-       
+
         if (element !== null || newBox !== null) {
             newBox.append(element);
         }
@@ -458,7 +407,9 @@ const Level5Controls = () => {
 
             }
             statement()
-            commandUse()
+            if (pressed === true && used !== true) {
+                commandUse()
+            }
         }
     }
 
@@ -499,42 +450,6 @@ const Level5Controls = () => {
 
     const left = "{"
     const right = "}"
-
-
-     /**
-     * The information tab for the the user learn 
-     * more about while loops definiton and syntax
-     */
-    function whileInformation() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'While statement Information',
-                content: <p>
-                    In Java a while loop is a control flow statement that allows code to be executed repeatedly based on a given Boolean condition.
-                    The while loop can be thought of as a repeating if statement and a while loop in Java comes into use when we need to
-                    repeatedly execute a block of statements.
-                    <br /><br />
-                    <b>i.e </b>  In the case of this level we are checking while the dog has not picked up the food then repeate the commands withing the block <br />
-                    <br />
-                    <b>Syntax:</b>  <br />
-                    &nbsp; while (condtion)  {left}  <br />
-                    <p class="statecolour"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;block of statement</p>
-                    &nbsp;&nbsp;&nbsp;{right}
-                </p>,
-                buttons: {
-                    right: [{
-                        text: 'Okay',
-                        action: function () {
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
 
     return (
         <div class="level5Contain">

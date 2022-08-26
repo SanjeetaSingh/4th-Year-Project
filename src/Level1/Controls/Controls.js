@@ -1,6 +1,8 @@
 import React from 'react'
 import Popup from 'react-popup';
 import "./Control.css"
+import boundry from '../../Checks/boundry'
+
 const Controls = () => {
 
     /**
@@ -37,32 +39,6 @@ const Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
-
-    /**
-     * Sends an alert when user has passed the boundry of the board
-     */
-    function boundry() {
-        <div>
-            {Popup.clearQueue()}
-            {Popup.create({
-                title: 'Oops past the boundry',
-                content: 'You have failed to get the dog to the goal!',
-                buttons: {
-                    right: [{
-                        text: 'Try Again',
-                        className: 'danger',
-                        action: function () {
-                            window.location.reload(true)
-                            Popup.clearQueue();
-                            Popup.close()
-                        }
-                    }]
-                }
-            }, true)}
-
-        </div>
-    }
-
 
     /**
      * Submits the sequence that the user
@@ -102,7 +78,7 @@ const Controls = () => {
      * Moves the dog object one tile to the left
      */
     function moveLeft() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
@@ -122,7 +98,7 @@ const Controls = () => {
      * Move the dog object one tile to the right
      */
     function moveRight() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
@@ -143,7 +119,7 @@ const Controls = () => {
      * Moves the dog object one tile up
      */
     function moveUp() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -164,7 +140,7 @@ const Controls = () => {
      * Moves the dog object one tile down
      */
     function moveDown() {
-        var element = document.getElementById('dog');
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -189,8 +165,8 @@ const Controls = () => {
      */
     function statement() {
 
-        var dog = document.getElementById('dog');
-        var food = document.getElementById('food');
+        let dog = document.getElementById('dog');
+        let food = document.getElementById('food');
 
         if (dog != null || food != null) {
             const box = dog.parentElement;
