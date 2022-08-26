@@ -38,8 +38,6 @@ const Level6Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
-
-
     /**
      * The delay to get the dog walking a tile at a time
      * 
@@ -156,7 +154,7 @@ const Level6Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (col > 4) {
+        if (col > 3) {
             boundry()
         }
 
@@ -224,7 +222,7 @@ const Level6Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (row > 4) {
+        if (row > 2) {
             boundry()
         }
 
@@ -318,56 +316,20 @@ const Level6Controls = () => {
     function fallen() {
 
         let dog = document.getElementById('dog');
-        let hole1 = document.getElementById('holeOne');
-        let hole2 = document.getElementById('holeTwo');
+        let hole = document.getElementById('holeTwo');
 
 
-        if (dog != null || hole1 != null || hole2 != null) {
+        if (dog != null || hole != null) {
             const box = dog.parentElement;
-            let holeBox = hole1.parentElement;
-            let hole2Box = hole2.parentElement;
+            let hole2Box = hole.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
-
-            const hole1Row = parseInt(holeBox.getAttribute('data-row'))
-            const hole1Col = parseInt(holeBox.getAttribute('data-col'))
-
-            const hole2Row = parseInt(hole2Box.getAttribute('data-row'))
-            const hole2Col = parseInt(hole2Box.getAttribute('data-col'))
-
-
-            if (row === hole1Row && col === hole1Col) {
-                document.getElementById('holeOne').src = "assets/dog.png"
-
-                const change = document.getElementById('dog');
-                change.style.visibility = 'hidden'
-
-                if (count <= 8) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Failed',
-                            content: 'The dog fell in one of the holes! Try again!',
-                            buttons: {
-                                right: [{
-                                    text: 'Try Again',
-                                    className: 'danger',
-                                    action: function () {
-                                        window.location.reload(true)
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-
-                    </div>
-                }
-            }
+            const holeRow = parseInt(hole2Box.getAttribute('data-row'))
+            const holeCol = parseInt(hole2Box.getAttribute('data-col'))
 
             if (hasJumped !== true) {
-                if (row === hole2Row && col === hole2Col) {
+                if (row === holeRow && col === holeCol) {
                     document.getElementById('holeTwo').src = "assets/dog.png"
 
                     const change = document.getElementById('dog');
@@ -529,6 +491,7 @@ const Level6Controls = () => {
             const foodcol = parseInt(foodbox.getAttribute('data-col'))
 
 
+
             if (row !== foodrow && col !== foodcol) {
                 reached = true;
             }
@@ -537,7 +500,6 @@ const Level6Controls = () => {
 
                 let items = moves.values();
                 pressed = true
-
                 // Iterating through all the moves in the array to know which move to do
                 for (let element of items) {
                     if (element === "left") {
@@ -560,7 +522,7 @@ const Level6Controls = () => {
                     if (element === "if") {
                         jumpAction()
                     }
-                   
+
 
                 }
 
@@ -611,11 +573,11 @@ const Level6Controls = () => {
             const holeRow = parseInt(holeBox.getAttribute('data-row'))
 
             if (hasJumped === true) {
-                if (row === holeRow && col === 2) {
-                    const change = document.getElementById('holeTwo')
-                    // await delay(800)
-                    change.style.visibility = 'visible'
-                    document.getElementById('holeTwo').src = "assets/hole.png"
+                if (row === holeRow && col === 1) {
+
+                    let jumpCol = parseInt(box.getAttribute('data-col')) + 1
+                    const newBox = document.querySelector(`[data-row="${row}"][data-col="${jumpCol}"]`);
+                    newBox.append(dog)
 
                 }
             }
@@ -794,7 +756,7 @@ const Level6Controls = () => {
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
-                the amount of times you repeat the commands.<br /> Good luck! <br /> (To learn more about while statement click the i below)
+                the amount of times you repeat the commands. You have use the if statement to jump the hole.<br /> Good luck! <br /> (To learn more about while and if statement click the i below)
             </div>
             <div class="borderPanel">
 
@@ -825,7 +787,7 @@ const Level6Controls = () => {
                         If Statement
                     </button>
                 </div>
-               
+
                 <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
