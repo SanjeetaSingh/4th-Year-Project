@@ -224,7 +224,7 @@ const Level6Controls = () => {
                                 text: 'Okay',
                                 className: 'success',
                                 action: function () {
-                                    window.location.replace("/level6")
+                                    window.location.replace("/level7")
                                     Popup.clearQueue();
                                     Popup.close()
                                 }
@@ -657,7 +657,7 @@ const Level6Controls = () => {
                     </button>
                     <button type='submit' class="button" onClick={addWhile} disabled={pressed === true}>While</button>
                 </div>
-                <div class="buttons-wrapper">
+                <div class="buttons-wrapper5">
                     <button class="seemingly-inner-button" onClick={ifInformation} disabled={pressed === true}>
                         <i class="fa fa-info" ></i>
                     </button>
