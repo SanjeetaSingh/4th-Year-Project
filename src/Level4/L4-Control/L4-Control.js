@@ -1,6 +1,6 @@
 import React from 'react'
 import Popup from 'react-popup';
-import '../../Level1/Controls/Control.css'
+import "../../Style/Control.css"
 import Check from '../../Level2/L2-Control/Check';
 import ifInformation from '../../Informations/ifInformation';
 import elseInformation from '../../Informations/elseInformation';

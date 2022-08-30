@@ -1,5 +1,5 @@
 import React from 'react'
-import "./Level-2-Panel.css"
+import "../../Style/Panel.css"
 import Controls from "../L2-Control/Level-2-Control"
 
 const Panel = () => {

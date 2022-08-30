@@ -1,5 +1,5 @@
 import React from 'react'
-import "./BottomPanel.css"
+import "../../Style/Panel.css"
 import Controls from '../Controls/Controls';
 
 const BottomPanel = () => {

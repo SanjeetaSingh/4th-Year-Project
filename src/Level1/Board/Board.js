@@ -1,5 +1,5 @@
 import React from "react"
-import "./Board.css"
+import "../../Style/Board.css"
 import BottomPanel from "../Panel/BottomPanel"
 
 const state = {
