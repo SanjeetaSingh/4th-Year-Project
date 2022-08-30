@@ -1,13 +1,19 @@
 import React from 'react'
 import Popup from 'react-popup';
 import '../../Level1/Controls/Control.css'
-import Check from '../L6-Control/L6-Check';
+import Check from '../L7-Control/L7-Check';
 import ifInformation from '../../Informations/ifInformation';
 import whileInformation from '../../Informations/whileInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
-const Level6Controls = () => {
+import { Howl } from 'howler';
+
+const Level7Controls = () => {
+
+    const music = new Howl({
+        src: ['assets/bark.mp3']
+    });
 
     /**
      * Variables
@@ -25,8 +31,7 @@ const Level6Controls = () => {
     // Checking if the submit button is pressed
     let pressed = false
 
-    // Counting how many times a button has been selected
-    let count = 0
+
     // Adding the count to an array
     let commands = []
 
@@ -82,8 +87,8 @@ const Level6Controls = () => {
         }
 
         Check()
-        jumpAction()
-        fallen()
+        ifAction()
+        sound()
     }
 
     /**
@@ -116,8 +121,9 @@ const Level6Controls = () => {
         }
 
         Check()
-        jumpAction()
-        fallen()
+        ifAction()
+        sound()
+
     }
 
 
@@ -150,8 +156,8 @@ const Level6Controls = () => {
         }
 
         Check()
-        jumpAction()
-        fallen()
+        ifAction()
+        sound()
     }
 
     /**
@@ -184,8 +190,8 @@ const Level6Controls = () => {
         }
 
         Check()
-        jumpAction()
-        fallen()
+        ifAction()
+        sound()
     }
 
 
@@ -224,7 +230,7 @@ const Level6Controls = () => {
                                 text: 'Okay',
                                 className: 'success',
                                 action: function () {
-                                    window.location.replace("/level7")
+                                    window.location.replace("/level6")
                                     Popup.clearQueue();
                                     Popup.close()
                                 }
@@ -257,59 +263,6 @@ const Level6Controls = () => {
         }
     }
 
-    /**
-        * Check if the dog has fallen in any of the holes
-        * and notifying the user they have lost and restarting 
-        * the game if they did fall in any holes.
-        */
-    function fallen() {
-
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('holeTwo');
-
-
-        if (dog != null || hole != null) {
-            const box = dog.parentElement;
-            let hole2Box = hole.parentElement;
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-            const holeRow = parseInt(hole2Box.getAttribute('data-row'))
-            const holeCol = parseInt(hole2Box.getAttribute('data-col'))
-
-            if (hasJumped !== true) {
-                if (row === holeRow && col === holeCol) {
-                    document.getElementById('holeTwo').src = "assets/dog.png"
-
-                    const change = document.getElementById('dog');
-                    change.style.visibility = 'hidden'
-
-                    if (count <= 8) {
-                        <div>
-                            {Popup.clearQueue()}
-                            {Popup.create({
-                                title: 'Failed',
-                                content: 'The dog fell in one of the holes! Try again!',
-                                buttons: {
-                                    right: [{
-                                        text: 'Try Again',
-                                        className: 'danger',
-                                        action: function () {
-                                            window.location.reload(true)
-                                            Popup.clearQueue();
-                                            Popup.close()
-                                        }
-                                    }]
-                                }
-                            }, true)}
-
-                        </div>
-                    }
-                }
-            }
-
-        }
-    }
 
     /**
      * Adds a string to an array to that
@@ -469,7 +422,11 @@ const Level6Controls = () => {
 
                     }
                     if (element === "if") {
-                        jumpAction()
+                        await delay(100);
+                        ifAction()
+                    }
+                    if (element === "barks") {
+                        sound()
                     }
 
 
@@ -505,36 +462,122 @@ const Level6Controls = () => {
     }
 
     /**
-    * The action that will take place when the 
-    * user uses the jump command and moves the
-    * dog accordingly for the animation.
-    */
-    const jumpAction = async () => {
+     * The action that will take place when the 
+     * user uses the if statement command. Checks
+     * if the cat is one tile away from the dog
+     * and moves the dog accordingly for the animation.
+     */
+    const ifAction = async () => {
         let dog = document.getElementById('dog');
-        let hole = document.getElementById('holeTwo')
+        let cat = document.getElementById('cat');
+        let catTwo = document.getElementById('catTwo');
+        let catThree = document.getElementById('catThree');
 
-        if (dog != null || hole != null) {
+        if (dog != null || cat != null || catTwo != null || catThree !== null) {
             const box = dog.parentElement;
-            let holeBox = hole.parentElement;
+            let catBox = cat.parentElement;
+            let catTwoBox = catTwo.parentElement;
+            let catThreeBox = catThree.parentElement;
 
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
 
-            let row = parseInt(box.getAttribute('data-row'))
-            let col = parseInt(box.getAttribute('data-col'))
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+            const catTwoRow = parseInt(catTwoBox.getAttribute('data-row'))
+            const catThreeRow = parseInt(catThreeBox.getAttribute('data-row'))
 
-            const holeRow = parseInt(holeBox.getAttribute('data-row'))
-
-            if (hasJumped === true) {
-                if (row === holeRow && col === 1) {
-
-                    let jumpCol = parseInt(box.getAttribute('data-col')) + 1
-                    const newBox = document.querySelector(`[data-row="${row}"][data-col="${jumpCol}"]`);
-                    newBox.append(dog)
-
-                }
+            if (row === catRow && col === 1) {
+                const change = document.getElementById('cat')
+                await delay(400)
+                document.getElementById('cat').src = "assets/dog.png"
+                await delay(200)
+                change.style.visibility = 'hidden'
             }
+            else if (row === catTwoRow && col === 0) {
+                const change = document.getElementById('catTwo')
+                const a = document.getElementById('dog')
+                a.style.visibility = 'hidden'
+                await delay(400)
+                document.getElementById('catTwo').src = "assets/dog.png"
 
+                await delay(200)
+                change.style.visibility = 'hidden'
+                await delay(200)
+                a.style.visibility = 'visible'
+            }
+            else if (row === catThreeRow && col === 2) {
+                const change = document.getElementById('catThree')
+                const a = document.getElementById('dog')
+                a.style.visibility = 'hidden'
+                await delay(400)
+                document.getElementById('catThree').src = "assets/dog.png"
+                await delay(200)
+                change.style.visibility = 'hidden'
+            }
         }
+    }
 
+    /**
+    * Adds a string to an array to that
+    * represents the bark command. This
+    * will be compared in the submit method
+    * this will make the dog bark when called. 
+    */
+    function bark() {
+        let barks = "barks"
+
+        moves.push(barks)
+
+        value = "dog.bark"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+            document.getElementById("action").innerHTML += "} <br/>"
+        }
+    }
+
+    /**
+    * This will be play the barking sound 
+    * when the bark command is used to move the cat
+    */
+    const sound = async () => {
+        let dog = document.getElementById('dog');
+        let cat = document.getElementById('cat')
+        let catTwo = document.getElementById('catTwo')
+        let catThree = document.getElementById('catThree')
+
+        if (dog != null || cat != null || catTwo !== null || catThree !== null) {
+            const box = dog.parentElement;
+            let catBox = cat.parentElement;
+            let catTwoBox = catTwo.parentElement;
+            let catThreeBox = catThree.parentElement;
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const catRow = parseInt(catBox.getAttribute('data-row'))
+            const catTwoRow = parseInt(catTwoBox.getAttribute('data-row'))
+            const catThreeRow = parseInt(catThreeBox.getAttribute('data-row'))
+
+            if (row === catRow && col === 1) {
+                music.play()
+                await delay(800)
+
+            }
+            if (row === catTwoRow && col === 0) {
+                music.play()
+                await delay(800)
+            }
+            if (row === catThreeRow && col === 2) {
+                music.play()
+                await delay(800)
+            }
+        }
     }
 
     /**
@@ -550,7 +593,7 @@ const Level6Controls = () => {
 
         used = true
 
-        value = "if (hole == true) {"
+        value = "if (cat == true) {"
         list.push(value)
 
         //Getting the last element of the list
@@ -558,60 +601,10 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
+            document.getElementById("action").innerHTML += item + "<br/>"
         }
 
     }
-
-
-    /**
-     * Adds a string to an array to that
-     * represents the movement jump. This
-     * will be compared in the submit method
-     * that will move the dog object at the end
-     */
-    function jump() {
-        let jumping = "jump"
-
-        moves.push(jumping)
-
-        value = "dog.jump"
-        list.push(value)
-
-        hasJumped = true
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 8) {
-                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
-                document.getElementById("action").innerHTML += "} <br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 8) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/8"
-                }
-            }
-        }
-    }
-
 
     /**
      * Added a clear button to remove the 
@@ -622,19 +615,17 @@ const Level6Controls = () => {
         list = []
         moves = []
         commands = []
-        count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/8"
     }
 
 
     return (
         <div class="level5Contain">
-            <h2>Level 6:</h2>
+            <h2>Level 7:</h2>
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
-                the amount of times you repeat the commands. You have use the if statement to jump the hole.<br /> Good luck! <br /> (To learn more about while and if statement click the i below)
+                the amount of times you repeat the commands. You have use the if statement to avoid the cats and reach the food.<br /> Good luck! <br /> (To learn more about while and if statement click the i below)
             </div>
             <div class="borderPanel">
 
@@ -666,7 +657,7 @@ const Level6Controls = () => {
                     </button>
                 </div>
 
-                <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
+                <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
@@ -676,4 +667,4 @@ const Level6Controls = () => {
     );
 }
 
-export default Level6Controls;
+export default Level7Controls;
