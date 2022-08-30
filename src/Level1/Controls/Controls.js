@@ -1,6 +1,6 @@
 import React from 'react'
 import Popup from 'react-popup';
-import "./Control.css"
+import "../../Style/Control.css"
 import boundry from '../../Checks/boundry'
 
 const Controls = () => {

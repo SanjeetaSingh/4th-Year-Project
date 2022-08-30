@@ -1,5 +1,5 @@
 import React from "react"
-import "./Level-2-Board.css"
+import "../../Style/Board.css"
 import Panel from "../L2-Panel/Level-2-Panel"
 
 const state = {
