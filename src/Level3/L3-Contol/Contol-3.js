@@ -729,7 +729,9 @@ const Level3Controls = () => {
 
             <div class="speech" >
                 Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you
-                will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose. 
+                You have to use the same number or less number of commands mentioned in the top right corner.<br /> 
+                Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
