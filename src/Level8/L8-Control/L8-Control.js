@@ -1,15 +1,16 @@
 import React from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import Check from '../L7-Control/L7-Check';
+import Check from '../L8-Control/L8-Check';
 import ifInformation from '../../Informations/ifInformation';
 import whileInformation from '../../Informations/whileInformation';
+import elseInformation from '../../Informations/elseInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
 import { Howl } from 'howler';
 
-const Level7Controls = () => {
+const Level8Controls = () => {
 
     const music = new Howl({
         src: ['assets/bark.mp3']
@@ -90,7 +91,9 @@ const Level7Controls = () => {
 
         Check()
         ifAction()
+        jumpAction()
         sound()
+        fallen()
     }
 
     /**
@@ -124,8 +127,9 @@ const Level7Controls = () => {
 
         Check()
         ifAction()
+        jumpAction()
         sound()
-
+        fallen()
     }
 
 
@@ -159,7 +163,9 @@ const Level7Controls = () => {
 
         Check()
         ifAction()
+        jumpAction()
         sound()
+        fallen()
     }
 
     /**
@@ -193,7 +199,9 @@ const Level7Controls = () => {
 
         Check()
         ifAction()
+        jumpAction()
         sound()
+        fallen()
     }
 
 
@@ -222,7 +230,7 @@ const Level7Controls = () => {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 5) {
+                if (count <= 7) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -233,7 +241,7 @@ const Level7Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level8")
+                                        window.location.replace("/level7")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -268,6 +276,62 @@ const Level7Controls = () => {
 
 
     /**
+     * Check if the dog has fallen in any of the holes
+     * and notifying the user they have lost and restarting 
+     * the game if they did fall in any holes.
+     */
+    function fallen() {
+
+        let dog = document.getElementById('dog');
+        let hole = document.getElementById('hole');
+
+
+        if (dog != null || hole != null) {
+            const box = dog.parentElement;
+            let hole2Box = hole.parentElement;
+
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+            const holeRow = parseInt(hole2Box.getAttribute('data-row'))
+            const holeCol = parseInt(hole2Box.getAttribute('data-col'))
+
+            if (hasJumped !== true) {
+                if (row === holeRow && col === holeCol) {
+                    document.getElementById('hole').src = "assets/dog.png"
+
+                    const change = document.getElementById('dog');
+                    change.style.visibility = 'hidden'
+
+                    if (count <= 5) {
+                        <div>
+                            {Popup.clearQueue()}
+                            {Popup.create({
+                                title: 'Failed',
+                                content: 'The dog fell in one of the holes! Try again!',
+                                buttons: {
+                                    right: [{
+                                        text: 'Try Again',
+                                        className: 'danger',
+                                        action: function () {
+                                            window.location.reload(true)
+                                            Popup.clearQueue();
+                                            Popup.close()
+                                        }
+                                    }]
+                                }
+                            }, true)}
+
+                        </div>
+                    }
+                }
+            }
+
+        }
+    }
+
+
+
+    /**
      * Adds a string to an array to that
      * represents the movement left. This
      * will be compared in the submit method
@@ -285,16 +349,16 @@ const Level7Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -319,16 +383,16 @@ const Level7Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -352,16 +416,16 @@ const Level7Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -386,16 +450,16 @@ const Level7Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -465,13 +529,15 @@ const Level7Controls = () => {
 
                     }
                     if (element === "if") {
-                        await delay(100);
+                        await delay(70);
                         ifAction()
                     }
                     if (element === "barks") {
                         sound()
                     }
-
+                    if (element === "elif") {
+                        jumpAction()
+                    }
 
                 }
 
@@ -500,16 +566,16 @@ const Level7Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -540,26 +606,25 @@ const Level7Controls = () => {
             const catTwoRow = parseInt(catTwoBox.getAttribute('data-row'))
             const catThreeRow = parseInt(catThreeBox.getAttribute('data-row'))
 
-            if (row === catRow && col === 1) {
+            if (row === catRow && col === 2) {
                 const change = document.getElementById('cat')
                 await delay(400)
                 document.getElementById('cat').src = "assets/dog.png"
                 await delay(200)
                 change.style.visibility = 'hidden'
             }
-            else if (row === catTwoRow && col === 0) {
+            else if (row === catTwoRow && col === 2) {
                 const change = document.getElementById('catTwo')
                 const a = document.getElementById('dog')
                 a.style.visibility = 'hidden'
                 await delay(400)
                 document.getElementById('catTwo').src = "assets/dog.png"
-
-                await delay(200)
+                await delay(400)
                 change.style.visibility = 'hidden'
-                await delay(200)
+                await delay(100)
                 a.style.visibility = 'visible'
             }
-            else if (row === catThreeRow && col === 2) {
+            else if (row === catThreeRow && col === 0) {
                 const change = document.getElementById('catThree')
                 const a = document.getElementById('dog')
                 a.style.visibility = 'hidden'
@@ -590,17 +655,17 @@ const Level7Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                 document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
@@ -646,6 +711,43 @@ const Level7Controls = () => {
     }
 
     /**
+    * Adds a string to an array to that
+    * represents the movement jump. This
+    * will be compared in the submit method
+    * that will move the dog object at the end
+    */
+    function jump() {
+        let jumping = "jump"
+
+        moves.push(jumping)
+
+        value = "dog.jump"
+        list.push(value)
+
+        hasJumped = true
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 7) {
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
+                document.getElementById("action").innerHTML += "} <br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 7) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/7"
+                }
+            }
+        }
+    }
+
+    /**
      * Adds a string to an array to that
      * represents the if statement. This
      * will be compared in the submit method
@@ -666,20 +768,89 @@ const Level7Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 7) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 7) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/7"
                 }
             }
         }
 
+    }
+
+    /**
+   * The action that will take place when the 
+   * user uses the jump command and moves the
+   * dog accordingly for the animation.
+   */
+    const jumpAction = async () => {
+        let dog = document.getElementById('dog');
+        let hole = document.getElementById('hole')
+
+        if (dog != null || hole != null) {
+            const box = dog.parentElement;
+            let holeBox = hole.parentElement;
+
+
+            let row = parseInt(box.getAttribute('data-row'))
+            let col = parseInt(box.getAttribute('data-col'))
+
+            const holeRow = parseInt(holeBox.getAttribute('data-row'))
+
+            if (hasJumped === true) {
+                if (row === holeRow && col === 1) {
+
+                    let jumpCol = parseInt(box.getAttribute('data-col')) + 1
+                    const newBox = document.querySelector(`[data-row="${row}"][data-col="${jumpCol}"]`);
+                    newBox.append(dog)
+                    
+                }
+            }
+
+        }
+
+    }
+
+    /**
+     * Adds a string to an array to that
+     * represents the else if statement. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
+     */
+    function elseIf() {
+        let elif = "elif"
+
+        moves.push(elif)
+
+        used = true
+
+        value = "else if (hole == true) {"
+        list.push(value)
+
+        //Getting the last element of the list
+        const lastVal = Object.keys(list).pop()
+        const item = list[lastVal]
+
+        if (pressed !== true) {
+            if (list.length <= 8) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 8) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/8"
+                }
+            }
+        }
     }
 
     /**
@@ -693,25 +864,25 @@ const Level7Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/5"
+        document.getElementById("count").innerHTML = "/7"
     }
 
 
     return (
         <div class="level5Contain">
-            <h2>Level 7:</h2>
+            <h2>Level 8:</h2>
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
                 the amount of times you repeat the commands. You have use the if statement to avoid the cats and reach the food.
-                You have to use the same number or less number of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while and if statement click the i below)
+                Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
+                <br /> Good luck! <br /> (To learn more about while, if statement and else if click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/5</p>
+                        <p id="count" class="number">0/7</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
@@ -739,6 +910,14 @@ const Level7Controls = () => {
                         If Statement
                     </button>
                 </div>
+                <div class="buttons-wrapper5">
+                    <button class="seemingly-inner-button" onClick={elseInformation} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else If</button>
+
+                </div>
+                <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
 
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
@@ -750,4 +929,4 @@ const Level7Controls = () => {
     );
 }
 
-export default Level7Controls;
+export default Level8Controls;

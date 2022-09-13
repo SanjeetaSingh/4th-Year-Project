@@ -104,6 +104,12 @@
     margin-top: 5%;
 }
 
+.board8 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 380px;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
