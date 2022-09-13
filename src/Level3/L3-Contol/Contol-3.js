@@ -94,7 +94,6 @@ const Level3Controls = () => {
             commandUse()
         }
         Check()
-        fallen()
     }
 
     /**
@@ -135,7 +134,6 @@ const Level3Controls = () => {
         Check()
         ifAction()
         sound()
-        fallen()
     }
 
     /**
@@ -177,7 +175,6 @@ const Level3Controls = () => {
         Check()
         ifAction()
         sound()
-        fallen()
     }
 
 
@@ -216,7 +213,6 @@ const Level3Controls = () => {
 
         Check()
         ifAction()
-        fallen()
         sound()
     }
 
@@ -254,7 +250,6 @@ const Level3Controls = () => {
         Check()
         ifAction()
         sound()
-        fallen()
     }
 
 
@@ -397,61 +392,6 @@ const Level3Controls = () => {
             }
         }
     }
-
-
-    /**
-     * Check if the dog has fallen in any of the holes
-     * and notifying the user they have lost and restarting 
-     * the game if they did fall in any holes.
-     */
-    function fallen() {
-
-        let dog = document.getElementById('dog');
-        let hole1 = document.getElementById('holeOne');
-
-        if (dog != null || hole1 != null) {
-            const box = dog.parentElement;
-            let holeBox = hole1.parentElement;
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-
-            const hole1Row = parseInt(holeBox.getAttribute('data-row'))
-            const hole1Col = parseInt(holeBox.getAttribute('data-col'))
-
-
-            if (row === hole1Row && col === hole1Col) {
-                document.getElementById('holeOne').src = "assets/dog.png"
-
-                const change = document.getElementById('dog');
-                change.style.visibility = 'hidden'
-
-                if (count <= 6) {
-                    <div>
-                        {Popup.clearQueue()}
-                        {Popup.create({
-                            title: 'Failed',
-                            content: 'The dog fell in one of the holes! Try again!',
-                            buttons: {
-                                right: [{
-                                    text: 'Try Again',
-                                    className: 'danger',
-                                    action: function () {
-                                        window.location.reload(true)
-                                        Popup.clearQueue();
-                                        Popup.close()
-                                    }
-                                }]
-                            }
-                        }, true)}
-
-                    </div>
-                }
-            }
-        }
-    }
-
-
 
 
     /**
