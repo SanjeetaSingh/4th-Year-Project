@@ -214,25 +214,26 @@ const Level6Controls = () => {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                <div>
-                    {Popup.clearQueue()}
-                    {Popup.create({
-                        title: 'Success',
-                        content: 'You completed the level, Good Work! ',
-                        buttons: {
-                            right: [{
-                                text: 'Okay',
-                                className: 'success',
-                                action: function () {
-                                    window.location.replace("/level7")
-                                    Popup.clearQueue();
-                                    Popup.close()
-                                }
-                            }]
-                        }
-                    }, true)}
-                </div>
-
+                if (count <= 5) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Success',
+                            content: 'You completed the level, Good Work! ',
+                            buttons: {
+                                right: [{
+                                    text: 'Okay',
+                                    className: 'success',
+                                    action: function () {
+                                        window.location.replace("/level7")
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+                    </div>
+                }
             } else {
                 <div>
                     {Popup.clearQueue()}
@@ -284,7 +285,7 @@ const Level6Controls = () => {
                     const change = document.getElementById('dog');
                     change.style.visibility = 'hidden'
 
-                    if (count <= 8) {
+                    if (count <= 5) {
                         <div>
                             {Popup.clearQueue()}
                             {Popup.create({
@@ -329,7 +330,18 @@ const Level6Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 5) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 5) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/5"
+                }
+            }
         }
     }
 
@@ -353,7 +365,19 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 5) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+
+            count += 1
+            commands.push(count)
+
+            if (count <= 5) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/5"
+                }
+            }
         }
     }
 
@@ -376,7 +400,19 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 5) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+
+            count += 1
+            commands.push(count)
+
+            if (count <= 5) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/5"
+                }
+            }
         }
     }
 
@@ -400,8 +436,18 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 5) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
 
+            if (count <= 5) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/5"
+                }
+            }
         }
     }
 
@@ -500,7 +546,18 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 5) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 5) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/5"
+                }
+            }
         }
     }
 
@@ -558,16 +615,16 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 8) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/8"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -596,17 +653,17 @@ const Level6Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 8) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                 document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 8) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/8"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -624,7 +681,7 @@ const Level6Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/8"
+        document.getElementById("count").innerHTML = "/5"
     }
 
 
@@ -634,11 +691,15 @@ const Level6Controls = () => {
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
-                the amount of times you repeat the commands. You have use the if statement to jump the hole.<br /> Good luck! <br /> (To learn more about while and if statement click the i below)
+                the amount of times you repeat the commands. You have use the if statement to jump the hole. You have to use the same number or less number of commands mentioned in the top right corner.
+                <br /> Good luck! <br /> (To learn more about while and if statement click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
+                    <div class="containing">
+                        <p id="count" class="number">0/5</p>
+                    </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
 
