@@ -233,7 +233,7 @@ const Level7Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level7")
+                                        window.location.replace("/level8")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
