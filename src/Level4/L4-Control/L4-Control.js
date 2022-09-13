@@ -776,7 +776,9 @@ const Level4Controls = () => {
 
             <div class="speech" >
                 Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
-                you to pass the cat. In this level you can jump over the hole to avoid restarting and you must use the else statement.<br /> Good luck! <br /> (To learn more about if statements click the i below)
+                you to pass the cat. In this level you can jump over the hole to avoid restarting and you must use the else statement.
+                You have to use the same number or less number of commands mentioned in the top right corner.   
+                <br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 

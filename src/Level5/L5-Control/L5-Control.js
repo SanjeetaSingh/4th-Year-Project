@@ -32,6 +32,13 @@ const Level5Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
+    // Counting how many times a button has been selected
+    let count = 0
+    // Adding the count to an array
+    let commands = []
+
+    // To sum up the values of the commands array
+    let total = 0
 
 
     /**
@@ -200,24 +207,26 @@ const Level5Controls = () => {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                <div>
-                    {Popup.clearQueue()}
-                    {Popup.create({
-                        title: 'Success',
-                        content: 'You completed the level, Good Work! ',
-                        buttons: {
-                            right: [{
-                                text: 'Okay',
-                                className: 'success',
-                                action: function () {
-                                    window.location.replace("/level6")
-                                    Popup.clearQueue();
-                                    Popup.close()
-                                }
-                            }]
-                        }
-                    }, true)}
-                </div>
+                if (count <= 3) {
+                    <div>
+                        {Popup.clearQueue()}
+                        {Popup.create({
+                            title: 'Success',
+                            content: 'You completed the level, Good Work! ',
+                            buttons: {
+                                right: [{
+                                    text: 'Okay',
+                                    className: 'success',
+                                    action: function () {
+                                        window.location.replace("/level6")
+                                        Popup.clearQueue();
+                                        Popup.close()
+                                    }
+                                }]
+                            }
+                        }, true)}
+                    </div>
+                }
 
             } else {
                 <div>
@@ -263,7 +272,18 @@ const Level5Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 3) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 3) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/3"
+                }
+            }
         }
     }
 
@@ -287,7 +307,19 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 3) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+
+            count += 1
+            commands.push(count)
+
+            if (count <= 3) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/3"
+                }
+            }
         }
     }
 
@@ -310,7 +342,19 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 3) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+
+            count += 1
+            commands.push(count)
+
+            if (count <= 3) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/3"
+                }
+            }
         }
     }
 
@@ -334,8 +378,18 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+            if (list.length <= 3) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
 
+            if (count <= 3) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/3"
+                }
+            }
         }
     }
 
@@ -430,7 +484,18 @@ const Level5Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
+            if (list.length <= 3) {
+                document.getElementById("action").innerHTML += item + "<br/>"
+            }
+            count += 1
+            commands.push(count)
+
+            if (count <= 3) {
+                for (const element of commands) {
+                    total = element
+                    document.getElementById("count").innerHTML = total + "/3"
+                }
+            }
         }
     }
 
@@ -443,7 +508,10 @@ const Level5Controls = () => {
     function clearAll() {
         list = []
         moves = []
+        commands = []
+        count = 0
         document.getElementById("action").innerHTML = ""
+        document.getElementById("count").innerHTML = "/3"
     }
 
 
@@ -457,11 +525,15 @@ const Level5Controls = () => {
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
-                the amount of times you repeat the commands.<br /> Good luck! <br /> (To learn more about while statement click the i below)
+                the amount of times you repeat the commands. You have to use the same number or less number of commands mentioned in the top right corner.
+                <br /> Good luck! <br /> (To learn more about while statement click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart">
+                    <div class="containing">
+                        <p id="count" class="number">0/3</p>
+                    </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
 
