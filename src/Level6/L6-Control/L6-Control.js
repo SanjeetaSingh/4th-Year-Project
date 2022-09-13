@@ -331,7 +331,7 @@ const Level6Controls = () => {
         const item = list[lastVal]
         if (pressed !== true) {
             if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -363,12 +363,10 @@ const Level6Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-
         if (pressed !== true) {
             if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
-
             count += 1
             commands.push(count)
 
@@ -398,12 +396,10 @@ const Level6Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-
         if (pressed !== true) {
             if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
-
             count += 1
             commands.push(count)
 
@@ -434,10 +430,9 @@ const Level6Controls = () => {
         //Getting the last element of the list
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
-
         if (pressed !== true) {
             if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
