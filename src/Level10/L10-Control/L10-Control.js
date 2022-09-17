@@ -68,22 +68,22 @@ const Level10Controls = () => {
     const [cats2, setCats2] = useState("")
 
     for (let i = 0; i < 30; i++) {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let downs = "downCat"
             autoMoves.push(downs)
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let ups = "upCat"
             autoMoves.push(ups)
         }
     }
 
     for (let i = 0; i < 30; i++) {
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let ups = "upCat2"
             autoMoves.push(ups)
         }
-        for (let i = 0; i < 4; i++) {
+        for (let i = 0; i < 3; i++) {
             let downs = "downCat2"
             autoMoves.push(downs)
         }
@@ -355,7 +355,7 @@ const Level10Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (col > 3) {
+        if (col > 5) {
             boundry()
         }
 
@@ -423,7 +423,7 @@ const Level10Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (row > 2) {
+        if (row > 5) {
             boundry()
         }
 
@@ -667,11 +667,12 @@ const Level10Controls = () => {
         }
 
         let dog = document.getElementById('dog');
-        let food = document.getElementById('food');
+        let foodOne = document.getElementById('food');
 
-        if (dog != null || food != null) {
+
+        if (dog != null || foodOne != null) {
             const box = dog.parentElement;
-            let foodbox = food.parentElement;
+            let foodbox = foodOne.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -681,7 +682,7 @@ const Level10Controls = () => {
 
 
 
-            if (row !== foodrow && col !== foodcol) {
+            if ((row !== foodrow && col !== foodcol)) {
                 reached = true;
             }
 
@@ -766,12 +767,14 @@ const Level10Controls = () => {
      */
     const ifAction = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat');
+        let cat = document.getElementById('catOne');
+        let cat2 = document.getElementById('catTwo');
 
 
-        if (dog != null || cat != null) {
+        if (dog != null || cat != null || cat2 != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
+            let catBox2 = cat2.parentElement;
 
 
             const row = parseInt(box.getAttribute('data-row'))
@@ -780,9 +783,11 @@ const Level10Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
             const catCol = parseInt(catBox.getAttribute('data-col'))
 
+            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
+            const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if (row === catRow && col === catCol) {
-                const change = document.getElementById('cat')
+            if ((row === catRow && col === catCol) && (row === catRow2 && col === catCol2)){
+                const change = document.getElementById('catOne')
                 await delay(100)
                 change.style.visibility = 'hidden'
             }
@@ -831,12 +836,14 @@ const Level10Controls = () => {
     */
     const sound = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
+        let cat = document.getElementById('catOne')
+        let cat2 = document.getElementById('catTwo')
 
 
-        if (dog != null || cat != null) {
+        if (dog != null || cat != null || cat2 != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
+            let catBox2 = cat2.parentElement;
 
 
             const row = parseInt(box.getAttribute('data-row'))
@@ -845,8 +852,13 @@ const Level10Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
             const catCol = parseInt(catBox.getAttribute('data-col'))
 
+            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
+            const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if (row === catRow && col === catCol) {
+            console.log("bark")
+
+            if ((row === catRow && col === catCol) || (row === catRow2 && col === catCol2)) {
+                console.log("bark2")
                 music.play()
                 await delay(800)
 
