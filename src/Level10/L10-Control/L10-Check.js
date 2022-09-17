@@ -4,7 +4,7 @@
  * the level successfully
  */
 
-const L9Check = async () => {
+const L10Check = async () => {
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
@@ -38,4 +38,4 @@ const L9Check = async () => {
 
 }
 
-export default L9Check;
+export default L10Check;

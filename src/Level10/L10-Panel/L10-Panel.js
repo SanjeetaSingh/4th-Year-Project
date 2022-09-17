@@ -1,8 +1,8 @@
 import React from 'react'
 import "../../Style/Panel.css"
-import Controls from '../L9-Control/L9-Control';
+import Controls from '../L10-Control/L10-Control';
 
-const Panel9 = () => {
+const Panel10 = () => {
     return (
         <div class="border">
             <Controls/>
@@ -10,4 +10,4 @@ const Panel9 = () => {
     );
 }
 
-export default Panel9;
+export default Panel10;

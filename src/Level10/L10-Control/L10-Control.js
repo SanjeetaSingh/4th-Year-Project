@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import Check from '../L9-Control/L9-Check';
+import Check from '../L10-Control/L10-Check';
 import ifInformation from '../../Informations/ifInformation';
 import whileInformation from '../../Informations/whileInformation';
-import elseInformation from '../../Informations/elseInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
 import { Howl } from 'howler';
 
-const Level9Controls = () => {
+const Level10Controls = () => {
 
     const music = new Howl({
         src: ['assets/bark.mp3']
@@ -47,8 +46,6 @@ const Level9Controls = () => {
     //To see if a command is used or not
     let used = false
 
-    //Checking if the dog has jumped
-    let hasJumped = false
 
     //Checking if the dog has reached a location 
     let reached = false
@@ -68,18 +65,31 @@ const Level9Controls = () => {
 
     const [cats, setCats] = useState("")
 
-    autoMoves = ["rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat"]
+    const [cats2, setCats2] = useState("")
+
+    for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 3; i++) {
+            let downs = "downCat"
+            autoMoves.push(downs)
+        }
+        for (let i = 0; i < 3; i++) {
+            let ups = "upCat"
+            autoMoves.push(ups)
+        }
+    }
+
+    for (let i = 0; i < 30; i++) {
+        for (let i = 0; i < 3; i++) {
+            let ups = "upCat2"
+            autoMoves.push(ups)
+        }
+        for (let i = 0; i < 3; i++) {
+            let downs = "downCat2"
+            autoMoves.push(downs)
+        }
+    }
+
+
 
     /**
      * Submits the sequence that the user
@@ -87,7 +97,7 @@ const Level9Controls = () => {
      * The dog object will move after submit is pressed
      */
     const submitCat = async () => {
-     
+
         let item = autoMoves.values();
 
         // Iterating through all the moves in the array to know which move to do
@@ -112,20 +122,50 @@ const Level9Controls = () => {
         setCats(item)
     }
 
+    const submitCat2 = async () => {
+
+        let item = autoMoves.values();
+
+        // Iterating through all the moves in the array to know which move to do
+        for (let elements of item) {
+
+            if (elements === "leftCat2") {
+                moveCat2Left()
+                await delay(880)
+            }
+            if (elements === "rightCat2") {
+                moveCat2Right()
+                await delay(880);
+            }
+            if (elements === "downCat2") {
+                moveCat2Down()
+                await delay(880);
+            }
+            if (elements === "upCat2") {
+                moveCat2Up()
+                await delay(880);
+            }
+        }
+        setCats2(item)
+    }
+
 
     useEffect(() => {
-        if (!barking){
+        if (!barking) {
             submitCat();
-        } 
-       
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [], cats)
+        }
+        if (!barking) {
+            submitCat2();
+        }
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [], cats,cats2)
 
     /**
-     * Moves the dog object one tile to the left
+     * Moves the cat object one tile to the left
      */
     function moveCatLeft() {
-        let element = document.getElementById('cat');
+        let element = document.getElementById('catOne');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
@@ -135,13 +175,14 @@ const Level9Controls = () => {
             newBox.append(element);
 
         }
+        
     }
 
     /**
-     * Move the dog object one tile to the right
+     * Move the cat object one tile to the right
      */
     function moveCatRight() {
-        let element = document.getElementById('cat');
+        let element = document.getElementById('catOne');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
@@ -157,10 +198,10 @@ const Level9Controls = () => {
 
 
     /**
-     * Moves the dog object one tile up
+     * Moves the cat object one tile up
      */
     function moveCatUp() {
-        let element = document.getElementById('cat');
+        let element = document.getElementById('catOne');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -175,10 +216,82 @@ const Level9Controls = () => {
     }
 
     /**
-     * Moves the dog object one tile down
+     * Moves the cat object one tile down
      */
     function moveCatDown() {
-        let element = document.getElementById('cat');
+        let element = document.getElementById('catOne');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) + 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
+
+
+     /**
+     * Moves the cat object one tile to the left
+     */
+      function moveCat2Left() {
+        let element = document.getElementById('catTwo');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) - 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+        
+    }
+
+    /**
+     * Move the cat object one tile to the right
+     */
+    function moveCat2Right() {
+        let element = document.getElementById('catTwo');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) + 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
+
+
+    /**
+     * Moves the cat object one tile up
+     */
+    function moveCat2Up() {
+        let element = document.getElementById('catTwo');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) - 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
+
+    /**
+     * Moves the cat object one tile down
+     */
+    function moveCat2Down() {
+        let element = document.getElementById('catTwo');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -222,9 +335,7 @@ const Level9Controls = () => {
 
         Check()
         ifAction()
-        jumpAction()
         sound()
-        fallen()
     }
 
     /**
@@ -244,7 +355,7 @@ const Level9Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (col > 3) {
+        if (col > 5) {
             boundry()
         }
 
@@ -258,9 +369,7 @@ const Level9Controls = () => {
 
         Check()
         ifAction()
-        jumpAction()
         sound()
-        fallen()
     }
 
 
@@ -294,9 +403,7 @@ const Level9Controls = () => {
 
         Check()
         ifAction()
-        jumpAction()
         sound()
-        fallen()
     }
 
     /**
@@ -316,7 +423,7 @@ const Level9Controls = () => {
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (row > 2) {
+        if (row > 5) {
             boundry()
         }
 
@@ -330,9 +437,7 @@ const Level9Controls = () => {
 
         Check()
         ifAction()
-        jumpAction()
         sound()
-        fallen()
     }
 
 
@@ -404,62 +509,6 @@ const Level9Controls = () => {
             }
         }
     }
-
-
-    /**
-     * Check if the dog has fallen in any of the holes
-     * and notifying the user they have lost and restarting 
-     * the game if they did fall in any holes.
-     */
-    function fallen() {
-
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('hole');
-
-
-        if (dog != null || hole != null) {
-            const box = dog.parentElement;
-            let hole2Box = hole.parentElement;
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-            const holeRow = parseInt(hole2Box.getAttribute('data-row'))
-            const holeCol = parseInt(hole2Box.getAttribute('data-col'))
-
-            if (hasJumped !== true) {
-                if (row === holeRow && col === holeCol) {
-                    document.getElementById('hole').src = "assets/dog.png"
-
-                    const change = document.getElementById('dog');
-                    change.style.visibility = 'hidden'
-
-                    if (count <= 7) {
-                        <div>
-                            {Popup.clearQueue()}
-                            {Popup.create({
-                                title: 'Failed',
-                                content: 'The dog fell in one of the holes! Try again!',
-                                buttons: {
-                                    right: [{
-                                        text: 'Try Again',
-                                        className: 'danger',
-                                        action: function () {
-                                            window.location.reload(true)
-                                            Popup.clearQueue();
-                                            Popup.close()
-                                        }
-                                    }]
-                                }
-                            }, true)}
-
-                        </div>
-                    }
-                }
-            }
-
-        }
-    }
-
 
 
     /**
@@ -618,11 +667,12 @@ const Level9Controls = () => {
         }
 
         let dog = document.getElementById('dog');
-        let food = document.getElementById('food');
+        let foodOne = document.getElementById('food');
 
-        if (dog != null || food != null) {
+
+        if (dog != null || foodOne != null) {
             const box = dog.parentElement;
-            let foodbox = food.parentElement;
+            let foodbox = foodOne.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -632,7 +682,7 @@ const Level9Controls = () => {
 
 
 
-            if (row !== foodrow && col !== foodcol) {
+            if ((row !== foodrow && col !== foodcol)) {
                 reached = true;
             }
 
@@ -667,10 +717,6 @@ const Level9Controls = () => {
                         barking = true;
                         sound()
                     }
-                    if (element === "elif") {
-                        jumpAction()
-                    }
-                    console.log(element)
 
                 }
             }
@@ -678,9 +724,6 @@ const Level9Controls = () => {
             if (pressed === true && used !== true) {
                 commandUse()
             }
-            console.log(moves.length)
-            console.log(autoMoves.length)
-            console.log(total)
         }
     }
 
@@ -724,12 +767,14 @@ const Level9Controls = () => {
      */
     const ifAction = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat');
+        let cat = document.getElementById('catOne');
+        let cat2 = document.getElementById('catTwo');
 
 
-        if (dog != null || cat != null) {
+        if (dog != null || cat != null || cat2 != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
+            let catBox2 = cat2.parentElement;
 
 
             const row = parseInt(box.getAttribute('data-row'))
@@ -738,9 +783,11 @@ const Level9Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
             const catCol = parseInt(catBox.getAttribute('data-col'))
 
+            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
+            const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if (row === catRow && col === catCol) {
-                const change = document.getElementById('cat')
+            if ((row === catRow && col === catCol) && (row === catRow2 && col === catCol2)){
+                const change = document.getElementById('catOne')
                 await delay(100)
                 change.style.visibility = 'hidden'
             }
@@ -789,12 +836,14 @@ const Level9Controls = () => {
     */
     const sound = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
+        let cat = document.getElementById('catOne')
+        let cat2 = document.getElementById('catTwo')
 
 
-        if (dog != null || cat != null) {
+        if (dog != null || cat != null || cat2 != null) {
             const box = dog.parentElement;
             let catBox = cat.parentElement;
+            let catBox2 = cat2.parentElement;
 
 
             const row = parseInt(box.getAttribute('data-row'))
@@ -803,8 +852,13 @@ const Level9Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
             const catCol = parseInt(catBox.getAttribute('data-col'))
 
+            const catRow2 = parseInt(catBox2.getAttribute('data-row'))
+            const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if (row === catRow && col === catCol) {
+            console.log("bark")
+
+            if ((row === catRow && col === catCol) || (row === catRow2 && col === catCol2)) {
+                console.log("bark2")
                 music.play()
                 await delay(800)
 
@@ -813,42 +867,6 @@ const Level9Controls = () => {
         }
     }
 
-    /**
-    * Adds a string to an array to that
-    * represents the movement jump. This
-    * will be compared in the submit method
-    * that will move the dog object at the end
-    */
-    function jump() {
-        let jumping = "jump"
-
-        moves.push(jumping)
-
-        value = "dog.jump"
-        list.push(value)
-
-        hasJumped = true
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 7) {
-                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
-                document.getElementById("action").innerHTML += "} <br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 7) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/7"
-                }
-            }
-        }
-    }
 
     /**
      * Adds a string to an array to that
@@ -886,76 +904,6 @@ const Level9Controls = () => {
         }
 
     }
-
-    /**
-   * The action that will take place when the 
-   * user uses the jump command and moves the
-   * dog accordingly for the animation.
-   */
-    const jumpAction = async () => {
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('hole')
-
-        if (dog != null || hole != null) {
-            const box = dog.parentElement;
-            let holeBox = hole.parentElement;
-
-
-            let row = parseInt(box.getAttribute('data-row'))
-            let col = parseInt(box.getAttribute('data-col'))
-
-            const holeRow = parseInt(holeBox.getAttribute('data-row'))
-
-            if (hasJumped === true) {
-                if (row === holeRow && col === 1) {
-
-                    let jumpCol = parseInt(box.getAttribute('data-col')) + 1
-                    const newBox = document.querySelector(`[data-row="${row}"][data-col="${jumpCol}"]`);
-                    newBox.append(dog)
-
-                }
-            }
-
-        }
-
-    }
-
-    /**
-     * Adds a string to an array to that
-     * represents the else if statement. This
-     * will be compared in the submit method
-     * that will move the dog object at the end
-     */
-    function elseIf() {
-        let elif = "elif"
-
-        moves.push(elif)
-
-        used = true
-
-        value = "else if (hole == true) {"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 7) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 7) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/7"
-                }
-            }
-        }
-    }
-
 
     /**
      * Added a clear button to remove the 
@@ -1014,15 +962,6 @@ const Level9Controls = () => {
                         If Statement
                     </button>
                 </div>
-                <div class="buttons-wrapper5">
-                    <button class="seemingly-inner-button" onClick={elseInformation} disabled={pressed === true}>
-                        <i class="fa fa-info" ></i>
-                    </button>
-                    <button type='submit' class="button" onClick={elseIf} disabled={pressed === true}>Else If</button>
-
-                </div>
-                <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
-
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
@@ -1033,4 +972,4 @@ const Level9Controls = () => {
     );
 }
 
-export default Level9Controls;
+export default Level10Controls;
