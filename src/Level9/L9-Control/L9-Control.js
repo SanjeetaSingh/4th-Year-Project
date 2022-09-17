@@ -53,17 +53,142 @@ const Level9Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
+    let barking = false
+
 
     /**
-     * The delay to get the dog walking a tile at a time
-     * 
-     * @param {*} time - the duration 
-     * @returns a promise
-     */
+    * The delay to get the dog walking a tile at a time
+    * 
+    * @param {*} time - the duration 
+    * @returns a promise
+    */
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
 
+    const [cats, setCats] = useState("")
+
+    autoMoves = ["rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
+    "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat"]
+
+    /**
+     * Submits the sequence that the user
+     * has entered for the dog object to move.
+     * The dog object will move after submit is pressed
+     */
+    const submitCat = async () => {
+     
+        let item = autoMoves.values();
+
+        // Iterating through all the moves in the array to know which move to do
+        for (let elements of item) {
+            if (elements === "leftCat") {
+                moveCatLeft()
+                await delay(880)
+            }
+            if (elements === "rightCat") {
+                moveCatRight()
+                await delay(880);
+            }
+            if (elements === "downCat") {
+                moveCatDown()
+                await delay(880);
+            }
+            if (elements === "upCat") {
+                moveCatUp()
+                await delay(880);
+            }
+        }
+        setCats(item)
+    }
+
+
+    useEffect(() => {
+        if (!barking){
+            submitCat();
+        } 
+       
+    }, [], cats)
+
+    /**
+     * Moves the dog object one tile to the left
+     */
+    function moveCatLeft() {
+        let element = document.getElementById('cat');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) - 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+    }
+
+    /**
+     * Move the dog object one tile to the right
+     */
+    function moveCatRight() {
+        let element = document.getElementById('cat');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row'))
+        const col = parseInt(box.getAttribute('data-col')) + 1;
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
+
+
+    /**
+     * Moves the dog object one tile up
+     */
+    function moveCatUp() {
+        let element = document.getElementById('cat');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) - 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
+
+    /**
+     * Moves the dog object one tile down
+     */
+    function moveCatDown() {
+        let element = document.getElementById('cat');
+        const box = element.parentElement;
+        const row = parseInt(box.getAttribute('data-row')) + 1
+        const col = parseInt(box.getAttribute('data-col'));
+        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+
+        if (newBox !== null || element !== null) {
+            newBox.append(element);
+
+        }
+
+    }
 
     /**
      * Moves the dog object one tile to the left
@@ -538,6 +663,7 @@ const Level9Controls = () => {
                         ifAction()
                     }
                     if (element === "barks") {
+                        barking = true;
                         sound()
                     }
                     if (element === "elif") {
@@ -609,12 +735,12 @@ const Level9Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const catRow = parseInt(catBox.getAttribute('data-row'))
+            const catCol = parseInt(catBox.getAttribute('data-col'))
 
-            if (row === catRow && col === 2) {
+
+            if (row === catRow && col === catCol) {
                 const change = document.getElementById('cat')
-                await delay(400)
-                document.getElementById('cat').src = "assets/dog.png"
-                await delay(200)
+                await delay(100)
                 change.style.visibility = 'hidden'
             }
 
@@ -674,9 +800,10 @@ const Level9Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const catRow = parseInt(catBox.getAttribute('data-row'))
+            const catCol = parseInt(catBox.getAttribute('data-col'))
 
 
-            if (row === catRow && col === 1) {
+            if (row === catRow && col === catCol) {
                 music.play()
                 await delay(800)
 
@@ -846,11 +973,11 @@ const Level9Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 8:</h2>
+            <h2>Level 9:</h2>
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
-                the amount of times you repeat the commands. You have use the if statement to avoid the cats and reach the food.
+                the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
                 Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
                 <br /> Good luck! <br /> (To learn more about while, if statement and else if click the i below)
             </div>
