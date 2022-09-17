@@ -14,6 +14,7 @@ import Board5 from './Level5/L5-Board/L5-Board'
 import Board6 from './Level6/L6-Board/L6-Board'
 import Board7 from './Level7/L7-Board/L7-Board'
 import Board8 from './Level8/L8-Board/L8-Board'
+import Board9 from './Level9/L9-Board/L9-Board'
 import Header from './Header/Header';
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
           <Route path='/level6'><Board6/></Route>
           <Route path='/level7'><Board7/></Route>
           <Route path='/level8'><Board8/></Route>
+          <Route path='/level9'><Board9/></Route>
+
         </Switch>
       </div>
     </Router>
