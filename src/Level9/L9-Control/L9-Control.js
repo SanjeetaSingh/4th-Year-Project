@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react'
+import React, { useEffect, useState } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from '../L9-Control/L9-Check';
@@ -118,6 +118,7 @@ const Level9Controls = () => {
             submitCat();
         } 
        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [], cats)
 
     /**
@@ -371,7 +372,7 @@ const Level9Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level7")
+                                        window.location.replace("/level10")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }

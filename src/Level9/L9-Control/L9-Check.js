@@ -1,12 +1,10 @@
-import React from 'react'
-
 /**
  * Method checks if the dog object is at the 
  * end postion and if the user has completed
  * the level successfully
  */
 
-const L8Check = async () => {
+const L9Check = async () => {
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
@@ -40,4 +38,4 @@ const L8Check = async () => {
 
 }
 
-export default L8Check;
+export default L9Check;
