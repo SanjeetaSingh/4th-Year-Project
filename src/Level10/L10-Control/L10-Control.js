@@ -922,7 +922,7 @@ const Level10Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 9:</h2>
+            <h2>Level 10:</h2>
 
             <div class="speech" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit

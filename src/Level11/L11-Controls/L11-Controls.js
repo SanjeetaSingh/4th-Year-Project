@@ -3,7 +3,7 @@ import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from '../L11-Controls/L11-Check';
 import ifInformation from '../../Informations/ifInformation';
-import whileInformation from '../../Informations/whileInformation';
+import whileInformation from '../../Informations/whileInformation-or';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
@@ -363,7 +363,7 @@ const Level11Controls = () => {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 7) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -387,7 +387,7 @@ const Level11Controls = () => {
                     document.getElementById('food').src = "assets/dog.png"
                     let change = document.getElementById('foodTwo')
                     change.style.visibility = 'visible';
-                    if (count <= 7) {
+                    if (count <= 5) {
                         <div>
                             {Popup.clearQueue()}
                             {Popup.create({
@@ -451,16 +451,16 @@ const Level11Controls = () => {
             const lastVal = Object.keys(list).pop()
             const item = list[lastVal]
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -485,16 +485,16 @@ const Level11Controls = () => {
             const lastVal = Object.keys(list).pop()
             const item = list[lastVal]
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -518,16 +518,16 @@ const Level11Controls = () => {
             const lastVal = Object.keys(list).pop()
             const item = list[lastVal]
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -552,16 +552,16 @@ const Level11Controls = () => {
             const lastVal = Object.keys(list).pop()
             const item = list[lastVal]
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -675,16 +675,16 @@ const Level11Controls = () => {
             const item = list[lastVal]
 
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -744,17 +744,17 @@ const Level11Controls = () => {
             const item = list[lastVal]
 
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                     document.getElementById("action").innerHTML += "} <br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -815,16 +815,16 @@ const Level11Controls = () => {
             const item = list[lastVal]
 
             if (pressed !== true) {
-                if (list.length <= 7) {
+                if (list.length <= 5) {
                     document.getElementById("action").innerHTML += item + "<br/>"
                 }
                 count += 1
                 commands.push(count)
 
-                if (count <= 7) {
+                if (count <= 5) {
                     for (const element of commands) {
                         total = element
-                        document.getElementById("count").innerHTML = total + "/7"
+                        document.getElementById("count").innerHTML = total + "/5"
                     }
                 }
             }
@@ -842,25 +842,25 @@ const Level11Controls = () => {
             commands = []
             count = 0
             document.getElementById("action").innerHTML = ""
-            document.getElementById("count").innerHTML = "/7"
+            document.getElementById("count").innerHTML = "/5"
         }
 
 
         return (
             <div class="level5Contain">
-                <h2>Level 9:</h2>
+                <h2>Level 11:</h2>
 
                 <div class="speech" >
-                    Your aim for this level is to help the dog get to the food, you have to use the while command to limit
+                    Your aim for this level is to help the dog get to the both of the food bowls, you have to use the while command to limit
                     the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
-                    Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
-                    <br /> Good luck! <br /> (To learn more about while, if statement and else if click the i below)
+                    You have to use the same number or less number of commands mentioned in the top right corner.
+                    <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and if statement click the i below)
                 </div>
                 <div class="borderPanel">
 
                     <div class="toppart">
                         <div class="containing">
-                            <p id="count" class="number">0/7</p>
+                            <p id="count" class="number">0/5</p>
                         </div>
                         <p class="titles">Enter Sequence:</p>
                         <p id="action" class="lists"></p>
