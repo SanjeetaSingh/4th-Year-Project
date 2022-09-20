@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from '../L12-Controls/L12-Check';
@@ -6,13 +6,7 @@ import whileInformation from '../../Informations/whileInformation-or';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
-import { Howl } from 'howler';
-
 const Level12Controls = () => {
-
-    const music = new Howl({
-        src: ['assets/bark.mp3']
-    });
 
     /**
      * Variables
@@ -47,6 +41,9 @@ const Level12Controls = () => {
     let reached = false
 
 
+    const [val1, setVal1] = useState(0)
+    const [val2, setVal2] = useState(0)
+
     /**
     * The delay to get the dog walking a tile at a time
     * 
@@ -64,11 +61,6 @@ const Level12Controls = () => {
     function moveLeft() {
         let element = document.getElementById('dog');
 
-        let food = document.getElementById('food');
-        let foodbox = food.parentElement;
-        const foodrow = parseInt(foodbox.getAttribute('data-row'))
-        const foodcol = parseInt(foodbox.getAttribute('data-col'))
-
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
@@ -83,7 +75,7 @@ const Level12Controls = () => {
             newBox.append(element);
         }
 
-        if (row === foodrow && col === foodcol) {
+        if (row === val1 && col === val2) {
             reached = false
         }
 
@@ -94,20 +86,13 @@ const Level12Controls = () => {
      * Move the dog object one tile to the right
      */
     function moveRight() {
-        let element = document.getElementById('dog');
-
-        let food = document.getElementById('food');
-        let foodbox = food.parentElement;
-        const foodrow = parseInt(foodbox.getAttribute('data-row'))
-        const foodcol = parseInt(foodbox.getAttribute('data-col'))
-
+        let element = document.getElementById('dog');    
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
-
-        if (col > 5) {
+        if (col > 2) {
             boundry()
         }
 
@@ -115,7 +100,7 @@ const Level12Controls = () => {
             newBox.append(element);
         }
 
-        if (row === foodrow && col === foodcol) {
+        if (row === val1 && col === val2) {
             reached = false
         }
 
@@ -128,12 +113,6 @@ const Level12Controls = () => {
      */
     function moveUp() {
         let element = document.getElementById('dog');
-
-        let food = document.getElementById('food');
-        let foodbox = food.parentElement;
-        const foodrow = parseInt(foodbox.getAttribute('data-row'))
-        const foodcol = parseInt(foodbox.getAttribute('data-col'))
-
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
@@ -147,10 +126,11 @@ const Level12Controls = () => {
             newBox.append(element);
         }
 
-        if (row === foodrow && col === foodcol) {
+        if (row === val1 && col === val2) {
             reached = false
         }
 
+        console.log(val1, val2)
 
         Check()
     }
@@ -160,19 +140,12 @@ const Level12Controls = () => {
      */
     function moveDown() {
         let element = document.getElementById('dog');
-
-        let food = document.getElementById('food');
-        let foodbox = food.parentElement;
-        const foodrow = parseInt(foodbox.getAttribute('data-row'))
-        const foodcol = parseInt(foodbox.getAttribute('data-col'))
-
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
-
-        if (row > 5) {
+        if (row > 2) {
             boundry()
         }
 
@@ -180,7 +153,7 @@ const Level12Controls = () => {
             newBox.append(element);
         }
 
-        if (row === foodrow && col === foodcol) {
+        if (row === val1 && col === val2) {
             reached = false
         }
 
@@ -207,17 +180,15 @@ const Level12Controls = () => {
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const foodrow = parseInt(foodbox.getAttribute('data-row'))
-            const foodcol = parseInt(foodbox.getAttribute('data-col'))
+            const foodRow = parseInt(foodbox.getAttribute('data-row'))
+            const foodCol = parseInt(foodbox.getAttribute)
 
 
-
-
-            if (row === foodrow && col === foodcol) {
+            if (row === 0 && col === 1) {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 5) {
+                if (count <= 2) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -237,6 +208,27 @@ const Level12Controls = () => {
                         }, true)}
                     </div>
                 }
+            } else if (val1 !== foodRow || val2 !== foodCol) {
+                <div>
+                    {Popup.clearQueue()}
+                    {Popup.create({
+                        title: 'Failed, Incorrect Values',
+                        content: 'You have entrered inccorect values as your variables, Try Again!',
+                        buttons: {
+                            right: [{
+                                text: 'Try Again',
+                                className: 'danger',
+                                action: function () {
+                                    window.location.reload(true)
+                                    Popup.clearQueue();
+                                    Popup.close()
+                                }
+                            }]
+                        }
+                    }, true)}
+
+                </div>
+
             } else {
                 <div>
                     {Popup.clearQueue()}
@@ -280,16 +272,16 @@ const Level12Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 2) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 2) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/2"
                 }
             }
         }
@@ -314,16 +306,16 @@ const Level12Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 2) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 2) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/2"
                 }
             }
         }
@@ -347,16 +339,16 @@ const Level12Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 2) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 2) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/2"
                 }
             }
         }
@@ -381,16 +373,16 @@ const Level12Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 2) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 2) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/2"
                 }
             }
         }
@@ -425,8 +417,7 @@ const Level12Controls = () => {
 
         if (dog != null || foodOne != null) {
             const box = dog.parentElement;
-            let foodbox = foodOne.parentElement;
-
+            const foodbox = foodOne.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
@@ -436,17 +427,22 @@ const Level12Controls = () => {
 
 
 
-            if ((row !== foodrow && col !== foodcol) || (row === foodrow && col !== foodcol) || (row !== foodrow && col === foodcol)) {
+            if ((row !== val1 && col !== val2) || (row === val1 && col !== val2) || (row !== val1 && col === val2)) {
                 reached = true;
             }
 
             while (reached) {
 
+                if (val1 > foodrow || val2 > foodcol || val1 < foodrow || val2 < foodcol) {
+                    break;
+                }
 
                 let items = moves.values();
                 pressed = true
                 // Iterating through all the moves in the array to know which move to do
                 for (let element of items) {
+
+
                     if (element === "left") {
                         moveLeft()
                         await delay(800)
@@ -492,104 +488,17 @@ const Level12Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 2) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 2) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/2"
                 }
-            }
-        }
-    }
-
-
-    /**
-    * Adds a string to an array to that
-    * represents the var declaration for
-    * and interger. This will be compared 
-    * in the submit method that will move 
-    * the dog object at the end
-    */
-    function addInt() {
-        used = true
-
-        value = "int"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + " "
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 5) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/5"
-                }
-            }
-        }
-    }
-
-    /**
-    * Adds a string to an array to that
-    * represents the var declaration for
-    * and interger. This will be compared 
-    * in the submit method that will move 
-    * the dog object at the end
-    */
-    function addVariableOne() {
-        used = true
-
-        value = "row = "
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/5"
-            }
-
-        }
-    }
-
-    /**
-   * Adds a string to an array to that
-   * represents the var declaration for
-   * and interger. This will be compared 
-   * in the submit method that will move 
-   * the dog object at the end
-   */
-    function addVariableTwo() {
-        used = true
-
-        value = "col = "
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            document.getElementById("action").innerHTML += item + "<br/>"
-            for (const element of commands) {
-                total = element
-                document.getElementById("count").innerHTML = total + "/5"
             }
         }
     }
@@ -607,7 +516,7 @@ const Level12Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/5"
+        document.getElementById("count").innerHTML = "/2"
     }
 
 
@@ -616,25 +525,24 @@ const Level12Controls = () => {
             <h2>Level 12:</h2>
 
             <div class="speech" >
-                Your aim for this level is to help the dog get to the both of the food bowls, you have to use the while command to limit
-                the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
-                You have to use the same number or less number of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and if statement click the i below)
+                This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl 
+                to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands. 
+                You have to use the same amount or less amount of commands mentioned in the top right corner.
+                <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and the how variables work click the i below)
             </div>
             <div class="borderPanel">
 
                 <div class="toppart12">
                     <div class="containing">
-                        <p id="count" class="number">0/5</p>
+                        <p id="count" class="number">0/2</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p class="subtitles">Variable Declaration</p>
-                    <form class = "var"> 
-                        int row =  <input id="var1" class="input" size="5" ></input>   ; <br/>
-                        <br/>
-                        int col = <input id="var2" class="input" size="5"></input>  ;
-                        <br/><br/>
-                        <input class ="but" type="button" onclick="myFunction()" value="Submit"></input>
+                    <form class="var">
+                        int row =  <input id="var1" class="input" size="5" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
+                        <br />
+                        int col = <input id="var2" class="input" size="5" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;
+                        <br /><br />
                     </form>
 
                     <p id="action" class="lists"></p>
