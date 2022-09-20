@@ -3,6 +3,7 @@ import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from '../L12-Controls/L12-Check';
 import whileInformation from '../../Informations/whileInformation-or';
+import varInformation from '../../Informations/varInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
@@ -86,7 +87,7 @@ const Level12Controls = () => {
      * Move the dog object one tile to the right
      */
     function moveRight() {
-        let element = document.getElementById('dog');    
+        let element = document.getElementById('dog');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
@@ -525,8 +526,8 @@ const Level12Controls = () => {
             <h2>Level 12:</h2>
 
             <div class="speech" >
-                This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl 
-                to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands. 
+                This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl
+                to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands.
                 You have to use the same amount or less amount of commands mentioned in the top right corner.
                 <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and the how variables work click the i below)
             </div>
@@ -536,8 +537,15 @@ const Level12Controls = () => {
                     <div class="containing">
                         <p id="count" class="number">0/2</p>
                     </div>
-                    <p class="titles">Enter Sequence:</p>
-                    <p class="subtitles">Variable Declaration</p>
+                    <p class="titles">Enter Sequence:</p><br/>
+                   
+                    <div class = 'buttons-wrapper12'>
+                    <button class = "seemingly-inner-button12"onClick={varInformation} disabled={pressed === true}>
+                        <i class="fa fa-info" ></i>
+                    </button>
+                    <p class="subtitles">Variable Declaration</p> 
+                    </div>
+
                     <form class="var">
                         int row =  <input id="var1" class="input" size="5" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
                         <br />
