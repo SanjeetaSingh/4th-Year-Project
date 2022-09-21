@@ -124,6 +124,15 @@
     width: 300px;
     margin-top: 5%;
 }
+
+
+.board14 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 380px;
+    margin-top: 5%;
+}
+
 .dog {
     width: 75px;
     margin-left: 3px;
