@@ -13,15 +13,21 @@
     height: 500px;
 }
 
+.level13Contain {
+    width: 890px;
+    height: 480px;
+    margin-right: 55%;
+}
+
 .borderPanel {
-    margin-top: 4%;
+    margin-top: 1%;
     color: white;
     border-radius: 5px;
 
 }
 
 .button {
-    margin-top: 3%;
+    margin-top: 1%;
     display: inline-block;
     vertical-align: top;
 
@@ -54,7 +60,7 @@
 .titles {
     font-weight: bold;
     font-size: 18px;
-    margin-right: 70%;
+    margin-right: 73%;
     top: 5%;
     position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
@@ -72,7 +78,7 @@
 .var {
     font-size: 14px;
     margin-right: 70%;
-    top: 5%;
+    top: 1%;
     position: relative;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -86,7 +92,7 @@
 
 .input {
     font-size: 16px;
-    text-align: center; 
+    text-align: center;
 
 }
 
@@ -146,7 +152,22 @@
     text-align: center;
     color: #000;
     margin-left: 0%;
-    top: 5%;
+    top: 2%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: wheat;
+    font-weight: bold;
+}
+
+.speech13 {
+    font-family: sans-serif;
+    font-size: 12px;
+    width: 880px;
+    border-radius: 25px;
+    padding: 24px;
+    text-align: center;
+    color: #000;
+    margin-left: 0%;
+    top: 2%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     background-color: wheat;
     font-weight: bold;
@@ -164,14 +185,14 @@
 }
 
 .buttons-wrapper5 {
-    margin-top: 19px;
+    margin-top: 7px;
     display: inline-block;
     vertical-align: top;
 
 }
 
 .buttons-wrapper12 {
-    margin-top: 2px;
+    margin-top: 1px;
     display: inline-block;
     vertical-align: top;
     margin-right: 72%;
@@ -194,8 +215,9 @@
     margin-top: 10px;
     margin-left: 7px;
     background: wheat;
-    
+
 }
+
 .seemingly-inner-button12 {
     position: absolute;
     margin-top: 19px;
@@ -239,9 +261,18 @@
 
 }
 
+.toppart13 {
+    width: 930px;
+    height: 460px;
+    float: left;
+    background: #483C32;
+    border-radius: 5px;
+
+}
+
 .outside {
     float: left;
-    margin-right: 2px;
+    margin-right: 15px;
 }
 
 
