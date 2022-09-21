@@ -13,6 +13,7 @@
 
 .container {
     display: flex;
+    margin-right: 15%;
 }
 
 .box {
@@ -52,11 +53,6 @@
     margin-right: 5%;
 
 }
-
-.container {
-    display: flex;
-}
-
 .box {
     width: 80px;
     height: 80px;
@@ -122,6 +118,12 @@
     width: 300px;
 }
 
+.board13 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 300px;
+    margin-top: 5%;
+}
 .dog {
     width: 75px;
     margin-left: 3px;
