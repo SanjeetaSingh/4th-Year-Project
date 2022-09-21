@@ -21,7 +21,7 @@ const Level14Board = () => {
 
     state.board[5] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>
 
-    state.board[11] = <img class="bone" src="assets/food.png" alt="f" id="food"></img>
+    state.board[15] = <img class="bone" src="assets/food.png" alt="f" id="food"></img>
 
     state.board[2] = <img class="cat" src="assets/cat.png" alt="f" id="catOne"></img>
 
