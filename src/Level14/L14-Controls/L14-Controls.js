@@ -519,6 +519,12 @@ const Level14Controls = () => {
     }
 
 
+    /**
+     * Method checks if the is statement 
+     * created is acceptable and would actually 
+     * work and if not then this method alerts
+     * the user they have failed.
+     */
     function failed() {
         <div>
             {Popup.clearQueue()}
