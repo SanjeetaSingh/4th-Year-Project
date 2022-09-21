@@ -493,10 +493,7 @@ const Level14Controls = () => {
                         }, true)}
                     </div>
                 }
-                else if (val1 === "false") {
-                   
-
-                } else {
+                else {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -522,25 +519,25 @@ const Level14Controls = () => {
     }
 
 
-    function failed(){
+    function failed() {
         <div>
-        {Popup.clearQueue()}
-        {Popup.create({
-            title: 'Failed',
-            content: 'You failed, the dog kept barking and stopped barking when there was a cat! Try Again!',
-            buttons: {
-                right: [{
-                    text: 'Try Again',
-                    className: 'danger',
-                    action: function () {
-                        window.location.reload(true)
-                        Popup.clearQueue();
-                        Popup.close()
-                    }
-                }]
-            }
-        }, true)}
-    </div >
+            {Popup.clearQueue()}
+            {Popup.create({
+                title: 'Failed',
+                content: 'You failed, the dog kept barking and stopped barking when there was a cat! Try Again!',
+                buttons: {
+                    right: [{
+                        text: 'Try Again',
+                        className: 'danger',
+                        action: function () {
+                            window.location.reload(true)
+                            Popup.clearQueue();
+                            Popup.close()
+                        }
+                    }]
+                }
+            }, true)}
+        </div >
     }
     /**
      * Adds a string to an array to that
