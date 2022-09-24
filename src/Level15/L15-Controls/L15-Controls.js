@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from '../L15-Controls/L15-Check';
 import whileInformation from '../../Informations/whileInformation-or';
 import varInformation from '../../Informations/varInformation';
-import ifInformation from '../../Informations/ifInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
+import What from '../L15-Board/L15-Board';
 
 const Level15Controls = () => {
 
@@ -46,8 +46,8 @@ const Level15Controls = () => {
     let hasJumped = false
 
 
-    const [val1, setVal1] = useState(0)
-    const [val2, setVal2] = useState(0)
+    let [val1, setVal1] = useState(0)
+    let [val2, setVal2] = useState(0)
 
     /**
     * The delay to get the dog walking a tile at a time
@@ -58,6 +58,7 @@ const Level15Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
+
 
 
     /**
@@ -85,8 +86,6 @@ const Level15Controls = () => {
         }
 
         Check()
-        fallen()
-        jumpAction()
     }
 
     /**
@@ -112,8 +111,6 @@ const Level15Controls = () => {
         }
 
         Check()
-        fallen()
-        jumpAction()
     }
 
 
@@ -142,8 +139,7 @@ const Level15Controls = () => {
         console.log(val1, val2)
 
         Check()
-        fallen()
-        jumpAction()
+
     }
 
     /**
@@ -169,11 +165,7 @@ const Level15Controls = () => {
         }
 
         Check()
-        fallen()
-        jumpAction()
     }
-
-
 
     /**
      * Method checks if the dog object is at the 
@@ -213,7 +205,7 @@ const Level15Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level13")
+                                        window.location.replace("/level15")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -264,94 +256,6 @@ const Level15Controls = () => {
 
                 </div>
             }
-        }
-    }
-
-
-    /**
-     * Check if the dog has fallen in any of the holes
-     * and notifying the user they have lost and restarting 
-     * the game if they did fall in any holes.
-     */
-    function fallen() {
-
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('holeOne');
-        let holeTwo = document.getElementById('holeTwo');
-
-
-        if (dog != null || hole != null || holeTwo != null) {
-            const box = dog.parentElement;
-            let hole2Box = hole.parentElement;
-            let holeBox = holeTwo.parentElement
-
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-
-            const holeRow = parseInt(hole2Box.getAttribute('data-row'))
-            const holeCol = parseInt(hole2Box.getAttribute('data-col'))
-
-            const hole2Row = parseInt(holeBox.getAttribute('data-row'))
-            const hole2Col = parseInt(holeBox.getAttribute('data-col'))
-
-            if (hasJumped !== true) {
-                if (row === holeRow && col === holeCol) {
-                    document.getElementById('holeOne').src = "assets/dog.png"
-
-                    const change = document.getElementById('dog');
-                    change.style.visibility = 'hidden'
-
-                    if (count <= 5) {
-                        <div>
-                            {Popup.clearQueue()}
-                            {Popup.create({
-                                title: 'Failed',
-                                content: 'The dog fell in one of the holes! Try again!',
-                                buttons: {
-                                    right: [{
-                                        text: 'Try Again',
-                                        className: 'danger',
-                                        action: function () {
-                                            window.location.reload(true)
-                                            Popup.clearQueue();
-                                            Popup.close()
-                                        }
-                                    }]
-                                }
-                            }, true)}
-
-                        </div>
-                    }
-                } else if (row === hole2Row && col === hole2Col) {
-                    document.getElementById('holeTwo').src = "assets/dog.png"
-
-                    const change = document.getElementById('dog');
-                    change.style.visibility = 'hidden'
-
-                    if (count <= 5) {
-                        <div>
-                            {Popup.clearQueue()}
-                            {Popup.create({
-                                title: 'Failed',
-                                content: 'The dog fell in one of the holes! Try again!',
-                                buttons: {
-                                    right: [{
-                                        text: 'Try Again',
-                                        className: 'danger',
-                                        action: function () {
-                                            window.location.reload(true)
-                                            Popup.clearQueue();
-                                            Popup.close()
-                                        }
-                                    }]
-                                }
-                            }, true)}
-
-                        </div>
-                    }
-                }
-            }
-
         }
     }
 
@@ -513,9 +417,6 @@ const Level15Controls = () => {
         let dog = document.getElementById('dog');
         let foodOne = document.getElementById('food');
 
-
-
-
         if (dog != null || foodOne != null) {
             const box = dog.parentElement;
             const foodbox = foodOne.parentElement;
@@ -523,10 +424,11 @@ const Level15Controls = () => {
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const foodrow = parseInt(foodbox.getAttribute('data-row'))
-            const foodcol = parseInt(foodbox.getAttribute('data-col'))
+            let foodrow = parseInt(foodbox.getAttribute('data-row'))
+            let foodcol = parseInt(foodbox.getAttribute('data-col'))
 
-
+            val1 = foodrow;
+            val2 = foodcol
 
             if ((row !== val1 && col !== val2) || (row === val1 && col !== val2) || (row !== val1 && col === val2)) {
                 reached = true;
@@ -560,10 +462,6 @@ const Level15Controls = () => {
                         moveUp()
                         await delay(800);
                     }
-                    if (element === "if") {
-                        jumpAction();
-                    }
-
                 }
             }
             statement()
@@ -606,120 +504,8 @@ const Level15Controls = () => {
         }
     }
 
-    /**
-        * Adds a string to an array to that
-        * represents the movement jump. This
-        * will be compared in the submit method
-        * that will move the dog object at the end
-        */
-    function jump() {
-        let jumping = "jump"
-
-        moves.push(jumping)
-
-        value = "dog.jump"
-        list.push(value)
-
-        hasJumped = true
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 5) {
-                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
-                document.getElementById("action").innerHTML += "} <br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 5) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/5"
-                }
-            }
-        }
-    }
-
-    /**
-    * Adds a string to an array to that
-    * represents the if statement. This
-    * will be compared in the submit method
-    * that will move the dog object at the end
-    */
-    function addIf() {
-        let ifS = "if"
-
-        moves.push(ifS)
-
-        used = true
-
-        value = "if (hole == true) {"
-        list.push(value)
-
-        //Getting the last element of the list
-        const lastVal = Object.keys(list).pop()
-        const item = list[lastVal]
-
-        if (pressed !== true) {
-            if (list.length <= 5) {
-                document.getElementById("action").innerHTML += item + "<br/>"
-            }
-            count += 1
-            commands.push(count)
-
-            if (count <= 5) {
-                for (const element of commands) {
-                    total = element
-                    document.getElementById("count").innerHTML = total + "/5"
-                }
-            }
-        }
-
-    }
-
-    /**
-   * The action that will take place when the 
-   * user uses the jump command and moves the
-   * dog accordingly for the animation.
-   */
-    const jumpAction = async () => {
-        let dog = document.getElementById('dog');
-        let hole = document.getElementById('holeOne')
-
-        if (dog != null || hole != null) {
-            const box = dog.parentElement;
-            let holeBox = hole.parentElement;
 
 
-            let row = parseInt(box.getAttribute('data-row'))
-            let col = parseInt(box.getAttribute('data-col'))
-
-            const holeRow = parseInt(holeBox.getAttribute('data-row'))
-            const holeCol = parseInt(holeBox.getAttribute('data-col'))
-
-            if (hasJumped === true) {
-                if (row === 1 && col === holeCol) {
-
-                    let jumpRow = parseInt(box.getAttribute('data-row')) + 1
-                    const newBox = document.querySelector(`[data-row="${jumpRow}"][data-col="${col}"]`);
-                    newBox.append(dog)
-
-                }
-                else if (row === holeRow && col === 1) {
-
-                    let jumpCol = parseInt(box.getAttribute('data-col')) - 1
-                    const newBox = document.querySelector(`[data-row="${row}"][data-col="${jumpCol}"]`);
-                    newBox.append(dog)
-
-                }
-            }
-
-        }
-
-    }
     /**
      * Added a clear button to remove the 
      * sequence from the panel. And reset the 
@@ -733,7 +519,6 @@ const Level15Controls = () => {
         document.getElementById("action").innerHTML = ""
         document.getElementById("count").innerHTML = "/5"
     }
-
 
     return (
         <div class="level13Contain">
@@ -784,15 +569,6 @@ const Level15Controls = () => {
                     </button>
                     <button type='submit' class="button" onClick={addWhile} disabled={pressed === true}>While</button>
                 </div>
-                <div class="buttons-wrapper5">
-                    <button class="seemingly-inner-button" onClick={ifInformation} disabled={pressed === true}>
-                        <i class="fa fa-info" ></i>
-                    </button>
-                    <button class="button" onClick={addIf} disabled={pressed === true}>
-                        If Statement
-                    </button>
-                </div>
-                <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
                 <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
