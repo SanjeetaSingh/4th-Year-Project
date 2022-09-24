@@ -22,13 +22,15 @@ const Level15Board = () => {
 
 
     state.board[8] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>;
+    state.board[4] = <img class="paw" src="assets/paw.png" alt="d" id="dog"></img>;
+
 
     const [values, setValue] = useState(null);
 
 
     //Temporary
     const show = () => {
-        setValue(<img class="bone" src="assets/food.png" alt="f" id="food"></img>)
+        setValue(<img class="goal" src="assets/bone.png" alt="f" id="food"></img>)
         return (
             state.board[0] = values
         )
