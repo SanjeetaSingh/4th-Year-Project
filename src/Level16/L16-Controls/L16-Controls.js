@@ -616,7 +616,7 @@ const Level16Controls = () => {
                 Just like last time the bone class will help you find the bones location. We are introducing a for loop in this
                 level and you must use it instead of a while loop. The varible steps will be a counter that will be passed into the for loop to determine 
                 how many time you would like to iterate through your commands . 
-                The count starts at 0 so becaeful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone. 
+                The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone. 
                 Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
                 <br />
 
