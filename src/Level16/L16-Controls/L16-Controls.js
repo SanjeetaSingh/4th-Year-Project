@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import Check from './L16-Check';
-import whileInformation from '../../Informations/whileInformation-or';
 import varInformation from '../../Informations/varInformation';
 import ifInformation from '../../Informations/ifInformation';
+import forInformation from '../../Informations/forInformation';
 import hint from '../../Informations/hint';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
@@ -465,7 +465,7 @@ const Level16Controls = () => {
     function addFor() {
         used = true
 
-        value = "for steps.times {"
+        value = "for (int i = 0; i < steps; i++) {"
         list.push(value)
 
         //Getting the last element of the list
@@ -665,7 +665,7 @@ const Level16Controls = () => {
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
                 <div class="buttons-wrapper5">
-                    <button class="seemingly-inner-button" onClick={whileInformation} disabled={pressed === true}>
+                    <button class="seemingly-inner-button" onClick={forInformation} disabled={pressed === true}>
                         <i class="fa fa-info" ></i>
                     </button>
                     <button type='submit' class="button" onClick={addFor} disabled={pressed === true}>For</button>
