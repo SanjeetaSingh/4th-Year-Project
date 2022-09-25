@@ -36,7 +36,7 @@
             paw.style.visibility = 'visible'
             dog.style.visibility = 'hidden'
     
-            await delay(800)
+            await delay(900)
             dog.style.visibility = 'visible'
 
         }

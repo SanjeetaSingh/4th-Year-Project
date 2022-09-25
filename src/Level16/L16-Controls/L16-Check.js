@@ -26,10 +26,10 @@ const L16Check = async () => {
         const bowlCol1 = parseInt(foodbox.getAttribute('data-col'))
 
 
-        if (row === bowlRow1 && col === bowlCol1) {
-            await delay(100)
-            document.getElementById('food').src = "assets/dog.png"
-        }
+        // if (row === bowlRow1 && col === bowlCol1) {
+        //     await delay(100)
+        //     document.getElementById('food').src = "assets/dog.png"
+        // }
     }
 
 }

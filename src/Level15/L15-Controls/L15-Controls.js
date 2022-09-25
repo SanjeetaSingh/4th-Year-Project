@@ -240,7 +240,7 @@ const Level15Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level15")
+                                        window.location.replace("/level16")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -496,7 +496,7 @@ const Level15Controls = () => {
     function addWhile() {
         used = true
 
-        value = "while (bone != row && bone != col) {"
+        value = "while (dog != row && dog != col) {"
         list.push(value)
 
         //Getting the last element of the list
