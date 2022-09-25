@@ -133,6 +133,14 @@
     margin-top: 5%;
 }
 
+.board16 {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 400px;
+    margin-top: 5%;
+}
+
+
 .dog {
     width: 75px;
     margin-left: 3px;
