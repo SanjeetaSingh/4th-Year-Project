@@ -29,13 +29,12 @@
 }
 
 .buttons-wrapperclass {
-    margin-top: 1px;
+
     display: inline-block;
     vertical-align: top;
 }
 
 .buttons-wrapperclass-bottom {
-    margin-top: 1px;
     display: inline-block;
     vertical-align: top;
 }
