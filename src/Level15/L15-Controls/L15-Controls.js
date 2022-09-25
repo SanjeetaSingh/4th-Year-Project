@@ -6,10 +6,9 @@ import whileInformation from '../../Informations/whileInformation-or';
 import varInformation from '../../Informations/varInformation';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
-import What from '../L15-Board/L15-Board';
+import pawCheck from './pawCheck'
 
 const Level15Controls = () => {
-
     /**
      * Variables
      */
@@ -59,7 +58,18 @@ const Level15Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
-
+    useEffect(() => {
+        let bone = document.getElementById('food')
+        if (bone !== null) {
+            bone.style.visibility = 'hidden'
+            console.log(bone)
+        }
+    })
+    let bone = document.getElementById('food')
+    if (bone !== null) {
+        bone.style.visibility = 'hidden'
+        console.log(bone)
+    }
 
     /**
      * Moves the dog object one tile to the left
@@ -84,8 +94,14 @@ const Level15Controls = () => {
         if (row === val1 && col === val2) {
             reached = false
         }
+        if (row !== val1 && col !== val2) {
+            let bone = document.getElementById('food')
+            bone.style.visibility = 'visible'
+
+        }
 
         Check()
+        pawCheck()
     }
 
     /**
@@ -110,7 +126,14 @@ const Level15Controls = () => {
             reached = false
         }
 
+        if (row !== val1 && col !== val2) {
+            let bone = document.getElementById('food')
+            bone.style.visibility = 'visible'
+
+        }
+
         Check()
+        pawCheck()
     }
 
 
@@ -136,9 +159,15 @@ const Level15Controls = () => {
             reached = false
         }
 
+        if (row !== val1 && col !== val2) {
+            let bone = document.getElementById('food')
+            bone.style.visibility = 'visible'
+
+        }
         console.log(val1, val2)
 
         Check()
+        pawCheck()
 
     }
 
@@ -164,6 +193,11 @@ const Level15Controls = () => {
             reached = false
         }
 
+        if (row !== val1 && col !== val2) {
+            let bone = document.getElementById('food')
+            bone.style.visibility = 'visible'
+
+        }
         Check()
     }
 
@@ -189,12 +223,12 @@ const Level15Controls = () => {
             const foodCol = parseInt(foodbox.getAttribute)
 
 
-            if (row === val1 && col === val2) {
+            if (row === foodRow && col === 0) {
                 document.getElementById('food').src = "assets/dog.png"
                 dog.style.visibility = 'hidden'
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 5) {
+                if (count <= 3) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -214,27 +248,6 @@ const Level15Controls = () => {
                         }, true)}
                     </div>
                 }
-            } else if (val1 !== foodRow || val2 !== foodCol) {
-                <div>
-                    {Popup.clearQueue()}
-                    {Popup.create({
-                        title: 'Failed, Incorrect Values',
-                        content: 'You have entrered inccorect values as your variables, Try Again!',
-                        buttons: {
-                            right: [{
-                                text: 'Try Again',
-                                className: 'danger',
-                                action: function () {
-                                    window.location.reload(true)
-                                    Popup.clearQueue();
-                                    Popup.close()
-                                }
-                            }]
-                        }
-                    }, true)}
-
-                </div>
-
             } else {
                 <div>
                     {Popup.clearQueue()}
@@ -277,16 +290,16 @@ const Level15Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 3) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 3) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/3"
                 }
             }
         }
@@ -311,16 +324,16 @@ const Level15Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 3) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 3) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/3"
                 }
             }
         }
@@ -344,16 +357,16 @@ const Level15Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 3) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 3) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/3"
                 }
             }
         }
@@ -378,21 +391,20 @@ const Level15Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 3) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 3) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/3"
                 }
             }
         }
     }
-
 
     /**
      * Submits the sequence that the user
@@ -427,8 +439,10 @@ const Level15Controls = () => {
             let foodrow = parseInt(foodbox.getAttribute('data-row'))
             let foodcol = parseInt(foodbox.getAttribute('data-col'))
 
+            console.log(foodrow, "row")
             val1 = foodrow;
             val2 = foodcol
+
 
             if ((row !== val1 && col !== val2) || (row === val1 && col !== val2) || (row !== val1 && col === val2)) {
                 reached = true;
@@ -481,7 +495,7 @@ const Level15Controls = () => {
     function addWhile() {
         used = true
 
-        value = "while (dog != row && dog != col) {"
+        value = "while (bone != row && bone != col) {"
         list.push(value)
 
         //Getting the last element of the list
@@ -489,16 +503,16 @@ const Level15Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 5) {
+            if (list.length <= 3) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 5) {
+            if (count <= 3) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/5"
+                    document.getElementById("count").innerHTML = total + "/3"
                 }
             }
         }
@@ -517,7 +531,7 @@ const Level15Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/5"
+        document.getElementById("count").innerHTML = "/3"
     }
 
     return (
@@ -525,16 +539,21 @@ const Level15Controls = () => {
             <h2>Level 15:</h2>
 
             <div class="speech13" >
-                Variables again! For the values of the variables you need to set coordinates for the row and column of the bowl
-                to help the dog get to the food again. These variables will be used in the while loop as a condtion to stop looping through the commands.
-                You have to use the if statement to avoid falling in the holes. Use the same amount or less amount of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
+                It gets a little tricky here, the dog has hid his bone and you have to help him find it. The problem is that you don't know the row or column the
+                bone is at. There is a class Bone as seen on the bottom left corner, this class is going to help you to get the location of the bone. What you
+                have to do is input call on the class bone and the varible name that is passed through.
+                The variables will be used in the while loop as a condtion to stop looping through the commands. Use the same amount or less amount of commands mentioned in the top right corner.
+               <br/><br/> 
+                
+                <p class="hints">There is a hint button below that can get you started on it if you are stuck.
+                Click on the information button in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
+                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)</p>
             </div>
             <div class="borderPanel">
 
                 <div class="toppart13">
                     <div class="containing">
-                        <p id="count" class="number">0/5</p>
+                        <p id="count" class="number">0/3</p>
                     </div>
                     <p class="titles">Enter Sequence:</p><br />
 
@@ -558,7 +577,7 @@ const Level15Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside15">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

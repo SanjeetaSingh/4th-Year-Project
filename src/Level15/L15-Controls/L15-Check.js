@@ -27,11 +27,8 @@ const L15Check = async () => {
 
 
         if (row === bowlRow1 && col === bowlCol1) {
+            await delay(100)
             document.getElementById('food').src = "assets/dog.png"
-            let change = document.getElementById('food')
-            // await delay(100)
-            change.style.visibility = 'hidden'
-
         }
     }
 

@@ -6,7 +6,7 @@ const class15 = () => {
     return (
         <div>
             <p class="title15">
-                Food Class
+                Bone Class
             </p>
             <div class="container15">
                 <p class="top">
@@ -15,7 +15,7 @@ const class15 = () => {
                     private int col;
                 </p>
                 <p class="bottom"> 
-                    public Food (int row, int col) &#10100; <br />
+                    public Bone (int row, int col) &#10100; <br />
                     &nbsp; &nbsp; this.row = row; <br />
                     &nbsp; &nbsp; this.col = col; <br />
                     &#10101;

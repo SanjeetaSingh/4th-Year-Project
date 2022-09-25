@@ -3,13 +3,12 @@ import "../../Style/Board.css"
 import Panel from "../L15-Panel/L15-Panel"
 import Class15 from "../L15-Panel/class"
 
-
 const state = {
     board: Array(9).fill(null),
     player: null
 }
 
-const Level15Board = () => {
+function Level15Board() {
     const renderBoxes = () => {
         return state.board.map(
             (box, index) =>
@@ -22,24 +21,8 @@ const Level15Board = () => {
 
 
     state.board[8] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>;
-    state.board[4] = <img class="paw" src="assets/paw.png" alt="d" id="dog"></img>;
-
-
-    const [values, setValue] = useState(null);
-
-
-    //Temporary
-    const show = () => {
-        setValue(<img class="goal" src="assets/bone.png" alt="f" id="food"></img>)
-        return (
-            state.board[0] = values
-        )
-    }
-
-    useEffect(() => {
-        show()
-    }, [])
-
+    state.board[4] = <img class="paw" src="assets/paw.png" alt="d" id="paw"></img>;
+    state.board[0] = <img class="goal" src="assets/bone.png" alt="d" id="food"></img>;
 
     return (
         <div className="container" >
@@ -51,11 +34,11 @@ const Level15Board = () => {
             </div>
             <div className="bottom-panel">
                 <Panel />
-                <button type='submit' class="button" onClick={show}>click </button>
             </div>
-
         </div>
     )
 }
+
+
 
 export default Level15Board
