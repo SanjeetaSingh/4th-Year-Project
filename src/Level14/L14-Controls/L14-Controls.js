@@ -484,7 +484,7 @@ const Level14Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level13")
+                                        window.location.replace("/level15")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }

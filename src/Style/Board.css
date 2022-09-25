@@ -154,3 +154,16 @@
     margin-left: 3px;
     margin-top: 2px;
 }
+
+.goal {
+    width: 75px;
+    margin-left: 5px;
+    margin-top: 1px;
+    align-self: center;
+}
+
+.paw{
+    width: 70px;
+    margin-left: 3px;
+    margin-top: 2px;
+}
