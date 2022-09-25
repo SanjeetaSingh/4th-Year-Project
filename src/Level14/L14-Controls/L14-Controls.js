@@ -992,7 +992,7 @@ const Level14Controls = () => {
 
                     <div class='buttons-wrapper12'>
                         <button class="seemingly-inner-button12" onClick={varInformation} disabled={pressed === true}>
-                            <i class="fa fa-info" ></i>
+                            <i class="fa fa-info" ></i>   &nbsp;Variables
                         </button>
                         <p class="subtitles">Variable Declaration</p>
                     </div>

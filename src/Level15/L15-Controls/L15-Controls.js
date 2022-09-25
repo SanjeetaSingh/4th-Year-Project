@@ -4,6 +4,7 @@ import "../../Style/Control.css"
 import Check from '../L15-Controls/L15-Check';
 import whileInformation from '../../Informations/whileInformation-or';
 import varInformation from '../../Informations/varInformation';
+import hint from '../../Informations/hint';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 import pawCheck from './pawCheck'
@@ -541,36 +542,42 @@ const Level15Controls = () => {
             <div class="speech13" >
                 It gets a little tricky here, the dog has hid his bone and you have to help him find it. The problem is that you don't know the row or column the
                 bone is at. There is a class Bone as seen on the bottom left corner, this class is going to help you to get the location of the bone. What you
-                have to do is input call on the class bone and the varible name that is passed through.
+                have to do is in the input field call on the class bone and the varible name that is passed through.
                 The variables will be used in the while loop as a condtion to stop looping through the commands. Use the same amount or less amount of commands mentioned in the top right corner.
-               <br/><br/> 
-                
-                <p class="hints">There is a hint button below that can get you started on it if you are stuck.
-                Click on the information button in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
-                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)</p>
+                The paw prints are a hint on which direction the bone can be. 
+                <br /><br />
+
+                <p class="hints">There is a hint button below that can get you started on if you are stuck.
+                    Click on the information buttons in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
+                    <br /> Good luck! <br /> (To learn more about while, understand the while loop condition and how variables work click the i's below)</p>
             </div>
             <div class="borderPanel">
 
                 <div class="toppart13">
                     <div class="containing">
                         <p id="count" class="number">0/3</p>
+
                     </div>
+                    <button class="seemingly-inner-button-hint" onClick={hint} disabled={pressed === true}>
+                        Hint
+                    </button>
                     <p class="titles">Enter Sequence:</p><br />
 
                     <div class='buttons-wrapper12'>
                         <button class="seemingly-inner-button12" onClick={varInformation} disabled={pressed === true}>
-                            <i class="fa fa-info" ></i>
+                            <i class="fa fa-info" ></i>   &nbsp;Variables
                         </button>
                         <p class="subtitles">Variable Declaration</p>
                     </div>
-
+                    <div class='buttons-wrapper12'>
+                        <p class="bones">Bone bone = new Bone()</p>
+                    </div>
                     <form class="var">
                         int row =  <input id="var1" class="input" size="5" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
                         <br />
                         int col = <input id="var2" class="input" size="5" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;
                         <br /><br />
                     </form>
-
                     <p id="action" class="lists"></p>
 
                 </div>

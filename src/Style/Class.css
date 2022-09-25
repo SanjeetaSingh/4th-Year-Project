@@ -27,3 +27,43 @@
 .bottom {
     margin-left: 5%;
 }
+
+.buttons-wrapperclass {
+    margin-top: 1px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.buttons-wrapperclass-bottom {
+    margin-top: 1px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.seemingly-inner-button-class {
+    position: absolute;
+    background: wheat;
+    margin-left: 127px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.seemingly-inner-button-class-bottom {
+    position: absolute;
+    background: wheat;
+    margin-left: 12px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+.priv {
+    color: red;
+}
+
+.pub {
+    color: red;
+}
+
+.con {
+    color: red;
+}
