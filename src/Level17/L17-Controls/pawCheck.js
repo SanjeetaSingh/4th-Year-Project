@@ -1,9 +1,8 @@
 /**
- * Method checks if the dog object is at the 
- * end postion and if the user has completed
- * the level successfully
+ * Class checks if the dog object is at the 
+ * one the paw prints and animates it accordingly 
+ * so the dog image doesn't go off the board.
  */
-
  const pawCheck = async () => {
 
     function delay(time) {

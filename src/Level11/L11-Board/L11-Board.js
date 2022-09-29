@@ -4,10 +4,15 @@ import Panel from "../Panel/L11-Panel"
 
 const state = {
     board: Array(9).fill(null),
-    player: null
 }
 
-const Level11Board = () => {                                                                                                                                                                                                                                                                                                   
+/**
+ * Class constucts the grid board with 
+ * the dog, cats and food object on it.
+ * 
+ * @returns a grid board
+ */
+const Level11Board = () => {
 
     const renderBoxes = () => {
         return state.board.map(
@@ -28,16 +33,16 @@ const Level11Board = () => {
 
     return (
         <div className="container" >
-        <div className="boardcontainer2">
-            <div className="board11" >
-                {renderBoxes()}
+            <div className="boardcontainer2">
+                <div className="board11" >
+                    {renderBoxes()}
+                </div>
             </div>
-        </div>
-        <div className="bottom-panel">
-            <Panel />
-        </div>
+            <div className="bottom-panel">
+                <Panel />
+            </div>
 
-    </div>
+        </div>
     )
 }
 

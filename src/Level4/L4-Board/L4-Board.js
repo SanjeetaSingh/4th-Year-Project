@@ -4,10 +4,15 @@ import Panel from "../L4-Panel/L4-Panel"
 
 const state = {
     board: Array(15).fill(null),
-    player: null
 }
 
-const Level4Board = () => {                                                                                                                                                                                                                                                                                                   
+/**
+ * Class constucts the grid board with 
+ * the dog, cat, holes and food object on it.
+ * 
+ * @returns a grid board
+ */
+const Level4Board = () => {
 
     const renderBoxes = () => {
         return state.board.map(
@@ -25,7 +30,7 @@ const Level4Board = () => {
     state.board[5] = <img class="hole" src="assets/hole.png" alt="h" id="holeOne"></img>
 
     state.board[3] = <img class="hole" src="assets/hole.png" alt="h" id="holeTwo"></img>
-    
+
     state.board[1] = <img class="cat" src="assets/cat.png" alt="c" id="cat"></img>
 
     return (
@@ -38,7 +43,7 @@ const Level4Board = () => {
 
 
             <div className="bottom-panel">
-                <Panel/>
+                <Panel />
             </div>
 
         </div>

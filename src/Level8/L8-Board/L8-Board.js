@@ -4,10 +4,15 @@ import Panel from "../L8-Panel/L8-Panel"
 
 const state = {
     board: Array(12).fill(null),
-    player: null
 }
 
-const Level8Board = () => {                                                                                                                                                                                                                                                                                                   
+/**
+ * Class constucts the grid board with 
+ * the dog, cats, hole and food object on it.
+ * 
+ * @returns a grid board
+ */
+const Level8Board = () => {
 
     const renderBoxes = () => {
         return state.board.map(
@@ -29,7 +34,7 @@ const Level8Board = () => {
     state.board[4] = <img class="cat" src="assets/cat.png" alt="f" id="catThree"></img>
 
     state.board[9] = <img class="hole" src="assets/hole.png" alt="h" id="hole"></img>
-    
+
     return (
         <div className="container" >
             <div className="boardcontainer2">
@@ -40,7 +45,7 @@ const Level8Board = () => {
 
 
             <div className="bottom-panel">
-                <Panel/>
+                <Panel />
             </div>
 
         </div>

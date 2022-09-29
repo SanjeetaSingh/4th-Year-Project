@@ -5,9 +5,14 @@ import Class15 from "../L15-Panel/class"
 
 const state = {
     board: Array(9).fill(null),
-    player: null
 }
 
+/**
+ * Class constucts the grid board with 
+ * the dog, paws and food object on it.
+ * 
+ * @returns a grid board
+ */
 function Level15Board() {
     const renderBoxes = () => {
         return state.board.map(
