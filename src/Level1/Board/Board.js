@@ -4,9 +4,14 @@ import BottomPanel from "../Panel/BottomPanel"
 
 const state = {
     board: Array(49).fill(null),
-    player: null
 }
 
+/**
+ * Class constucts the grid board with 
+ * the dog and food object on it.
+ * 
+ * @returns a grid board
+ */
 const Board = () => {                                                                                                                                                                                                                                                                                                   
 
     const renderBoxes = () => {

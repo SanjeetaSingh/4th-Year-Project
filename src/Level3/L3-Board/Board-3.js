@@ -4,9 +4,14 @@ import Panel from "../L3-Panel/Panel-3"
 
 const state = {
     board: Array(25).fill(null),
-    player: null
 }
 
+/**
+ * Class constucts the grid board with 
+ * the dog, cats and food object on it.
+ * 
+ * @returns a grid board
+ */
 const Level3Board = () => {                                                                                                                                                                                                                                                                                                   
 
     const renderBoxes = () => {

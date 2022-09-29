@@ -4,7 +4,11 @@ import "../../Style/Control.css"
 import modifiersInformation from '../../Informations/modifiersInformation ';
 import constructInformation from '../../Informations/constuctInformation';
 
-
+/**
+ * Class creates panles with the Bone class informaion and
+ * information popups for the user to get more knowledge
+ *  
+ */
 const class15 = () => {
     return (
         <div>

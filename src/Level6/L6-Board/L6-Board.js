@@ -4,10 +4,15 @@ import Panel from "../L6-Panel/L6-Panel"
 
 const state = {
     board: Array(12).fill(null),
-    player: null
 }
 
-const Level6Board = () => {                                                                                                                                                                                                                                                                                                   
+/**
+ * Class constucts the grid board with 
+ * the dog, hole and food object on it.
+ * 
+ * @returns a grid board
+ */
+const Level6Board = () => {
 
     const renderBoxes = () => {
         return state.board.map(
@@ -24,7 +29,7 @@ const Level6Board = () => {
 
     state.board[3] = <img class="food" src="assets/food.png" alt="f" id="food"></img>
 
-    
+
     return (
         <div className="container" >
             <div className="boardcontainer2">
@@ -35,7 +40,7 @@ const Level6Board = () => {
 
 
             <div className="bottom-panel">
-                <Panel/>
+                <Panel />
             </div>
 
         </div>

@@ -4,10 +4,15 @@ import Panel from "../L5-Panel/L5-Panel"
 
 const state = {
     board: Array(25).fill(null),
-    player: null
 }
 
-const Level5Board = () => {                                                                                                                                                                                                                                                                                                   
+/**
+ * Class constucts the grid board with 
+ * the dog and food object on it.
+ * 
+ * @returns a grid board
+ */
+const Level5Board = () => {
 
     const renderBoxes = () => {
         return state.board.map(
@@ -22,7 +27,7 @@ const Level5Board = () => {
 
     state.board[6] = <img class="food" src="assets/food.png" alt="f" id="food"></img>
 
-    
+
     return (
         <div className="container" >
             <div className="boardcontainer2">
@@ -33,7 +38,7 @@ const Level5Board = () => {
 
 
             <div className="bottom-panel">
-                <Panel/>
+                <Panel />
             </div>
 
         </div>

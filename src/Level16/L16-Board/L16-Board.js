@@ -5,9 +5,14 @@ import Class16 from "../L16-Panel/class16"
 
 const state = {
     board: Array(25).fill(null),
-    player: null
 }
 
+/**
+ * Class constucts the grid board with 
+ * the dog, paws and food object on it.
+ * 
+ * @returns a grid board
+ */
 function Level16Board() {
     const renderBoxes = () => {
         return state.board.map(

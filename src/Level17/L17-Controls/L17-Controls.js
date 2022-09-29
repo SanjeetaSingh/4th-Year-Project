@@ -54,6 +54,7 @@ const Level17Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    //Hides the bone from the view of the user
     useEffect(() => {
         let bone = document.getElementById('food')
         if (bone !== null) {
@@ -203,7 +204,7 @@ const Level17Controls = () => {
                 dog.style.visibility = 'hidden'
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 6) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -285,16 +286,16 @@ const Level17Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -319,16 +320,16 @@ const Level17Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -352,16 +353,16 @@ const Level17Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -386,16 +387,16 @@ const Level17Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -472,16 +473,16 @@ const Level17Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -508,16 +509,16 @@ const Level17Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -575,17 +576,17 @@ const Level17Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 6) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&nbsp;" + "&nbsp;" + item + "<br/>"
-                    + "&nbsp;" + "}"
+                    + "&nbsp;" + "}" + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 6) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/6"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -603,7 +604,7 @@ const Level17Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/3"
+        document.getElementById("count").innerHTML = "/5"
     }
 
     return (
@@ -611,11 +612,12 @@ const Level17Controls = () => {
             <h2>Level 17:</h2>
 
             <div class="speech16" >
-                The dog has hid his bone and you have to help him find it and you don't know the location of the bone. 
-                Just like last time the bone class will help you find the bones location. We are introducing a for loop in this
-                level and you must use it instead of a while loop. The varible steps will be a counter that will be passed into the for loop to determine 
-                how many time you would like to iterate through your commands . 
-                The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone. 
+                The dog has hid his bone again and you have to help him find it and you don't know the location of the bone. 
+                Just like last time the bone class will help you find the bones location. You will need to use the for loop in this
+                level. The variable steps will be a counter that will be passed into the for loop to determine 
+                how many time you would like to iterate through your commands. 
+                The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
+                if the iteration of steps is correct. 
                 Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
                 <br />
 
@@ -627,7 +629,7 @@ const Level17Controls = () => {
 
                 <div class="toppart16">
                     <div class="containing">
-                        <p id="count" class="number">0/3</p>
+                        <p id="count" class="number">0/5</p>
 
                     </div>
                     <button class="seemingly-inner-button-hint" onClick={hint} disabled={pressed === true}>

@@ -1,12 +1,17 @@
-import React, { useEffect, useState, useCallback } from "react"
+import React from "react"
 import "../../Style/Board.css"
 import Panel from "../L9-Panel/L9-Panel"
 
 const state = {
     board: Array(12).fill(null),
-    player: null
 }
 
+/**
+ * Class constucts the grid board with 
+ * the dog, cat, hole and food object on it.
+ * 
+ * @returns a grid board
+ */
 const Level9Board = () => {
 
     const renderBoxes = () => {
