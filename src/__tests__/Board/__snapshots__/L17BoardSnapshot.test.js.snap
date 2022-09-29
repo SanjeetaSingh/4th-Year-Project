@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot test level 17 1`] = `
+<div
+  className="container"
+>
+  <div
+    className="boardcontainer2"
+  >
+    <div
+      className="board16"
+    >
+      <div
+        className="box"
+        data-col={0}
+        data-row={0}
+      />
+      <div
+        className="box"
+        data-col={1}
+        data-row={0}
+      />
+      <div
+        className="box"
+        data-col={2}
+        data-row={0}
+      />
+      <div
+        className="box"
+        data-col={3}
+        data-row={0}
+      />
+      <div
+        className="box"
+        data-col={4}
+        data-row={0}
+      />
+      <div
+        className="box"
+        data-col={0}
+        data-row={1}
+      />
+      <div
+        className="box"
+        data-col={1}
+        data-row={1}
+      />
+      <div
+        className="box"
+        data-col={2}
+        data-row={1}
+      />
+      <div
+        className="box"
+        data-col={3}
+        data-row={1}
+      >
+        <img
+          alt="d"
+          class="goal"
+          id="food"
+          src="assets/bone.png"
+        />
+      </div>
+      <div
+        className="box"
+        data-col={4}
+        data-row={1}
+      />
+      <div
+        className="box"
+        data-col={0}
+        data-row={2}
+      />
+      <div
+        className="box"
+        data-col={1}
+        data-row={2}
+      />
+      <div
+        className="box"
+        data-col={2}
+        data-row={2}
+      >
+        <img
+          alt="d"
+          class="paw"
+          id="paw2"
+          src="assets/pawright.png"
+        />
+      </div>
+      <div
+        className="box"
+        data-col={3}
+        data-row={2}
+      />
+      <div
+        className="box"
+        data-col={4}
+        data-row={2}
+      />
+      <div
+        className="box"
+        data-col={0}
+        data-row={3}
+      >
+        <img
+          alt="d"
+          class="paw"
+          id="paw"
+          src="assets/pawright.png"
+        />
+      </div>
+      <div
+        className="box"
+        data-col={1}
+        data-row={3}
+      />
+      <div
+        className="box"
+        data-col={2}
+        data-row={3}
+      />
+      <div
+        className="box"
+        data-col={3}
+        data-row={3}
+      />
+      <div
+        className="box"
+        data-col={4}
+        data-row={3}
+      />
+      <div
+        className="box"
+        data-col={0}
+        data-row={4}
+      >
+        <img
+          alt="d"
+          class="image"
+          id="dog"
+          src="assets/dog.png"
+        />
+      </div>
+      <div
+        className="box"
+        data-col={1}
+        data-row={4}
+      />
+      <div
+        className="box"
+        data-col={2}
+        data-row={4}
+      />
+      <div
+        className="box"
+        data-col={3}
+        data-row={4}
+      />
+      <div
+        className="box"
+        data-col={4}
+        data-row={4}
+      />
+    </div>
+    <div>
+      <p
+        class="title15"
+      >
+        Bone Class
+      </p>
+      <div
+        class="container15"
+      >
+        <p
+          class="top"
+        >
+          <br />
+          <div
+            class="buttons-wrapperclass"
+          >
+            <button
+              class="seemingly-inner-button-class"
+              onClick={[Function]}
+            >
+              <i
+                class="fa fa-info"
+              />
+                Modifiers
+            </button>
+          </div>
+          private int row; 
+          <br />
+          private int col;
+        </p>
+        <p
+          class="bottom"
+        >
+          public Bone (int row, int col) ❴
+          <div
+            class="buttons-wrapperclass-bottom"
+          >
+            <button
+              class="seemingly-inner-button-class-bottom"
+              onClick={[Function]}
+            >
+              <i
+                class="fa fa-info"
+              />
+                Class Constructor
+            </button>
+          </div>
+          <br />
+              this.row = row; 
+          <br />
+              this.col = col; 
+          <br />
+          ❵
+        </p>
+      </div>
+    </div>
+  </div>
+  <div
+    className="bottom-panel"
+  >
+    <div
+      class="border"
+    >
+      <div
+        class="level13Contain"
+      >
+        <h2>
+          Level 17:
+        </h2>
+        <div
+          class="speech16"
+        >
+          The dog has hid his bone again and you have to help him find it and you don't know the location of the bone. Just like last time the bone class will help you find the bones location. You will need to use the for loop in this level. The variable steps will be a counter that will be passed into the for loop to determine how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone if the iteration of steps is correct. Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
+          <br />
+          <p
+            class="hints"
+          >
+            There is a hint button below that can get you started on if you are stuck. Click on the information buttons in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
+            <br />
+             Good luck! 
+            <br />
+             (To learn more about for, understand the for loop condition, how variables work and about if statments click the i's below)
+          </p>
+        </div>
+        <div
+          class="borderPanel"
+        >
+          <div
+            class="toppart16"
+          >
+            <div
+              class="containing"
+            >
+              <p
+                class="number"
+                data-testid="counter"
+                id="count"
+              >
+                0/5
+              </p>
+            </div>
+            <button
+              class="seemingly-inner-button-hint"
+              disabled={false}
+              onClick={[Function]}
+            >
+              Hint
+            </button>
+            <p
+              class="titles"
+            >
+              Enter Sequence:
+            </p>
+            <div
+              class="buttons-wrapper12"
+            >
+              <button
+                class="seemingly-inner-button12"
+                disabled={false}
+                onClick={[Function]}
+              >
+                <i
+                  class="fa fa-info"
+                />
+                    Variables
+              </button>
+              <p
+                class="subtitles"
+              >
+                Variable Declaration
+              </p>
+            </div>
+            <div>
+              <p
+                class="bones"
+              >
+                Bone bone = new Bone()
+              </p>
+            </div>
+            <form
+              class="var"
+            >
+              int row =  
+              <input
+                class="input"
+                id="var1"
+                onChange={[Function]}
+                size="5"
+              />
+                 ; 
+              <br />
+              <br />
+              int col = 
+              <input
+                class="input"
+                id="var2"
+                onChange={[Function]}
+                size="5"
+              />
+                ;  
+              <br />
+              <br />
+                int steps =  
+              <input
+                class="input"
+                id="var3"
+                onChange={[Function]}
+                size="5"
+              />
+                ;
+              <br />
+              <br />
+            </form>
+            <p
+              class="lists"
+              id="action"
+            />
+          </div>
+        </div>
+        <div
+          class="outside13"
+        >
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Left
+          </button>
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Up
+          </button>
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Down
+          </button>
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Right
+          </button>
+          <div
+            class="buttons-wrapper5"
+          >
+            <button
+              class="seemingly-inner-button"
+              disabled={false}
+              onClick={[Function]}
+            >
+              <i
+                class="fa fa-info"
+              />
+            </button>
+            <button
+              class="button"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              For
+            </button>
+          </div>
+          <div
+            class="buttons-wrapper5"
+          >
+            <button
+              class="seemingly-inner-button"
+              disabled={false}
+              onClick={[Function]}
+            >
+              <i
+                class="fa fa-info"
+              />
+            </button>
+            <button
+              class="button"
+              disabled={false}
+              onClick={[Function]}
+              type="submit"
+            >
+              If Statement
+            </button>
+          </div>
+          <button
+            class="button"
+            onClick={[Function]}
+            type="submit"
+          >
+            bone.found()
+          </button>
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+            Clear
+          </button>
+          <button
+            class="button"
+            disabled={false}
+            onClick={[Function]}
+            type="submit"
+          >
+             Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
