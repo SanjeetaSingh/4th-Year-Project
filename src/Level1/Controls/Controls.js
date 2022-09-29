@@ -392,7 +392,7 @@ const Controls = () => {
             <div class="borderPanel">
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/10</p>
+                        <p data-testid="counter" id="count" class="number">0/10</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>

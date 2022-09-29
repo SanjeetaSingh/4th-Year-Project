@@ -555,7 +555,7 @@ const Level15Controls = () => {
 
                 <div class="toppart13">
                     <div class="containing">
-                        <p id="count" class="number">0/3</p>
+                        <p data-testid="counter" id="count" class="number">0/3</p>
 
                     </div>
                     <button class="seemingly-inner-button-hint" onClick={hint} disabled={pressed === true}>

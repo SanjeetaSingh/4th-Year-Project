@@ -223,16 +223,17 @@ const Level14Controls = () => {
      */
     function moveCatDown() {
         let element = document.getElementById('catOne');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row')) + 1
-        const col = parseInt(box.getAttribute('data-col'));
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        if (element != null) {
+            const box = element.parentElement;
+            const row = parseInt(box.getAttribute('data-row')) + 1
+            const col = parseInt(box.getAttribute('data-col'));
+            const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
+            if (newBox !== null || element !== null) {
+                newBox.append(element);
 
+            }
         }
-
     }
 
 
@@ -258,17 +259,19 @@ const Level14Controls = () => {
      */
     function moveCat2Right() {
         let element = document.getElementById('catTwo');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row'))
-        const col = parseInt(box.getAttribute('data-col')) + 1;
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        if (element != null) {
+            const box = element.parentElement;
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col')) + 1;
+            const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
+            if (newBox !== null || element !== null) {
+                newBox.append(element);
+
+            }
 
         }
-
     }
 
 
@@ -986,7 +989,7 @@ const Level14Controls = () => {
 
                 <div class="toppart13">
                     <div class="containing">
-                        <p id="count" class="number">0/5</p>
+                        <p data-testid="counter" id="count" class="number">0/5</p>
                     </div>
                     <p class="titles">Enter Sequence:</p><br />
 
