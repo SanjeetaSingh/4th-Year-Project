@@ -535,7 +535,7 @@ const Level12Controls = () => {
 
                 <div class="toppart12">
                     <div class="containing">
-                        <p id="count" class="number">0/2</p>
+                        <p data-testid="counter"id="count" class="number">0/2</p>
                     </div>
                     <p class="titles">Enter Sequence:</p><br/>
                    

@@ -159,7 +159,7 @@ const Level10Controls = () => {
         }
 
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [], cats,cats2)
+    }, [], cats, cats2)
 
     /**
      * Moves the cat object one tile to the left
@@ -175,7 +175,7 @@ const Level10Controls = () => {
             newBox.append(element);
 
         }
-        
+
     }
 
     /**
@@ -220,23 +220,25 @@ const Level10Controls = () => {
      */
     function moveCatDown() {
         let element = document.getElementById('catOne');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row')) + 1
-        const col = parseInt(box.getAttribute('data-col'));
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        if (element != null) {
+            const box = element.parentElement;
+            const row = parseInt(box.getAttribute('data-row')) + 1
+            const col = parseInt(box.getAttribute('data-col'));
+            const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
+            if (newBox !== null || element !== null) {
+                newBox.append(element);
+
+            }
 
         }
-
     }
 
 
-     /**
-     * Moves the cat object one tile to the left
-     */
-      function moveCat2Left() {
+    /**
+    * Moves the cat object one tile to the left
+    */
+    function moveCat2Left() {
         let element = document.getElementById('catTwo');
         const box = element.parentElement;
         const row = parseInt(box.getAttribute('data-row'))
@@ -247,7 +249,7 @@ const Level10Controls = () => {
             newBox.append(element);
 
         }
-        
+
     }
 
     /**
@@ -274,17 +276,18 @@ const Level10Controls = () => {
      */
     function moveCat2Up() {
         let element = document.getElementById('catTwo');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row')) - 1
-        const col = parseInt(box.getAttribute('data-col'));
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
+        if (element != null) {
+            const box = element.parentElement;
+            const row = parseInt(box.getAttribute('data-row')) - 1
+            const col = parseInt(box.getAttribute('data-col'));
+            const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
 
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
+            if (newBox !== null || element !== null) {
+                newBox.append(element);
 
+            }
         }
-
     }
 
     /**
@@ -786,7 +789,7 @@ const Level10Controls = () => {
             const catRow2 = parseInt(catBox2.getAttribute('data-row'))
             const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if ((row === catRow && col === catCol) && (row === catRow2 && col === catCol2)){
+            if ((row === catRow && col === catCol) && (row === catRow2 && col === catCol2)) {
                 const change = document.getElementById('catOne')
                 await delay(100)
                 change.style.visibility = 'hidden'
@@ -934,7 +937,7 @@ const Level10Controls = () => {
 
                 <div class="toppart">
                     <div class="containing">
-                        <p id="count" class="number">0/7</p>
+                        <p data-testid="counter" id="count" class="number">0/7</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>

@@ -216,7 +216,7 @@ const Level16Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level16")
+                                        window.location.replace("/level17")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -630,7 +630,7 @@ const Level16Controls = () => {
 
                 <div class="toppart16">
                     <div class="containing">
-                        <p id="count" class="number">0/5</p>
+                        <p data-testid="counter" id="count" class="number">0/5</p>
 
                     </div>
                     <button class="seemingly-inner-button-hint" onClick={hint} disabled={pressed === true}>
