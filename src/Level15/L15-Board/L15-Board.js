@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import "../../Style/Board.css"
 import Panel from "../L15-Panel/L15-Panel"
-import Class15 from "../L15-Panel/class"
 
 const state = {
     board: Array(9).fill(null),
@@ -35,7 +34,6 @@ function Level15Board() {
                 <div className="board13" >
                     {renderBoxes()}
                 </div>
-                <Class15 />
             </div>
             <div className="bottom-panel">
                 <Panel />
