@@ -26,10 +26,17 @@ const forInformation = () => {
                     &nbsp;&nbsp;&nbsp;{right}
 
                     <br />
-                    <br/>
+                    <b>statement 1:</b> describes the starting point of the loop, where the loop variable is initialized with a starting value
+                    <br />
+                    <b>statement 2:</b>  is the condition until when the loop is repeated so the boolean checking when it is true or false. 
+                    <br />
+                    <b>statement 3:</b> usually the number by which the loop variable is incremented. so when it say "++" thats it incrementing the loop variable by 1.
+                    statement 3 can also decrease it doesn't need to increament.
+                    <br />
+                    <br />
                     <b>Example:</b>
                     <br />
-                    The example below will print the numbers 0 to 4 <br/>
+                    The example below will print the numbers 0 to 4 <br />
                     <p>&nbsp; {ex} {left} <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(i);
                         <br />&nbsp;&nbsp;{right}</p>
