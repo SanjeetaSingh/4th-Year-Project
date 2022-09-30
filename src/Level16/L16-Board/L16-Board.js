@@ -31,7 +31,7 @@ function Level16Board() {
 
     return (
         <div className="container" >
-            <div className="boardcontainer2">
+            <div className="boardcontainer16">
                 <div className="board16" >
                     {renderBoxes()}
                 </div>
