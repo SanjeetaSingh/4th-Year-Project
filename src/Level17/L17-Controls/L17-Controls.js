@@ -59,14 +59,14 @@ const Level17Controls = () => {
         let bone = document.getElementById('food')
         if (bone !== null) {
             bone.style.visibility = 'hidden'
-        
+
         }
     })
 
     let bone = document.getElementById('food')
     if (bone !== null) {
         bone.style.visibility = 'hidden'
-       
+
     }
 
     /**
@@ -148,7 +148,7 @@ const Level17Controls = () => {
             bone.style.visibility = 'visible'
 
         }
-    
+
         pawCheck()
 
     }
@@ -224,7 +224,7 @@ const Level17Controls = () => {
                         }, true)}
                     </div>
                 }
-            } else if (val3 >= 2) {
+            } else if (val3 > 2) {
                 <div>
                     {Popup.clearQueue()}
                     {Popup.create({
@@ -421,7 +421,7 @@ const Level17Controls = () => {
             document.getElementById("action").innerHTML += "<br/>" + item + "<br/>"
         }
 
-        for (let i = 0; i <= val3; i++) {
+        for (let i = 0; i < val3; i++) {
 
             let items = moves.values();
             pressed = true
@@ -612,13 +612,11 @@ const Level17Controls = () => {
             <h2>Level 17:</h2>
 
             <div class="speech16" >
-                The dog has hid his bone again and you have to help him find it and you don't know the location of the bone. 
-                Just like last time the bone class will help you find the bones location. You will need to use the for loop in this
-                level. The variable steps will be a counter that will be passed into the for loop to determine 
-                how many time you would like to iterate through your commands. 
-                The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
-                if the iteration of steps is correct. 
-                Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
+                The dog has hid his bone and you have to help him find it and you don't know the location of the bone.
+                The Bone class is shown to you this time unlike last time so you are able to see how the getter methods work. You need to just like last time call on two getter methods that are made for you "getRow()" and "getCol()" to access the row and col from the class.
+                Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine
+                how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
+                if the iteration of steps is correct.  Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
                 <br />
 
                 <p class="hints">There is a hint button below that can get you started on if you are stuck.
