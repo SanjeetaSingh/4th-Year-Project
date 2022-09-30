@@ -225,7 +225,7 @@ const Level16Controls = () => {
                         }, true)}
                     </div>
                 }
-            } else if (val3 >= 2) {
+            } else if (val3 > 2) {
                 <div>
                     {Popup.clearQueue()}
                     {Popup.create({

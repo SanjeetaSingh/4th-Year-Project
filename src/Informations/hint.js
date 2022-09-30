@@ -15,14 +15,14 @@ const hint = () => {
             {Popup.create({
                 title: 'Access Modifiers Information',
                 content: <p>
-                    In this level we can see row and col is declared as private in the Bone Class, these variables can be only accessed in the Bone class. <br /> <br />
-                    The Bone class constructor is declared as public therefore we can call that Bone class constructor in another class like we are
-                    doing in this level to access the private variables row and col to access the location of the bone.
-
+                    In this level a Bone Class is already predefined for you and you need to access the values 
+                    for row and col from that class. That is where getters come, getters will allow you to 
+                    access the values within that class. You need to call on the created Object Bone and call on the 
+                    getter names that are mentioned above.
                     <br />
                     <br />
                     An example for one of the variables are:  <br />
-                    &nbsp;&nbsp;<b>bone.row</b>
+                    &nbsp;&nbsp;<b>bone.getRow()</b>
                 </p>,
                 buttons: {
                     right: [{
