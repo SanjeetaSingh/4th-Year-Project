@@ -254,7 +254,7 @@ exports[`snapshot test level 10 1`] = `
             Bark
           </button>
           <button
-            class="button"
+            class="buttonClear"
             disabled={false}
             onClick={[Function]}
             type="submit"
@@ -262,7 +262,7 @@ exports[`snapshot test level 10 1`] = `
             Clear
           </button>
           <button
-            class="button"
+            class="buttonSub"
             disabled={false}
             onClick={[Function]}
             type="submit"
