@@ -19,6 +19,7 @@ const Level12Board = () => {
             (box, index) =>
                 <div className="box" data-row={parseInt(index / 3)} data-col={index % 3}>
                     {box}
+
                 </div>
         )
     }
@@ -32,9 +33,33 @@ const Level12Board = () => {
     return (
         <div className="container" >
             <div className="boardcontainer2">
-                <div className="board11" >
-                    {renderBoxes()}
+
+                <div class="numbers">
+                    col &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    <br />
+                    <br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    2 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                 </div>
+
+                <div class="wrap" >
+                    <div className="rowt">
+                        row
+                    </div>
+                    <div className="rows">
+                        <br />
+                        0 <br /><br /><br /><br />
+                        1 <br /><br /><br /><br />
+                        2 <br />
+                    </div>
+                    <div className="board11">
+                        {renderBoxes()}
+                    </div>
+
+
+                </div>
+
             </div>
             <div className="bottom-panel">
                 <Panel />
