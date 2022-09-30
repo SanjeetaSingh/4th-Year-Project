@@ -5,7 +5,7 @@ exports[`snapshot test level 17 1`] = `
   className="container"
 >
   <div
-    className="boardcontainer2"
+    className="boardcontainer16"
   >
     <div
       className="board16"
@@ -166,12 +166,12 @@ exports[`snapshot test level 17 1`] = `
     </div>
     <div>
       <p
-        class="title15"
+        class="title16"
       >
         Bone Class
       </p>
       <div
-        class="container15"
+        class="container16"
       >
         <p
           class="top"
@@ -218,6 +218,24 @@ exports[`snapshot test level 17 1`] = `
           <br />
           ❵
         </p>
+        <p
+          class="bottom"
+        >
+          public int getRow()  ❴ 
+          <br />
+              return row; 
+          <br />
+          ❵
+        </p>
+        <p
+          class="bottom"
+        >
+          public int getCol()  ❴ 
+          <br />
+              return col; 
+          <br />
+          ❵
+        </p>
       </div>
     </div>
   </div>
@@ -236,7 +254,7 @@ exports[`snapshot test level 17 1`] = `
         <div
           class="speech16"
         >
-          The dog has hid his bone again and you have to help him find it and you don't know the location of the bone. Just like last time the bone class will help you find the bones location. You will need to use the for loop in this level. The variable steps will be a counter that will be passed into the for loop to determine how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone if the iteration of steps is correct. Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
+          The dog has hid his bone and you have to help him find it and you don't know the location of the bone. The Bone class is shown to you this time unlike last time so you are able to see how the getter methods work. You need to just like last time call on two getter methods that are made for you "getRow()" and "getCol()" to access the row and col from the class. Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone if the iteration of steps is correct.  Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
           <br />
           <p
             class="hints"

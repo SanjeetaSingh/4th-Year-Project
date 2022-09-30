@@ -8,67 +8,101 @@ exports[`snapshot test level 12 1`] = `
     className="boardcontainer2"
   >
     <div
-      className="board11"
+      class="numbers"
+    >
+      col            
+      <br />
+      <br />
+             0                    1                       2                  
+    </div>
+    <div
+      class="wrap"
     >
       <div
-        className="box"
-        data-col={0}
-        data-row={0}
-      />
-      <div
-        className="box"
-        data-col={1}
-        data-row={0}
+        className="rowt"
       >
-        <img
-          alt="f"
-          class="bone"
-          id="food"
-          src="assets/food.png"
-        />
+        row
       </div>
       <div
-        className="box"
-        data-col={2}
-        data-row={0}
-      />
-      <div
-        className="box"
-        data-col={0}
-        data-row={1}
-      />
-      <div
-        className="box"
-        data-col={1}
-        data-row={1}
-      />
-      <div
-        className="box"
-        data-col={2}
-        data-row={1}
-      />
-      <div
-        className="box"
-        data-col={0}
-        data-row={2}
-      />
-      <div
-        className="box"
-        data-col={1}
-        data-row={2}
+        className="rows"
       >
-        <img
-          alt="d"
-          class="image"
-          id="dog"
-          src="assets/dog.png"
-        />
+        <br />
+        0 
+        <br />
+        <br />
+        <br />
+        <br />
+        1 
+        <br />
+        <br />
+        <br />
+        <br />
+        2 
+        <br />
       </div>
       <div
-        className="box"
-        data-col={2}
-        data-row={2}
-      />
+        className="board11"
+      >
+        <div
+          className="box"
+          data-col={0}
+          data-row={0}
+        />
+        <div
+          className="box"
+          data-col={1}
+          data-row={0}
+        >
+          <img
+            alt="f"
+            class="bone"
+            id="food"
+            src="assets/food.png"
+          />
+        </div>
+        <div
+          className="box"
+          data-col={2}
+          data-row={0}
+        />
+        <div
+          className="box"
+          data-col={0}
+          data-row={1}
+        />
+        <div
+          className="box"
+          data-col={1}
+          data-row={1}
+        />
+        <div
+          className="box"
+          data-col={2}
+          data-row={1}
+        />
+        <div
+          className="box"
+          data-col={0}
+          data-row={2}
+        />
+        <div
+          className="box"
+          data-col={1}
+          data-row={2}
+        >
+          <img
+            alt="d"
+            class="image"
+            id="dog"
+            src="assets/dog.png"
+          />
+        </div>
+        <div
+          className="box"
+          data-col={2}
+          data-row={2}
+        />
+      </div>
     </div>
   </div>
   <div
