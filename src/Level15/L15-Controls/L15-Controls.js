@@ -541,8 +541,7 @@ const Level15Controls = () => {
 
             <div class="speech13" >
                 It gets a little tricky here, the dog has hid his bone and you have to help him find it. The problem is that you don't know the row or column the
-                bone is at. There is a class Bone as seen on the bottom left corner, this class is going to help you to get the location of the bone. What you
-                have to do is in the input field call on the class bone and the varible name that is passed through.
+                bone is at. There is a predefined Bone class that is made for you and you need to call on two getter methods that are made for you "getRow()" and "getCol()". 
                 The variables will be used in the while loop as a condtion to stop looping through the commands. Use the same amount or less amount of commands mentioned in the top right corner.
                 The paw prints are a hint on which direction the bone can be. 
                 <br /><br />
@@ -569,13 +568,13 @@ const Level15Controls = () => {
                         </button>
                         <p class="subtitles">Variable Declaration</p>
                     </div>
-                    <div class='buttons-wrapper12'>
+                    <div class='buttons-wrapper13'>
                         <p class="bones">Bone bone = new Bone()</p>
                     </div>
                     <form class="var">
-                        int row =  <input id="var1" class="input" size="5" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
+                        int row =  <input id="var1" class="input" size="9" onChange={e => setVal1(parseInt(e.target.value))}></input> ; <br />
                         <br />
-                        int col = <input id="var2" class="input" size="5" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;
+                        int col = <input id="var2" class="input" size="9" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;
                         <br /><br />
                     </form>
                     <p id="action" class="lists"></p>
