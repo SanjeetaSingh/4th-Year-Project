@@ -677,8 +677,8 @@ const Level17Controls = () => {
                 </div>
                 <button type='submit' class="button" onClick={boneFound}>bone.found()</button>
 
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
-                <button type='submit' class="button" onClick={forAction} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="buttonSub" onClick={forAction} disabled={pressed === true} > Submit</button>
             </div>
 
 

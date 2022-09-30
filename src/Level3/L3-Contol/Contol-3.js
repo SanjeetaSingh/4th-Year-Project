@@ -760,8 +760,8 @@ const Level3Controls = () => {
                     </button>
                 </div>
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
-                <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="buttonSub" onClick={submit} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
 
 

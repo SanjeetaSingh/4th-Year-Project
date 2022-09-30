@@ -404,8 +404,8 @@ const Controls = () => {
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
                 <button type='submit' class="button" onClick={addRight} disabled={pressed === true} >Right</button>
-                <button type='submit' class="button" onClick={submit} disabled={pressed === true} > Submit</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="buttonSub" onClick={submit} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
             </div>
 
 

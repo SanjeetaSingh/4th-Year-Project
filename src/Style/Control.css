@@ -30,7 +30,18 @@
     margin-top: 1%;
     display: inline-block;
     vertical-align: top;
+}
 
+.buttonSub {
+    margin-top: 1%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.buttonClear {
+    margin-top: 1%;
+    display: inline-block;
+    vertical-align: top;
 }
 
 .but {
@@ -201,7 +212,7 @@
 }
 
 .buttons-wrapper {
-    margin-top: 16px;
+    margin-top: 6px;
     display: inline-block;
     vertical-align: top;
 
@@ -276,6 +287,10 @@
     transition: 0.2s;
 }
 
+.buttonSub:hover {
+    background-color: #ebd07a;
+    transition: 0.2s;
+}
 .seemingly-inner-button:hover {
     background-color: #df6823;
     transition: 0.2s;
