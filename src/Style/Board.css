@@ -122,6 +122,8 @@
     display: inline-flex;
     flex-wrap: wrap;
     width: 300px;
+    overflow: hidden;
+    margin-right: 29%;
 }
 
 .board13 {
@@ -179,4 +181,29 @@
     width: 70px;
     margin-left: 3px;
     margin-top: 2px;
+}
+
+.numbers {
+    margin-top: 5%;
+    color: white;
+    font-size: 16px;
+}
+
+.rows {
+    float:left;
+    color: white;
+    font-size: 16px;
+    margin-left: 5%;
+}
+
+.wrap {
+    overflow: hidden; 
+}
+
+.rowt {
+    float: left;
+    margin-top: 14%;
+    margin-left: 22%;
+    color: white;
+    font-size: 16px;
 }
