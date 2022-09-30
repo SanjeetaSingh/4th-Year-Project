@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import Check from './L16-Check';
 import varInformation from '../../Informations/varInformation';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
@@ -422,7 +421,7 @@ const Level16Controls = () => {
             document.getElementById("action").innerHTML += "<br/>" + item + "<br/>"
         }
 
-        for (let i = 0; i <= val3; i++) {
+        for (let i = 0; i < val3; i++) {
 
             let items = moves.values();
             pressed = true
@@ -614,12 +613,10 @@ const Level16Controls = () => {
 
             <div class="speech16" >
                 The dog has hid his bone and you have to help him find it and you don't know the location of the bone. 
-                Just like last time the bone class will help you find the bones location. We are introducing a for loop in this
-                level and you must use it instead of a while loop. The variable steps will be a counter that will be passed into the for loop to determine 
-                how many time you would like to iterate through your commands . 
-                The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
-                if the iteration of steps is correct. 
-                Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
+                The Bone class is shown to you this time unlike last time so you are able to see how the getter methods work. You need to just like last time call on two getter methods that are made for you "getRow()" and "getCol()" to access the row and col from the class.
+                We are introducing a for loop in this level and you must use it instead of a while loop. The variable steps will be a counter that will be passed into the for loop to determine 
+                how many time you would like to iterate through your commands . The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
+                if the iteration of steps is correct.  Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
                 <br />
 
                 <p class="hints">There is a hint button below that can get you started on if you are stuck.
