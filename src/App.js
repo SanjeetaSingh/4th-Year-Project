@@ -23,7 +23,7 @@ import Board14 from './Level14/L14-Board/L14-Board'
 import Board15  from './Level15/L15-Board/L15-Board'
 import Board16  from './Level16/L16-Board/L16-Board'
 import Board17 from './Level17/L17-Board/L17-Board'
-
+import Board18 from './Level18/L18-Board/L18-Board'
 import Header from './Header/Header';
 
 function App() {
@@ -50,6 +50,7 @@ function App() {
           <Route path='/level15'><Board15/></Route>
           <Route path='/level16'><Board16/></Route>
           <Route path='/level17'><Board17/></Route>
+          <Route path='/level18'><Board18/></Route>
         </Switch>
       </div>
     </Router>
