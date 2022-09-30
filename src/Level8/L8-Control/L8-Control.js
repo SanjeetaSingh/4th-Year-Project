@@ -920,8 +920,8 @@ const Level8Controls = () => {
                 <button type='submit' class="button" onClick={jump} disabled={pressed === true}>Jump</button>
 
                 <button type='submit' class="button" onClick={bark} disabled={pressed === true}>Bark</button>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
-                <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="buttonSub" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
 
 

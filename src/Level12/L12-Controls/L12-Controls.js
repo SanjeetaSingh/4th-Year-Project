@@ -570,8 +570,8 @@ const Level12Controls = () => {
                     </button>
                     <button type='submit' class="button" onClick={addWhile} disabled={pressed === true}>While</button>
                 </div>
-                <button type='submit' class="button" onClick={clearAll} disabled={pressed === true}>Clear</button>
-                <button type='submit' class="button" onClick={whileAction} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
+                <button type='submit' class="buttonSub" onClick={whileAction} disabled={pressed === true} > Submit</button>
             </div>
 
 

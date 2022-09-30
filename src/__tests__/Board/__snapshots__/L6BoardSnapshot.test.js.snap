@@ -227,7 +227,7 @@ exports[`snapshot test level 6 1`] = `
             Jump
           </button>
           <button
-            class="button"
+            class="buttonClear"
             disabled={false}
             onClick={[Function]}
             type="submit"
@@ -235,7 +235,7 @@ exports[`snapshot test level 6 1`] = `
             Clear
           </button>
           <button
-            class="button"
+            class="buttonSub"
             disabled={false}
             onClick={[Function]}
             type="submit"

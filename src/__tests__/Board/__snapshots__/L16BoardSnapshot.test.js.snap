@@ -439,7 +439,7 @@ exports[`snapshot test level 16 1`] = `
             bone.found()
           </button>
           <button
-            class="button"
+            class="buttonClear"
             disabled={false}
             onClick={[Function]}
             type="submit"
@@ -447,7 +447,7 @@ exports[`snapshot test level 16 1`] = `
             Clear
           </button>
           <button
-            class="button"
+            class="buttonSub"
             disabled={false}
             onClick={[Function]}
             type="submit"
