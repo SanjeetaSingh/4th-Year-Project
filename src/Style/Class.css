@@ -1,4 +1,4 @@
-.title15 {
+.title16 {
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-align: left;
@@ -8,15 +8,16 @@
     margin-top: 5%;
 }
 
-.container15 {
+.container16 {
     /* height: 150px; */
     color: white;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin-left: 15%;
-    height: 200px;
+    height: 310px;
     background-color: #483C32;
     text-align: left;
     width: 500px;
+    font-size: 16px;
     border-radius: 5px;
 }
 
