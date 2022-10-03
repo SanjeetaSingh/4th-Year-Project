@@ -34,7 +34,7 @@ const arraylistInformation = () => {
                     </div>
                     <br />
                     <b>i.e </b> In this level we are storing the bone Object with the add() method. When the add method is called it adds
-                    the bone Object to first element.
+                    the bone Object to the list.
                 </p>,
                 buttons: {
                     right: [{

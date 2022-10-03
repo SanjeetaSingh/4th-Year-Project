@@ -4,7 +4,7 @@
  * the level successfully
  */
 
-const L19Check = async () => {
+const L20Check = async () => {
 
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
@@ -34,4 +34,4 @@ const L19Check = async () => {
 
 }
 
-export default L19Check;
+export default L20Check;
