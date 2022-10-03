@@ -25,8 +25,8 @@ const arraylistInformation = () => {
                     <b> ArrayLists have many useful methods such as: </b>
                     <div class="whole">
                         <p class="one">add() - </p> <p>Add method adds an element to the list. </p><br />
-                        <p class="two"> get() - </p> <p>Get method gets the element of a specified index within a list.</p> <br />
-                        <p class="three"> remove() - </p> <p>Remove method removes an elementof from a list.</p> <br />
+                        <p class="two"> get(index) - </p> <p>Get method gets the element of a specified index within a list.</p> <br />
+                        <p class="three"> remove(index) - </p> <p>Remove method removes an element of from a list.</p> <br />
                         <p class="size">size() - </p> <p>Size method returns the size of the list.</p>
 
                         <br />
