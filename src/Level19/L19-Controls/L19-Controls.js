@@ -8,13 +8,9 @@ import hint from '../../Informations/hint';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
-import { Howl } from 'howler';
 
-const Level18Controls = () => {
+const Level19Controls = () => {
 
-    const music = new Howl({
-        src: ['assets/bark.mp3']
-    });
     /**
      * Variables
      */
@@ -50,21 +46,11 @@ const Level18Controls = () => {
 
 
     // Tor store input values
-    let [val1, setVal1] = useState(0)
     let [val3, setVal3] = useState(0)
-    const [cats, setCats] = useState("")
+
+    let reachedGoal = false
 
 
-    for (let i = 0; i < 30; i++) {
-        autoMoves.push("downCat");
-        autoMoves.push("downCat");
-        autoMoves.push("downCat");
-        autoMoves.push("downCat");
-        autoMoves.push("upCat");
-        autoMoves.push("upCat");
-        autoMoves.push("upCat");
-        autoMoves.push("upCat");
-    }
 
     /**
     * The delay to get the dog walking a tile at a time
@@ -76,128 +62,23 @@ const Level18Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
-    /**
-    * Submits the sequence that the user
-    * has entered for the dog object to move.
-    * The dog object will move after submit is pressed
-    */
-    const submitCat = async () => {
 
-        let item = autoMoves.values();
-
-        // Iterating through all the moves in the array to know which move to do
-        for (let elements of item) {
-            if (elements === "leftCat") {
-                moveCatLeft()
-                await delay(880)
-            }
-            if (elements === "rightCat") {
-                moveCatRight()
-                await delay(880);
-            }
-            if (elements === "downCat") {
-                moveCatDown()
-                await delay(880);
-            }
-            if (elements === "upCat") {
-                moveCatUp()
-                await delay(880);
-            }
-        }
-        setCats(item)
-    }
-
-
-    useEffect(() => {
-        if (!barking) {
-            submitCat();
-        }
-
-
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [], cats)
-
-    /**
-     * Moves the cat object one tile to the left
-     */
-    function moveCatLeft() {
-        let element = document.getElementById('cat');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row'))
-        const col = parseInt(box.getAttribute('data-col')) - 1;
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
-
-        }
-
-    }
-
-    /**
-     * Move the cat object one tile to the right
-     */
-    function moveCatRight() {
-        let element = document.getElementById('cat');
-        if (element != null) {
-            const box = element.parentElement;
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col')) + 1;
-            const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-
-
-            if (newBox !== null || element !== null) {
-                newBox.append(element);
-
-            }
-        }
-    }
-
-
-    /**
-     * Moves the cat object one tile up
-     */
-    function moveCatUp() {
-        let element = document.getElementById('cat');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row')) - 1
-        const col = parseInt(box.getAttribute('data-col'));
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-
-
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
-
-        }
-
-    }
-
-    /**
-     * Moves the cat object one tile down
-     */
-    function moveCatDown() {
-        let element = document.getElementById('cat');
-        const box = element.parentElement;
-        const row = parseInt(box.getAttribute('data-row')) + 1
-        const col = parseInt(box.getAttribute('data-col'));
-        const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
-
-        if (newBox !== null || element !== null) {
-            newBox.append(element);
-
-        }
-
-    }
 
     /**
      * Moves the dog object one tile to the left
      */
-    function moveLeft() {
+    const moveLeft = async () => {
         let element = document.getElementById('dog');
+        let bone = document.getElementById('food')
 
         const box = element.parentElement;
+        const boneBox = bone.parentElement;
+
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) - 1;
+
+        const rowBone = parseInt(boneBox.getAttribute('data-row'))
+        const colBone = parseInt(boneBox.getAttribute('data-col'));
 
         if (col < 0 || row < 0) {
             boundry()
@@ -209,21 +90,33 @@ const Level18Controls = () => {
             newBox.append(element);
         }
 
-        if (row !== val1) {
-            let bone = document.getElementById('food')
+        if (row === rowBone && col === colBone) {
+            reachedGoal = true
+            console.log("ahh ")
+        }
+        if (reachedGoal) {
+            await delay(300)
+            let bone = document.getElementById('foodTop')
             bone.style.visibility = 'visible'
-
         }
     }
 
     /**
      * Move the dog object one tile to the right
      */
-    function moveRight() {
+    const moveRight = async () => {
         let element = document.getElementById('dog');
+        let bone = document.getElementById('food')
+
         const box = element.parentElement;
+        const boneBox = bone.parentElement;
+
         const row = parseInt(box.getAttribute('data-row'))
         const col = parseInt(box.getAttribute('data-col')) + 1;
+
+        const rowBone = parseInt(boneBox.getAttribute('data-row'))
+        const colBone = parseInt(boneBox.getAttribute('data-col'));
+
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
         if (col > 4) {
@@ -234,22 +127,37 @@ const Level18Controls = () => {
             newBox.append(element);
         }
 
-        if (row !== val1) {
-            let bone = document.getElementById('food')
-            bone.style.visibility = 'visible'
-
+        if (row === rowBone && col === colBone) {
+            reachedGoal = true
+            console.log("ahh ")
         }
+        if (reachedGoal) {
+            await delay(300)
+            let bone = document.getElementById('foodTop')
+            bone.style.visibility = 'visible'
+        }
+
     }
 
 
     /**
      * Moves the dog object one tile up
      */
-    function moveUp() {
+    const moveUp = async () => {
         let element = document.getElementById('dog');
+        let bone = document.getElementById('food')
+
         const box = element.parentElement;
+        const boneBox = bone.parentElement;
+
         const row = parseInt(box.getAttribute('data-row')) - 1
         const col = parseInt(box.getAttribute('data-col'));
+
+        const rowBone = parseInt(boneBox.getAttribute('data-row'))
+        const colBone = parseInt(boneBox.getAttribute('data-col'));
+
+        console.log(colBone)
+
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
         if (row < 0) {
@@ -260,34 +168,48 @@ const Level18Controls = () => {
             newBox.append(element);
         }
 
-        if (row !== val1) {
-            let bone = document.getElementById('food')
+        if (row === rowBone && col === colBone) {
+            reachedGoal = true
+        }
+        if (reachedGoal) {
+            await delay(300)
+            let bone = document.getElementById('foodTop')
             bone.style.visibility = 'visible'
-
         }
     }
 
     /**
      * Moves the dog object one tile down
      */
-    function moveDown() {
+    const moveDown = async () => {
         let element = document.getElementById('dog');
+        let bone = document.getElementById('foodTop')
+
         const box = element.parentElement;
+        const boneBox = bone.parentElement;
+
         const row = parseInt(box.getAttribute('data-row')) + 1
         const col = parseInt(box.getAttribute('data-col'));
+
+        const rowBone = parseInt(boneBox.getAttribute('data-row'))
+        const colBone = parseInt(boneBox.getAttribute('data-col'));
+
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
         if (row > 4) {
             boundry()
         }
-
         if (element !== null || newBox !== null) {
             newBox.append(element);
         }
-        if (row !== val1) {
-            let bone = document.getElementById('food')
+        if (row === rowBone && col === colBone) {
+            reachedGoal = true
+            console.log("ahh ")
+        }
+        if (reachedGoal) {
+            await delay(300)
+            let bone = document.getElementById('foodTop')
             bone.style.visibility = 'visible'
-
         }
     }
 
@@ -310,13 +232,12 @@ const Level18Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const foodRow = parseInt(foodbox.getAttribute('data-row'))
-            const foodCol = parseInt(foodbox.getAttribute)
 
-            if (row === foodRow && col === 1) {
+            if (row === foodRow && col === 4) {
                 document.getElementById('food').src = "assets/dog.png"
-                dog.style.visibility = 'hidden'
-                let change = document.getElementById('food')
-                change.style.visibility = 'visible';
+                // dog.style.visibility = 'hidden'
+                // let change = document.getElementById('food')
+                // change.style.visibility = 'visible';
                 if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
@@ -337,7 +258,7 @@ const Level18Controls = () => {
                         }, true)}
                     </div>
                 }
-            } else if (val3 > 3) {
+            } else if (val3 >= 2) {
                 <div>
                     {Popup.clearQueue()}
                     {Popup.create({
@@ -515,6 +436,7 @@ const Level18Controls = () => {
         }
     }
 
+
     /**
      * Submits the sequence that the user
      * has entered for the dog object to move.
@@ -559,15 +481,25 @@ const Level18Controls = () => {
                 if (element === "if") {
                     ifAction()
                 }
-                if (element === "barks") {
-                    if (val1 === "true") {
-                        sound()
+                if (element === "bone") {
+
+                    if (reachedGoal) {
+                        await delay(500)
+                        addingBone()
                     }
                 }
             }
 
         }
-        statement()
+        if (reachedGoal) {
+            console.log("aj")
+            document.getElementById('food').src = "assets/dog.png"
+            await delay(1000)
+            statement()
+        } else {
+
+            statement()
+        }
         if (pressed === true && used !== true) {
             commandUse()
         }
@@ -613,20 +545,14 @@ const Level18Controls = () => {
      * that will move the dog object at the end
      */
     function addIf() {
-        let ifS = "if"
-
-        moves.push(ifS)
-
         used = true
+        let up = "bone"
 
-        if (val1 === "true") {
-            value = "if (catPresent == true) {"
-            list.push(value)
-        }
-        else if (val1 === "false") {
-            value = "if (catPresent == false) {"
-            list.push(value)
-        }
+        moves.push(up)
+
+        value = "if (dog == bone) {"
+
+        list.push(value)
 
 
         //Getting the last element of the list
@@ -651,49 +577,19 @@ const Level18Controls = () => {
     }
 
     /**
-    * The action that will take place when the 
-    * user uses the if statement command. Checks
-    * if the cat is one tile away from the dog
-    * and moves the dog accordingly for the animation.
-    */
-    const ifAction = async () => {
-        let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
+       * Adds a string to an array to that
+       * represents the if statement. This
+       * will be compared in the submit method
+       * that will move the dog object at the end
+       */
+    function addBone() {
+        used = true
+        let up = "if"
 
-        if (dog != null || cat != null) {
-            const box = dog.parentElement;
-            let catBox = cat.parentElement;
+        moves.push(up)
 
+        value = "list.add(bone)"
 
-            const row = parseInt(box.getAttribute('data-row'))
-            const col = parseInt(box.getAttribute('data-col'))
-
-            const catRow = parseInt(catBox.getAttribute('data-row'))
-            const catCol = parseInt(catBox.getAttribute('data-col'))
-
-            if (val1 === "true") {
-                if (row === catRow && col === catCol) {
-                    const change = document.getElementById('cat')
-                    await delay(100)
-                    change.style.visibility = 'hidden'
-                }
-            }
-        }
-    }
-
-
-    /**
-     * Adds a string to an array to that
-     * represents the bark command. This
-     * will be compared in the submit method
-     * this will make the dog bark when called. 
-     */
-    function bark() {
-        let barks = "barks"
-
-        moves.push(barks)
-
-        value = "dog.bark"
         list.push(value)
 
         //Getting the last element of the list
@@ -702,8 +598,7 @@ const Level18Controls = () => {
 
         if (pressed !== true) {
             if (list.length <= 5) {
-                document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
-                document.getElementById("action").innerHTML += "} <br/>"
+                document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -715,31 +610,64 @@ const Level18Controls = () => {
                 }
             }
         }
+
     }
 
+
+
     /**
-     * This will be play the barking sound 
-     * when the bark command is used to move the cat
-     */
-    const sound = async () => {
+    * The action that will take place when the 
+    * user uses the if statement command. Checks
+    * if the cat is one tile away from the dog
+    * and moves the dog accordingly for the animation.
+    */
+    const ifAction = async () => {
         let dog = document.getElementById('dog');
-        let cat = document.getElementById('cat')
-
-
-        if (dog != null || cat != null) {
+        let food = document.getElementById('food')
+        // reachedGoal = true
+        if (dog != null || food != null) {
             const box = dog.parentElement;
-            let catBox = cat.parentElement;
+            let foodBox = food.parentElement;
+            const row = parseInt(box.getAttribute('data-row'))
+            const col = parseInt(box.getAttribute('data-col'))
+
+            const foodRow = parseInt(foodBox.getAttribute('data-row'))
+            const foodCol = parseInt(foodBox.getAttribute('data-col'))
+
+            if (row === foodRow && col === foodCol) {
+                const change = document.getElementById('food')
+                change.style.visibility = 'hidden'
+            }
+
+        }
+    }
+
+    //Hides the bone from the view of the user
+    useEffect(() => {
+        let bone = document.getElementById('foodTop')
+        if (bone !== null) {
+            bone.style.visibility = 'hidden'
+        }
+    })
+
+
+    function addingBone() {
+        let dog = document.getElementById('dog');
+        let food = document.getElementById('foodTop')
+
+        if (dog != null || food != null) {
+            const box = dog.parentElement;
+            let foodBox = food.parentElement;
 
             const row = parseInt(box.getAttribute('data-row'))
             const col = parseInt(box.getAttribute('data-col'))
 
-            const catRow = parseInt(catBox.getAttribute('data-row'))
-            const catCol = parseInt(catBox.getAttribute('data-col'))
+            const foodRow = parseInt(foodBox.getAttribute('data-row'))
+            const foodCol = parseInt(foodBox.getAttribute('data-col'))
 
-            if (row === catRow && col === catCol) {
-                music.play()
-                await delay(800)
-                console.log("AH")
+            if (row === foodRow && col === foodCol) {
+                let bone = document.getElementById('foodTop')
+                bone.style.visibility = 'visible'
             }
         }
     }
@@ -760,16 +688,16 @@ const Level18Controls = () => {
 
     return (
         <div class="level13Contain">
-            <h2>Level 18:</h2>
+            <h2>Level 19:</h2>
 
             <div class="speech16" >
-                Help the dog get to his bone! Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine
-                how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The boolean need to check if the moving cat is
-                present or not, the boolean will be used in the if statement which will get rid of the cat by barking. Use the same amount or less amount of commands mentioned in the top right corner.
+                This level introduces the collection ArrayList's and the top row of the board is an arraylist with index 0 - 4. This arraylist is represented by the ArrayList
+                that is declared at the start of the code below. Click the information button to learn more about how the ArrayList collection works.
+                For this left you have to help the dog move his bone to the ArrayList that is shown at the top of the board.
+                You have to use the for loop to get the dog to the bone and check if the dog is at the bone and then add the bone to the ArrayList.
                 <br />
-
                 <p class="hints">
-                    Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statments
+                    Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statements
                     <br /> Good luck! <br /> </p>
             </div>
             <div class="borderPanel">
@@ -789,10 +717,9 @@ const Level18Controls = () => {
                     </div>
 
                     <form class="var">
-                        boolean catPresent =  <input id="var1" class="input" size="5" onChange={e => setVal1(e.target.value)}></input>  ;  &nbsp; &nbsp;
-                        <br />
-                        <br />
-                        &nbsp; int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
+                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;ArrayList  list = new ArrayList();<br /><br />
+                        Bone bone = new Bone()<br /><br />
+                        int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
                         <br /><br />
                     </form>
                     <p id="action" class="lists"></p>
@@ -818,7 +745,7 @@ const Level18Controls = () => {
                     </button>
                     <button type='submit' class="button" onClick={addIf} disabled={pressed === true}>If Statement</button>
                 </div>
-                <button type='submit' class="button" onClick={bark}>Bark</button>
+                <button type='submit' class="button" onClick={addBone} disabled={pressed === true}>Add Bone</button>
 
                 <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
                 <button type='submit' class="buttonSub" onClick={forAction} disabled={pressed === true} > Submit</button>
@@ -829,4 +756,4 @@ const Level18Controls = () => {
     );
 }
 
-export default Level18Controls;
+export default Level19Controls;
