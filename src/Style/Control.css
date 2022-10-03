@@ -221,7 +221,7 @@
 .buttons-wrapperarray{
     display: inline-block;
     vertical-align: top;
-    margin-right: 65%;
+    margin-right: 55%;
 }
 
 .buttons-wrapper5 {
@@ -285,7 +285,7 @@
     position: absolute;
     margin-top: 14px;
     background: wheat;
-    margin-left: 120px;
+    margin-left: 170px;
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

@@ -251,7 +251,7 @@ const Level20Controls = () => {
                                     text: 'Okay',
                                     className: 'success',
                                     action: function () {
-                                        window.location.replace("/level19")
+                                        window.location.replace("/level21")
                                         Popup.clearQueue();
                                         Popup.close()
                                     }
@@ -687,6 +687,9 @@ const Level20Controls = () => {
         document.getElementById("count").innerHTML = "/5"
     }
 
+    let obj = "<Object>"
+    let ending = "<>"
+
     return (
         <div class="level13Contain">
             <h2>Level 20:</h2>
@@ -721,7 +724,7 @@ const Level20Controls = () => {
                         <button class="seemingly-inner-buttonarr" onClick={arraylistInformation} disabled={pressed === true}>
                             <i class="fa fa-info" ></i>   &nbsp;ArrayLists
                         </button>
-                        <p> ArrayList  list = new ArrayList();<br /></p>
+                        <p> ArrayList{obj} list = new ArrayList {ending} ();<br /></p>
                     </div>
 
                     <form class="var">
