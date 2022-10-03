@@ -218,6 +218,12 @@
 
 }
 
+.buttons-wrapperarray{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 65%;
+}
+
 .buttons-wrapper5 {
     margin-top: 7px;
     display: inline-block;
@@ -271,6 +277,15 @@
     margin-top: 19px;
     background: wheat;
     margin-left: 20px;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.seemingly-inner-buttonarr{
+    position: absolute;
+    margin-top: 14px;
+    background: wheat;
+    margin-left: 120px;
     font-size: 16px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

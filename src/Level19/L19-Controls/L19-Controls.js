@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import varInformation from '../../Informations/varInformation';
+import arraylistInformation from '../../Informations/arraylistInformation';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
 import hint from '../../Informations/hint';
@@ -716,8 +717,14 @@ const Level19Controls = () => {
                         <p class="subtitles">Variable Declaration</p>
                     </div>
 
+                    <div class='buttons-wrapperarray'>
+                        <button class="seemingly-inner-buttonarr" onClick={arraylistInformation} disabled={pressed === true}>
+                            <i class="fa fa-info" ></i>   &nbsp;ArrayLists
+                        </button>
+                        <p> ArrayList  list = new ArrayList();<br /></p>
+                    </div>
+
                     <form class="var">
-                        &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;ArrayList  list = new ArrayList();<br /><br />
                         Bone bone = new Bone()<br /><br />
                         int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
                         <br /><br />
