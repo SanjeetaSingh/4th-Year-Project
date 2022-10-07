@@ -600,6 +600,7 @@ const Level19Controls = () => {
         if (pressed !== true) {
             if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
+                document.getElementById("action").innerHTML += "}" + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -695,10 +696,11 @@ const Level19Controls = () => {
             <h2>Level 19:</h2>
 
             <div class="speech16" >
-                This level introduces the collection ArrayList's and the top row of the board is an arraylist with index 0 - 4. This arraylist is represented by the ArrayList
-                that is declared at the start of the code below. Click the information button to learn more about how the ArrayList collection works.
-                For this left you have to help the dog move his bone to the ArrayList that is shown at the top of the board.
-                You have to use the for loop to get the dog to the bone and check if the dog is at the bone and then add the bone to the ArrayList.
+                This level introduces the collection ArrayList's and the top row of the board is a visual reprsentation of an arraylist with index 0 - 4. 
+                This arraylist is declared in the code below, click the information button to learn more about how the ArrayList collection works.
+                The dog wants to keep his bone away from his owners stored in the arraylist. For this level you have to help the dog add his bone to the 
+                arraylist! When the bone is successfully added it will show in the first index of the board. 
+                You have to use the for loop to get the dog to the bone and check if the dog is at the bone. Once at the bone add the bone to the arraylist.
                 <br />
                 <p class="hints">
                     Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statements
