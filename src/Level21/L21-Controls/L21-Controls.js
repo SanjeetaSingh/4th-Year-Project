@@ -9,7 +9,7 @@ import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
 
-const Level20Controls = () => {
+const Level21Controls = () => {
 
     /**
      * Variables
@@ -22,10 +22,7 @@ const Level20Controls = () => {
     let list = []
 
     // Stores all the moves to be done on submit
-    let moves = []
-
-    // Stores all the moves to be done on submit
-    let autoMoves = []
+    let moves = []   
 
     // Checking if the submit button is pressed
     let pressed = false
@@ -41,8 +38,6 @@ const Level20Controls = () => {
 
     //To see if a command is used or not
     let used = false
-
-    let barking = false
 
 
     // Tor store input values
@@ -692,13 +687,13 @@ const Level20Controls = () => {
 
     return (
         <div class="level13Contain">
-            <h2>Level 20:</h2>
+            <h2>Level 21:</h2>
 
             <div class="speech16" >
-                This level uses the collection ArrayList's again and the top row of the board is an arraylist with an index of 0 - 4. This arraylist is represented by the ArrayList
-                that is declared at the start of the code below. Click the information button to learn more about how the ArrayList collection works.
-                For this level you have to help the dog move his bone to the ArrayList that is shown at the top of the board. Don't get confused there are 2 items shown at the top
-                the ball and bowl of food is already in the list. You have to use the for loop to get the dog to the bone and check if the dog is at the bone. then add the bone to the ArrayList.
+                This level uses the collection arraylist's again and the top row of the board represents an arraylist with an index of 0 - 4. This arraylist is declared at the start of the code below. 
+                Click the information button to learn more about how the arraylist collection works. The dog has stored some of his favourite things already in the array, he wants to add his favourite bone to the
+                collection as well! For this level you have to help the dog add his bone to the arraylist! When the bone has successfully been added to the list it will display at the top of the board.
+                Don't get confused by the 2 items shown at the top the ball and bowl of food are already in the list. You have to use the for loop to get the dog to the bone and check if the dog is at the bone. Once at the bone add the bone to the arraylist.
                 <br />
                 <p class="hints">
                     Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statements
@@ -766,4 +761,4 @@ const Level20Controls = () => {
     );
 }
 
-export default Level20Controls;
+export default Level21Controls;

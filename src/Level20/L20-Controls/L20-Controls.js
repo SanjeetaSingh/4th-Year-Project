@@ -2,14 +2,10 @@ import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
 import varInformation from '../../Informations/varInformation';
-import arraylistInformation from '../../Informations/arraylistInformation';
-import ifInformation from '../../Informations/ifInformation';
-import forInformation from '../../Informations/forInformation';
-import boundry from '../../Checks/boundry';
-import commandUse from '../../Checks/commandIfUse';
+import arraylistInformation from '../../Informations/arraylistInformationremove';
 
 
-const Level21Controls = () => {
+const Level20Controls = () => {
 
     /**
      * Variables
@@ -24,8 +20,6 @@ const Level21Controls = () => {
     // Stores all the moves to be done on submit
     let moves = []
 
-    // Stores all the moves to be done on submit
-    let autoMoves = []
 
     // Checking if the submit button is pressed
     let pressed = false
@@ -41,8 +35,6 @@ const Level21Controls = () => {
 
     //To see if a command is used or not
     let used = false
-
-    let barking = false
 
 
     // Tor store input values
@@ -68,7 +60,7 @@ const Level21Controls = () => {
      * the level successfully
      */
     function statement() {
-        if (val3 == 3) {
+        if (val3 === 3) {
             if (count <= 1) {
                 <div>
                     {Popup.clearQueue()}
@@ -80,7 +72,7 @@ const Level21Controls = () => {
                                 text: 'Okay',
                                 className: 'success',
                                 action: function () {
-                                    window.location.replace("/level21")
+                                    window.location.replace("/level2")
                                     Popup.clearQueue();
                                     Popup.close()
                                 }
@@ -89,7 +81,7 @@ const Level21Controls = () => {
                     }, true)}
                 </div>
             }
-        } else if (val3 != 3) {
+        } else if (val3 !== 3) {
             <div>
                 {Popup.clearQueue()}
                 {Popup.create({
@@ -182,7 +174,7 @@ const Level21Controls = () => {
 
     const addingBall = async () => {
         let bone = document.getElementById('foodTop')
-        if (val3 == 3) {
+        if (val3 === 3) {
             reachedGoal = true
             if (bone !== null) {
                 bone.style.visibility = 'hidden'
@@ -216,15 +208,17 @@ const Level21Controls = () => {
 
     return (
         <div class="level13Contain">
-            <h2>Level 21:</h2>
+            <h2>Level 20:</h2>
 
             <div class="speech16" >
-                This level uses the collection ArrayList's again and the top row of the board is an arraylist with an index of 0 - 4. This arraylist is represented by the ArrayList
-                that is declared at the start of the code below. Click the information button to learn more about how the ArrayList collection works.
-                For this level you have to help the dog remove his bone from the array. You only need to enter the correct index for the input field and remove the item from the list.
+                This level uses the collection arraylist again and the top row of the board is a visual reprsentation of an arraylist with index 0 - 4.  This arraylist is declared at the
+                start of the code below, click the information button to learn more about how the arraylist collections works. The dog wants to remove his bone from the arraylist to play with!
+                For this level you have to help the dog remove his bone from the arraylist adn when you have successfully removed the bone it will disapear from the arraylist. Don't get confused 
+                by the balls and bowl of food at the top of the board, these items are a part of the arraylist. You don't need to move the dog, you will need to enter the correct array index 
+                in the input field which will remove the item at the specified index.
                 <br />
                 <p class="hints">
-
+                Click on the information buttons to learn how variables work and about arrlist collections.
                     <br /> Good luck! <br /> </p>
             </div>
             <div class="borderPanel">
@@ -273,4 +267,4 @@ const Level21Controls = () => {
     );
 }
 
-export default Level21Controls;
+export default Level20Controls;
