@@ -4,7 +4,7 @@ import Panel from "../L21-Panel/L21-Panel"
 
 
 const state = {
-    board: Array(15).fill(null),
+    board: Array(20).fill(null),
 }
 
 /**
@@ -27,9 +27,9 @@ function Level21Board() {
 
     state.board[0] = <img class="ball" src="assets/ball.png" alt="d" id="ball"></img>;
     state.board[1] = <img class="goal" src="assets/food.png" alt="d" id="foodTop1"></img>;
-    state.board[3] = <img class="goal" src="assets/bone.png" alt="d" id="foodTop"></img>;
+    state.board[2] = <img class="goal" src="assets/bone.png" alt="d" id="foodTop"></img>;
     state.board[10] = <img class="image" src="assets/dog.png" alt="d" id="dog"></img>;
-    state.board[2] = <img class="ball" src="assets/ball.png" alt="d" id="ball2"></img>;
+    state.board[14] = <img class="goal" src="assets/bone.png" alt="d" id="food"></img>;
 
 
 
