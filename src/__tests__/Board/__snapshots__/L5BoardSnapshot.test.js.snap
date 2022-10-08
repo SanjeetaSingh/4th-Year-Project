@@ -160,13 +160,15 @@ exports[`snapshot test level 5 1`] = `
       <div
         class="level5Contain"
       >
-        <h2>
+        <h2
+          class="h26"
+        >
           Level 5:
         </h2>
         <div
           class="speech"
         >
-          Your aim for this level is to help the dog get to the food, you have to use the while command to limit the amount of times you repeat the commands. You have to use the same number or less number of commands mentioned in the top right corner.
+          This level is introducing while loops! Your aim for this level is to help the dog get to the food, you have to use the while command to limit the amount of times you repeat the commands. You have to use the same number or less number of commands mentioned in the top right corner.
           <br />
            Good luck! 
           <br />
@@ -176,7 +178,7 @@ exports[`snapshot test level 5 1`] = `
           class="borderPanel"
         >
           <div
-            class="toppart"
+            class="toppart5"
           >
             <div
               class="containing"

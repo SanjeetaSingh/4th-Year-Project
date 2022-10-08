@@ -8,12 +8,21 @@ exports[`snapshot test level 12 1`] = `
     className="boardcontainer2"
   >
     <div
+      class="speech12"
+    >
+      This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands. You have to use the same amount or less amount of commands mentioned in the top right corner.
+      <br />
+       Good luck! 
+      <br />
+       (To learn more about while and to understand the while loop condition and the how variables work click the i below)
+    </div>
+    <div
       class="numbers"
     >
-      col            
+           col            
       <br />
       <br />
-             0                    1                       2                  
+                    0                    1                       2                  
     </div>
     <div
       class="wrap"
@@ -114,18 +123,11 @@ exports[`snapshot test level 12 1`] = `
       <div
         class="level5Contain"
       >
-        <h2>
+        <h2
+          class="h26"
+        >
           Level 12:
         </h2>
-        <div
-          class="speech"
-        >
-          This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands. You have to use the same amount or less amount of commands mentioned in the top right corner.
-          <br />
-           Good luck! 
-          <br />
-           (To learn more about while and to understand the while loop condition and the how variables work click the i below)
-        </div>
         <div
           class="borderPanel"
         >
@@ -198,7 +200,7 @@ exports[`snapshot test level 12 1`] = `
           </div>
         </div>
         <div
-          class="outside"
+          class="outside6"
         >
           <button
             class="button"

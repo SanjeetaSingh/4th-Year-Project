@@ -5,7 +5,7 @@ exports[`snapshot test level 9 1`] = `
   className="container"
 >
   <div
-    className="boardcontainer2"
+    className="boardcontainer4"
   >
     <div
       className="board8"
@@ -113,7 +113,7 @@ exports[`snapshot test level 9 1`] = `
           Level 9:
         </h2>
         <div
-          class="speech"
+          class="speech6"
         >
           Your aim for this level is to help the dog get to the food, you have to use the while command to limit the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food. Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
           <br />
@@ -125,7 +125,7 @@ exports[`snapshot test level 9 1`] = `
           class="borderPanel"
         >
           <div
-            class="toppart"
+            class="toppart6"
           >
             <div
               class="containing"
@@ -150,7 +150,7 @@ exports[`snapshot test level 9 1`] = `
           </div>
         </div>
         <div
-          class="outside"
+          class="outside6"
         >
           <button
             class="button"

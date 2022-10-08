@@ -5,8 +5,17 @@ exports[`snapshot test level 14 1`] = `
   className="container"
 >
   <div
-    className="boardcontainer2"
+    className="boardcontainer14"
   >
+    <div
+      class="speech13"
+    >
+      Varibles again! The variable in this level is setting a boolean to either true or false. In the input field type either true or false and this boolean will be used in the if statement to check if the cat is present or not and when to bark. Use the same amount or less amount of commands mentioned in the top right corner.
+      <br />
+       Good luck! 
+      <br />
+       (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
+    </div>
     <div
       className="board14"
     >
@@ -129,18 +138,11 @@ exports[`snapshot test level 14 1`] = `
       <div
         class="level13Contain"
       >
-        <h2>
+        <h2
+          class="h26"
+        >
           Level 14:
         </h2>
-        <div
-          class="speech13"
-        >
-          Varibles again! The variable in this level is setting a boolean to either true or false. In the input field type either true or false and this boolean will be used in the if statement to check if the cat is present or not and when to bark. Use the same amount or less amount of commands mentioned in the top right corner.
-          <br />
-           Good luck! 
-          <br />
-           (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
-        </div>
         <div
           class="borderPanel"
         >
@@ -193,7 +195,7 @@ exports[`snapshot test level 14 1`] = `
                 onChange={[Function]}
                 size="5"
               />
-                ;       /**Hint: We want to check if the cat is true**/
+                ;     /**Hint: Check if the cat is true**/
               <br />
             </form>
             <p

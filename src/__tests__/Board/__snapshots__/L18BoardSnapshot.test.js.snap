@@ -5,8 +5,18 @@ exports[`snapshot test level 18 1`] = `
   className="container"
 >
   <div
-    className="boardcontainer2"
+    className="boardcontainer13"
   >
+    <div
+      class="speech18"
+    >
+      Help the dog get to his bone! Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The boolean need to check if the moving cat is present or not, the boolean will be used in the if statement which will get rid of the cat by barking. Use the same amount or less amount of commands mentioned in the top right corner.
+      <br />
+      Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statments
+      <br />
+       Good luck! 
+      <br />
+    </div>
     <div
       className="board16"
     >
@@ -171,21 +181,6 @@ exports[`snapshot test level 18 1`] = `
           Level 18:
         </h2>
         <div
-          class="speech16"
-        >
-          Help the dog get to his bone! Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The boolean need to check if the moving cat is present or not, the boolean will be used in the if statement which will get rid of the cat by barking. Use the same amount or less amount of commands mentioned in the top right corner.
-          <br />
-          <p
-            class="hints"
-          >
-            Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statments
-            <br />
-             Good luck! 
-            <br />
-             
-          </p>
-        </div>
-        <div
           class="borderPanel"
         >
           <div
@@ -227,7 +222,7 @@ exports[`snapshot test level 18 1`] = `
               </p>
             </div>
             <form
-              class="var"
+              class="var18"
             >
               boolean catPresent =  
               <input
@@ -236,10 +231,14 @@ exports[`snapshot test level 18 1`] = `
                 onChange={[Function]}
                 size="5"
               />
-                ;     
+                ;
               <br />
               <br />
-                int steps =  
+            </form>
+            <form
+              class="var182"
+            >
+              int steps =  
               <input
                 class="input"
                 id="var3"
@@ -247,7 +246,6 @@ exports[`snapshot test level 18 1`] = `
                 size="5"
               />
                 ;
-              <br />
               <br />
             </form>
             <p
@@ -257,7 +255,7 @@ exports[`snapshot test level 18 1`] = `
           </div>
         </div>
         <div
-          class="outside13"
+          class="outside18"
         >
           <button
             class="button"
