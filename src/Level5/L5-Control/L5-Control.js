@@ -273,7 +273,7 @@ const Level5Controls = () => {
         const item = list[lastVal]
         if (pressed !== true) {
             if (list.length <= 3) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&nbsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -308,7 +308,7 @@ const Level5Controls = () => {
 
         if (pressed !== true) {
             if (list.length <= 3) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&nbsp;" + item + "<br/>"
             }
 
             count += 1
@@ -343,7 +343,7 @@ const Level5Controls = () => {
 
         if (pressed !== true) {
             if (list.length <= 3) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&nbsp;" + item + "<br/>"
             }
 
             count += 1
@@ -379,7 +379,7 @@ const Level5Controls = () => {
 
         if (pressed !== true) {
             if (list.length <= 3) {
-                document.getElementById("action").innerHTML += item + "<br/>"
+                document.getElementById("action").innerHTML += "&nbsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -521,16 +521,16 @@ const Level5Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 5:</h2>
+             <h2 class ="h26">Level 5:</h2>
 
             <div class="speech" >
-                Your aim for this level is to help the dog get to the food, you have to use the while command to limit
+                This level is introducing while loops! Your aim for this level is to help the dog get to the food, you have to use the while command to limit
                 the amount of times you repeat the commands. You have to use the same number or less number of commands mentioned in the top right corner.
                 <br /> Good luck! <br /> (To learn more about while statement click the i below)
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart5">
                     <div class="containing">
                         <p data-testid="counter" id="count" class="number">0/3</p>
                     </div>

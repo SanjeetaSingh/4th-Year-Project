@@ -1,6 +1,7 @@
 import React from "react"
 import "../../Style/Board.css"
 import Panel from "../L13-Panel/L13-Panel"
+import "../../Style/Control.css"
 
 const state = {
     board: Array(9).fill(null),
@@ -35,7 +36,13 @@ const Level13Board = () => {
 
     return (
         <div className="container" >
-            <div className="boardcontainer2">
+            <div className="boardcontainer13">
+                <div class="speech13" >
+                    Varibles again! For the values of the varibles you need to set coordinates for the row and column of the bowl
+                    to help the dog get to the food again. These varibales will be used in the while loop as a condtion to stop looping through the commands.
+                    You have to use the if statement to avoid falling in the holes. Use the same amount or less amount of commands mentioned in the top right corner.
+                    <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
+                </div>
                 <div className="board13" >
                     {renderBoxes()}
                 </div>

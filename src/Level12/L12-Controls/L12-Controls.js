@@ -523,14 +523,7 @@ const Level12Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 12:</h2>
-
-            <div class="speech" >
-                This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl
-                to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands.
-                You have to use the same amount or less amount of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and the how variables work click the i below)
-            </div>
+            <h2 class="h26">Level 12:</h2>
             <div class="borderPanel">
 
                 <div class="toppart12">
@@ -559,7 +552,7 @@ const Level12Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside6">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

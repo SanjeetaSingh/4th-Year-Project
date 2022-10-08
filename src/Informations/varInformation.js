@@ -11,7 +11,7 @@ const varInformation = () => {
 
 
     return (
-        <div>
+        <div class="containPop">
             {Popup.clearQueue()}
             {Popup.create({
                 title: 'Variables Information',

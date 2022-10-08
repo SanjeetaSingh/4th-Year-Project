@@ -536,20 +536,8 @@ const Level15Controls = () => {
     }
 
     return (
-        <div class="level13Contain">
-            <h2>Level 15:</h2>
-
-            <div class="speech13" >
-                It gets a little tricky here, the dog has hid his bone and you have to help him find it. The problem is that you don't know the row or column the
-                bone is at. There is a predefined Bone class that is made for you and you need to call on two getter methods that are made for you "getRow()" and "getCol()". 
-                The variables will be used in the while loop as a condtion to stop looping through the commands. Use the same amount or less amount of commands mentioned in the top right corner.
-                The paw prints are a hint on which direction the bone can be. 
-                <br /><br />
-
-                <p class="hints">There is a hint button below that can get you started on if you are stuck.
-                    Click on the information buttons in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
-                    <br /> Good luck! <br /> (To learn more about while, understand the while loop condition and how variables work click the i's below)</p>
-            </div>
+        <div class="level15Contain">
+            <h2 class="h26">Level 15:</h2>
             <div class="borderPanel">
 
                 <div class="toppart13">

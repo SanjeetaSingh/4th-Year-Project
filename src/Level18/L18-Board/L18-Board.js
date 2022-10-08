@@ -32,7 +32,15 @@ function Level18Board() {
 
     return (
         <div className="container" >
-            <div className="boardcontainer2">
+            <div className="boardcontainer13">
+                <div class="speech18" >
+                    Help the dog get to his bone! Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine
+                    how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The boolean need to check if the moving cat is
+                    present or not, the boolean will be used in the if statement which will get rid of the cat by barking. Use the same amount or less amount of commands mentioned in the top right corner.
+                    <br />
+                    Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statments
+                        <br /> Good luck! <br />
+                </div>
                 <div className="board16" >
                     {renderBoxes()}
                 </div>

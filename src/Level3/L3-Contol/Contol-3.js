@@ -727,7 +727,7 @@ const Level3Controls = () => {
         <div class="level2Contain">
             <h2>Level 3:</h2>
 
-            <div class="speech" >
+            <div class="speech3" >
                 Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you
                 will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose. 
                 You have to use the same number or less number of commands mentioned in the top right corner.<br /> 
@@ -735,7 +735,7 @@ const Level3Controls = () => {
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart3">
                     <div class="containing">
                         <p data-testid="counter" id="count" class="number">0/6</p>
                     </div>

@@ -761,17 +761,6 @@ const Level18Controls = () => {
     return (
         <div class="level13Contain">
             <h2>Level 18:</h2>
-
-            <div class="speech16" >
-                Help the dog get to his bone! Use the for loop again the variable steps will be a counter that will be passed into the for loop to determine
-                how many time you would like to iterate through your commands. The count starts at 0 so be careful of that! The boolean need to check if the moving cat is
-                present or not, the boolean will be used in the if statement which will get rid of the cat by barking. Use the same amount or less amount of commands mentioned in the top right corner.
-                <br />
-
-                <p class="hints">
-                    Click on the information buttons to learn more about for, understand the for loop condition, how variables work and about if statments
-                    <br /> Good luck! <br /> </p>
-            </div>
             <div class="borderPanel">
 
                 <div class="toppart16">
@@ -788,20 +777,24 @@ const Level18Controls = () => {
                         <p class="subtitles">Variable Declaration</p>
                     </div>
 
-                    <form class="var">
-                        boolean catPresent =  <input id="var1" class="input" size="5" onChange={e => setVal1(e.target.value)}></input>  ;  &nbsp; &nbsp;
+                    <form class="var18">
+                        boolean catPresent =  <input id="var1" class="input" size="5" onChange={e => setVal1(e.target.value)}></input>  ;
                         <br />
                         <br />
-                        &nbsp; int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
-                        <br /><br />
+
                     </form>
+                    <form class="var182">
+                        int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
+                        <br />
+                    </form>
+
                     <p id="action" class="lists"></p>
 
                 </div>
 
             </div>
 
-            <div class="outside13">
+            <div class="outside18">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

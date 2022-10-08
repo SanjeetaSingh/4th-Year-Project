@@ -617,14 +617,14 @@ const Level2Controls = () => {
         <div class="level2Contain">
             <h2>Level 2:</h2>
 
-            <div class="speech" >
+            <div class="speech2" >
                 Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow
                 you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands
                 this time is 5. Also be careful of the hole if the dog falls in the hole you will lose<br /> Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart2">
                     <div class="containing">
                         <p data-testid="counter" id="count" class="number">0/5</p>
                     </div>
@@ -635,7 +635,7 @@ const Level2Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside2">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>
