@@ -37,11 +37,11 @@ const Level12Controls = () => {
     //To see if a command is used or not
     let used = false
 
-
     //Checking if the dog has reached a location 
     let reached = false
 
 
+    // State hooks for the input variables
     const [val1, setVal1] = useState(0)
     const [val2, setVal2] = useState(0)
 
@@ -130,8 +130,6 @@ const Level12Controls = () => {
         if (row === val1 && col === val2) {
             reached = false
         }
-
-        console.log(val1, val2)
 
         Check()
     }
@@ -413,9 +411,6 @@ const Level12Controls = () => {
         let dog = document.getElementById('dog');
         let foodOne = document.getElementById('food');
 
-
-
-
         if (dog != null || foodOne != null) {
             const box = dog.parentElement;
             const foodbox = foodOne.parentElement;
@@ -528,15 +523,15 @@ const Level12Controls = () => {
 
                 <div class="toppart12">
                     <div class="containing">
-                        <p data-testid="counter"id="count" class="number">0/2</p>
+                        <p data-testid="counter" id="count" class="number">0/2</p>
                     </div>
-                    <p class="titles">Enter Sequence:</p><br/>
-                   
-                    <div class = 'buttons-wrapper12'>
-                    <button class = "seemingly-inner-button12"onClick={varInformation} disabled={pressed === true}>
-                        <i class="fa fa-info" ></i>
-                    </button>
-                    <p class="subtitles">Variable Declaration</p> 
+                    <p class="titles">Enter Sequence:</p><br />
+
+                    <div class='buttons-wrapper12'>
+                        <button class="seemingly-inner-button12" onClick={varInformation} disabled={pressed === true}>
+                            <i class="fa fa-info" ></i>
+                        </button>
+                        <p class="subtitles">Variable Declaration</p>
                     </div>
 
                     <form class="var">

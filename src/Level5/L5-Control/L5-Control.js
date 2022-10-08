@@ -514,11 +514,6 @@ const Level5Controls = () => {
         document.getElementById("count").innerHTML = "/3"
     }
 
-
-
-    const left = "{"
-    const right = "}"
-
     return (
         <div class="level5Contain">
              <h2 class ="h26">Level 5:</h2>

@@ -63,6 +63,7 @@ const Level16Controls = () => {
         }
     })
 
+    //Hide the bone at the start
     let bone = document.getElementById('food')
     if (bone !== null) {
         bone.style.visibility = 'hidden'

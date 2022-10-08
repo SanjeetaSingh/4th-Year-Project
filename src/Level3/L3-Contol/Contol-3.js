@@ -429,7 +429,10 @@ const Level3Controls = () => {
 
 
     /**
-     * Adds a string to an array to thatchange.style.visibility = 'visible'
+     * Adds a string to an array to that
+     * represents the movement up. This
+     * will be compared in the submit method
+     * that will move the dog object at the end
      */
     function addRight() {
         let rights = "right"
@@ -729,8 +732,8 @@ const Level3Controls = () => {
 
             <div class="speech3" >
                 Your aim for this level is to help both of the dogs to get the food bowls at the same time. The commands sequence will work for both of them but you
-                will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose. 
-                You have to use the same number or less number of commands mentioned in the top right corner.<br /> 
+                will again need to use the if statement to move the cats from the way. Also be careful of the hole if the dog falls in the hole you will lose.
+                You have to use the same number or less number of commands mentioned in the top right corner.<br />
                 Good luck! <br /> (To learn more about if statements click the i below)
             </div>
             <div class="borderPanel">

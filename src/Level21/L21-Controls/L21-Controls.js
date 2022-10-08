@@ -22,7 +22,7 @@ const Level21Controls = () => {
     let list = []
 
     // Stores all the moves to be done on submit
-    let moves = []   
+    let moves = []
 
     // Checking if the submit button is pressed
     let pressed = false
@@ -43,9 +43,8 @@ const Level21Controls = () => {
     // Tor store input values
     let [val3, setVal3] = useState(0)
 
+    //Checking is goal is reached
     let reachedGoal = false
-
-
 
     /**
     * The delay to get the dog walking a tile at a time
@@ -56,8 +55,6 @@ const Level21Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
-
-
 
     /**
      * Moves the dog object one tile to the left
@@ -89,7 +86,6 @@ const Level21Controls = () => {
             reachedGoal = true
             let dog = document.getElementById('dog')
             dog.style.visibility = 'hidden'
-            console.log("ahh ")
         }
         if (reachedGoal) {
             await delay(300)
@@ -153,9 +149,6 @@ const Level21Controls = () => {
 
         const rowBone = parseInt(boneBox.getAttribute('data-row'))
         const colBone = parseInt(boneBox.getAttribute('data-col'));
-
-        console.log(colBone)
-
         const newBox = document.querySelector(`[data-row="${row}"][data-col="${col}"]`);
 
         if (row < 0) {
@@ -572,11 +565,10 @@ const Level21Controls = () => {
     }
 
     /**
-       * Adds a string to an array to that
-       * represents the if statement. This
-       * will be compared in the submit method
-       * that will move the dog object at the end
-       */
+     * String represents the add() method
+     * in arraylist and this is displayed to the 
+     * user and it does things accordingly.
+     */
     function addBone() {
         used = true
         let up = "if"
@@ -647,6 +639,11 @@ const Level21Controls = () => {
     })
 
 
+    /**
+     * Function checks if the bone is added 
+     * and when correct and submitted shows the 
+     * bone in the arraylist.
+     */
     function addingBone() {
         let dog = document.getElementById('dog');
         let food = document.getElementById('foodTop')

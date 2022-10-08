@@ -50,6 +50,7 @@ const Level10Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
+    //Checking if the dog is barking
     let barking = false
 
 
@@ -63,10 +64,11 @@ const Level10Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    //States hooks for cats and setting the cat state
     const [cats, setCats] = useState("")
-
     const [cats2, setCats2] = useState("")
 
+    //Looping for the first cat to move it by itself
     for (let i = 0; i < 30; i++) {
         for (let i = 0; i < 3; i++) {
             let downs = "downCat"
@@ -78,6 +80,7 @@ const Level10Controls = () => {
         }
     }
 
+    //Looping for the second cat to move it by itself
     for (let i = 0; i < 30; i++) {
         for (let i = 0; i < 3; i++) {
             let ups = "upCat2"
@@ -93,8 +96,9 @@ const Level10Controls = () => {
 
     /**
      * Submits the sequence that the user
-     * has entered for the dog object to move.
-     * The dog object will move after submit is pressed
+     * has entered for the cat object to move.
+     * The dog object will move after submit is called
+     * in useeffect.
      */
     const submitCat = async () => {
 
@@ -122,6 +126,12 @@ const Level10Controls = () => {
         setCats(item)
     }
 
+    /**
+    * Submits the sequence that the user
+    * has entered for the cat object to move.
+    * The dog object will move after submit is called
+    * in useeffect.
+    */
     const submitCat2 = async () => {
 
         let item = autoMoves.values();
@@ -858,13 +868,9 @@ const Level10Controls = () => {
             const catRow2 = parseInt(catBox2.getAttribute('data-row'))
             const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            console.log("bark")
-
             if ((row === catRow && col === catCol) || (row === catRow2 && col === catCol2)) {
-                console.log("bark2")
                 music.play()
                 await delay(800)
-
             }
 
         }
@@ -925,7 +931,7 @@ const Level10Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2 class ="h26">Level 10:</h2>
+            <h2 class="h26">Level 10:</h2>
 
             <div class="speech6" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit

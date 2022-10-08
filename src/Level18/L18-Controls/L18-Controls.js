@@ -4,7 +4,6 @@ import "../../Style/Control.css"
 import varInformation from '../../Informations/varinformationstepboo';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
-import hint from '../../Informations/hint';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
@@ -55,6 +54,7 @@ const Level18Controls = () => {
     const [cats, setCats] = useState("")
 
 
+    //To loop the cats to make it move on its own
     for (let i = 0; i < 30; i++) {
         autoMoves.push("downCat");
         autoMoves.push("downCat");
@@ -310,7 +310,6 @@ const Level18Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const foodRow = parseInt(foodbox.getAttribute('data-row'))
-            const foodCol = parseInt(foodbox.getAttribute)
 
             if (row === foodRow && col === 1) {
                 document.getElementById('food').src = "assets/dog.png"
@@ -739,7 +738,6 @@ const Level18Controls = () => {
             if (row === catRow && col === catCol) {
                 music.play()
                 await delay(800)
-                console.log("AH")
             }
         }
     }

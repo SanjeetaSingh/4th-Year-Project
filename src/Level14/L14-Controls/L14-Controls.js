@@ -55,13 +55,14 @@ const Level14Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
-
+    //Checking if the dog is barking
     let barking = false
 
+    //State to store input values
     const [val1, setVal1] = useState(false)
 
+    //State for cats and setting cat state
     const [cats, setCats] = useState("")
-
     const [cats2, setCats2] = useState("")
 
     /**
@@ -75,6 +76,7 @@ const Level14Controls = () => {
     }
 
 
+    //Looping trhough to move the first cat by itself
     for (let i = 0; i < 30; i++) {
         autoMoves.push("downCat")
         autoMoves.push("downCat")
@@ -84,6 +86,7 @@ const Level14Controls = () => {
         autoMoves.push("upCat")
     }
 
+    //Looping trhough to move the first cat by itself
     for (let i = 0; i < 30; i++) {
         autoMovesCat.push("rightCat2")
         autoMovesCat.push("downCat2")
@@ -96,8 +99,9 @@ const Level14Controls = () => {
 
     /**
      * Submits the sequence that the user
-     * has entered for the dog object to move.
-     * The dog object will move after submit is pressed
+     * has entered for the cat object to move.
+     * The dog object will move after submit is called
+     * in the useeffect.
      */
     const submitCat = async () => {
 
@@ -125,6 +129,12 @@ const Level14Controls = () => {
         setCats(item)
     }
 
+    /**
+     * Submits the sequence that the user
+     * has entered for the cat object to move.
+     * The dog object will move after submit is called
+     * in the useeffect.
+     */
     const submitCat2 = async () => {
 
         let item = autoMovesCat.values();

@@ -5,7 +5,7 @@ import '../Style/Information.css'
 
 /**
 * The information tab for the the user learn 
-* more about variables definiton 
+* more about arraylist definiton with a remove example.
 */
 const arraylistInformation = () => {
 

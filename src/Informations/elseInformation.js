@@ -2,7 +2,7 @@ import React from 'react'
 import Popup from 'react-popup';
 
 /**
- *  The if else statement information tabe that will help 
+ * The if else statement information tabe that will help 
  * the user learn more about the definiton and syntax
  */
 const elseInformation = () => {

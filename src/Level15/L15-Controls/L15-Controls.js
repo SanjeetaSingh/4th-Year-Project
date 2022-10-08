@@ -42,10 +42,8 @@ const Level15Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
-    //Checking if the dog has jumped
-    let hasJumped = false
 
-
+    //States to store the input values
     let [val1, setVal1] = useState(0)
     let [val2, setVal2] = useState(0)
 
@@ -63,13 +61,11 @@ const Level15Controls = () => {
         let bone = document.getElementById('food')
         if (bone !== null) {
             bone.style.visibility = 'hidden'
-            console.log(bone)
         }
     })
     let bone = document.getElementById('food')
     if (bone !== null) {
         bone.style.visibility = 'hidden'
-        console.log(bone)
     }
 
     /**
@@ -165,8 +161,6 @@ const Level15Controls = () => {
             bone.style.visibility = 'visible'
 
         }
-        console.log(val1, val2)
-
         Check()
         pawCheck()
 
@@ -221,9 +215,6 @@ const Level15Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const foodRow = parseInt(foodbox.getAttribute('data-row'))
-            const foodCol = parseInt(foodbox.getAttribute)
-
-
             if (row === foodRow && col === 0) {
                 document.getElementById('food').src = "assets/dog.png"
                 dog.style.visibility = 'hidden'
@@ -440,10 +431,8 @@ const Level15Controls = () => {
             let foodrow = parseInt(foodbox.getAttribute('data-row'))
             let foodcol = parseInt(foodbox.getAttribute('data-col'))
 
-            console.log(foodrow, "row")
             val1 = foodrow;
             val2 = foodcol
-
 
             if ((row !== val1 && col !== val2) || (row === val1 && col !== val2) || (row !== val1 && col === val2)) {
                 reached = true;

@@ -45,7 +45,8 @@ const Level13Controls = () => {
     //Checking if the dog has jumped
     let hasJumped = false
 
-
+    
+    //State hooks for the input variables
     const [val1, setVal1] = useState(0)
     const [val2, setVal2] = useState(0)
 
@@ -138,8 +139,6 @@ const Level13Controls = () => {
         if (row === val1 && col === val2) {
             reached = false
         }
-
-        console.log(val1, val2)
 
         Check()
         fallen()

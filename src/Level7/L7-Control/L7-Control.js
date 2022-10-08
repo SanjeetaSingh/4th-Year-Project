@@ -43,9 +43,6 @@ const Level7Controls = () => {
     //To see if a command is used or not
     let used = false
 
-    //Checking if the dog has jumped
-    let hasJumped = false
-
     //Checking if the dog has reached a location 
     let reached = false
 

@@ -3,7 +3,7 @@ import Popup from 'react-popup';
 
 /**
 * The information tab for the the user learn 
-* more about while loops definiton and syntax
+* more about for loops definiton and syntax
 */
 const forInformation = () => {
     const left = "{"
