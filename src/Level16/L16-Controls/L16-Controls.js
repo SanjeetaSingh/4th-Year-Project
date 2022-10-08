@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import varInformation from '../../Informations/varInformation';
+import varInformation from '../../Informations/varinformationstepsrc';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
 import hint from '../../Informations/hint';
