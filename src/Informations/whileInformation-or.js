@@ -4,6 +4,7 @@ import Popup from 'react-popup';
  /**
  * The information tab for the the user learn 
  * more about while loops definiton and syntax
+ * with a or condition as well.
 */
 const whileInformation = () => {
     const left = "{"

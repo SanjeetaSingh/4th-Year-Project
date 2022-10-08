@@ -1,6 +1,13 @@
 import React from 'react'
 import '../Style/About.css'
 
+/**
+ * Function shows the contents of hte about page
+ * that lets the user know what the game is about
+ * this page is called in the header (navigation)
+ * 
+ * @returns an about page
+ */
 const About = () => {
     return (
         <div class="square">

@@ -4,8 +4,8 @@ import "../Style/Class.css"
 
 
 /**
-* The information tab for the the user learn 
-* more about modifiers definiton
+* The information tab to give users 
+* a hint for the level to use Bone class object.
 */
 const hint = () => {
 
@@ -15,9 +15,9 @@ const hint = () => {
             {Popup.create({
                 title: 'Access Modifiers Information',
                 content: <p>
-                    In this level a Bone Class is already predefined for you and you need to access the values 
-                    for row and col from that class. That is where getters come, getters will allow you to 
-                    access the values within that class. You need to call on the created Object Bone and call on the 
+                    In this level a Bone Class is already predefined for you and you need to access the values
+                    for row and col from that class. That is where getters come, getters will allow you to
+                    access the values within that class. You need to call on the created Object Bone and call on the
                     getter names that are mentioned above.
                     <br />
                     <br />

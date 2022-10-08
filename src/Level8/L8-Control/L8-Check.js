@@ -1,4 +1,3 @@
-import React from 'react'
 
 /**
  * Method checks if the dog object is at the 

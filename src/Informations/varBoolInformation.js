@@ -5,7 +5,8 @@ import '../Style/Information.css'
 
 /**
 * The information tab for the the user learn 
-* more about if statements definiton and syntax
+* more about variables definiton and syntax
+* with boolean example.
 */
 const varBoolInformation = () => {
 

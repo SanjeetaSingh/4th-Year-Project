@@ -53,6 +53,7 @@ const Level9Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
+    //Check if the dog is barking
     let barking = false
 
 
@@ -66,8 +67,10 @@ const Level9Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    //States for cats and setting cats
     const [cats, setCats] = useState("")
 
+    // Looping tht cats movements to make them move by themselves
     for (let i = 0; i < 30; i++) {
         autoMoves.push("rightCat")
         autoMoves.push("downCat")
@@ -79,7 +82,7 @@ const Level9Controls = () => {
 
     /**
      * Submits the sequence that the user
-     * has entered for the dog object to move.
+     * has entered for the cat object to move.
      * The dog object will move after submit is pressed
      */
     const submitCat = async () => {
@@ -118,7 +121,7 @@ const Level9Controls = () => {
     }, [], cats)
 
     /**
-     * Moves the dog object one tile to the left
+     * Moves the cat object one tile to the left
      */
     function moveCatLeft() {
         let element = document.getElementById('cat');
@@ -134,7 +137,7 @@ const Level9Controls = () => {
     }
 
     /**
-     * Move the dog object one tile to the right
+     * Move the cat object one tile to the right
      */
     function moveCatRight() {
         let element = document.getElementById('cat');
@@ -154,7 +157,7 @@ const Level9Controls = () => {
 
 
     /**
-     * Moves the dog object one tile up
+     * Moves the cat object one tile up
      */
     function moveCatUp() {
         let element = document.getElementById('cat');
@@ -172,7 +175,7 @@ const Level9Controls = () => {
     }
 
     /**
-     * Moves the dog object one tile down
+     * Moves the cat object one tile down
      */
     function moveCatDown() {
         let element = document.getElementById('cat');
@@ -667,17 +670,12 @@ const Level9Controls = () => {
                     if (element === "elif") {
                         jumpAction()
                     }
-                    console.log(element)
-
                 }
             }
             statement()
             if (pressed === true && used !== true) {
                 commandUse()
             }
-            console.log(moves.length)
-            console.log(autoMoves.length)
-            console.log(total)
         }
     }
 

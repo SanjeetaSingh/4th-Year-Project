@@ -50,6 +50,7 @@ const Level11Controls = () => {
     //Checking if the dog has reached a location 
     let reached = false
 
+    //Checks is the dog is barking
     let barking = false
 
 
@@ -63,9 +64,11 @@ const Level11Controls = () => {
         return new Promise(res => setTimeout(res, time));
     }
 
+    //State hook for cat and setting cat state
     const [cats, setCats] = useState("")
 
 
+    //Looping to have the cat move by itself
     for (let i = 0; i < 30; i++) {
         autoMoves.push("rightCat");
         autoMoves.push("downCat")
@@ -79,11 +82,11 @@ const Level11Controls = () => {
     }
 
 
-
     /**
      * Submits the sequence that the user
-     * has entered for the dog object to move.
-     * The dog object will move after submit is pressed
+     * has entered for the cat object to move.
+     * The dog object will move after submit
+     * is called in the useeffect.
      */
     const submitCat = async () => {
 
@@ -782,13 +785,9 @@ const Level11Controls = () => {
             const catRow = parseInt(catBox.getAttribute('data-row'))
             const catCol = parseInt(catBox.getAttribute('data-col'))
 
-            console.log("bark")
-
             if (row === catRow && col === catCol) {
-                console.log("bark2")
                 music.play()
                 await delay(800)
-
             }
 
         }
@@ -849,7 +848,7 @@ const Level11Controls = () => {
 
     return (
         <div class="level5Contain">
-             <h2 class ="h26">Level 11:</h2>
+            <h2 class="h26">Level 11:</h2>
 
             <div class="speech6" >
                 Your aim for this level is to help the dog get to the both of the food bowls, you have to use the while command to limit

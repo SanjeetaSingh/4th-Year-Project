@@ -5,6 +5,8 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
+
+// All the levels and pages game navigates to
 import Home from './pages/Home';
 import About from './pages/About';
 import Board2 from './Level2/L2-Board/Level-2-Board';

@@ -5,8 +5,11 @@ import '../Style/Information.css'
 
 /**
 * The information tab for the the user learn 
-* more about variables definiton 
+* more about variables definiton with examples of
+* storing the row and col as well as a counter for 
+* the for loop.
 */
+
 const varInformationstepsrc = () => {
 
 

@@ -5,7 +5,8 @@ import '../Style/Information.css'
 
 /**
 * The information tab for the the user learn 
-* more about variables definiton 
+* more about variables definiton with an example of
+* booleans as an exmaple.
 */
 const varInformationstepbool = () => {
 

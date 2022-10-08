@@ -5,7 +5,6 @@ import varInformation from '../../Informations/varinformationsteps';
 import arraylistInformation from '../../Informations/arraylistInformation';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
-import hint from '../../Informations/hint';
 import boundry from '../../Checks/boundry';
 import commandUse from '../../Checks/commandIfUse';
 
@@ -25,9 +24,6 @@ const Level19Controls = () => {
     // Stores all the moves to be done on submit
     let moves = []
 
-    // Stores all the moves to be done on submit
-    let autoMoves = []
-
     // Checking if the submit button is pressed
     let pressed = false
 
@@ -43,15 +39,11 @@ const Level19Controls = () => {
     //To see if a command is used or not
     let used = false
 
-    let barking = false
-
-
     // Tor store input values
     let [val3, setVal3] = useState(0)
 
+    //Checking if the goal has been reached
     let reachedGoal = false
-
-
 
     /**
     * The delay to get the dog walking a tile at a time
@@ -62,8 +54,6 @@ const Level19Controls = () => {
     function delay(time) {
         return new Promise(res => setTimeout(res, time));
     }
-
-
 
     /**
      * Moves the dog object one tile to the left
@@ -233,12 +223,8 @@ const Level19Controls = () => {
             const col = parseInt(box.getAttribute('data-col'))
 
             const foodRow = parseInt(foodbox.getAttribute('data-row'))
-
             if (row === foodRow && col === 4) {
                 document.getElementById('food').src = "assets/dog.png"
-                // dog.style.visibility = 'hidden'
-                // let change = document.getElementById('food')
-                // change.style.visibility = 'visible';
                 if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
@@ -600,7 +586,7 @@ const Level19Controls = () => {
         if (pressed !== true) {
             if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
-                document.getElementById("action").innerHTML += "}" + "<br/>"
+                document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
@@ -626,7 +612,6 @@ const Level19Controls = () => {
     const ifAction = async () => {
         let dog = document.getElementById('dog');
         let food = document.getElementById('food')
-        // reachedGoal = true
         if (dog != null || food != null) {
             const box = dog.parentElement;
             let foodBox = food.parentElement;
@@ -690,7 +675,7 @@ const Level19Controls = () => {
 
     let obj = "<Object>"
     let ending = "<>"
-    
+
     return (
         <div class="level13Contain">
             <h2>Level 19:</h2>

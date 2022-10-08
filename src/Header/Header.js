@@ -2,6 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 
+/**
+ * Class creates the navigation bar at the top 
+ * 
+ * @returns a link to home and the about page
+ */
 function Header() {
     return (
         <div className="header">

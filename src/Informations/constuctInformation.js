@@ -5,7 +5,7 @@ import "../Style/Class.css"
 
 /**
 * The information tab for the the user learn 
-* more about modifiers definiton
+* more about modifiers definiton.
 */
 const constructInformation = () => {
 

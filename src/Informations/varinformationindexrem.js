@@ -5,7 +5,8 @@ import '../Style/Information.css'
 
 /**
 * The information tab for the the user learn 
-* more about variables definiton 
+* more about variables definiton with a index 
+* specifed example to remove an index from an arraylist
 */
 const varInformationindexrem = () => {
 
@@ -20,7 +21,7 @@ const varInformationindexrem = () => {
                     Every variable is assigned a data type that designates the type and quantity of value it can hold.
                     <br />
                     <br />
-                    <b>i.e </b> In this level we are intitalising the index variable which will be used to remove an item at the 
+                    <b>i.e </b> In this level we are intitalising the index variable which will be used to remove an item at the
                     specifed index.
                     <br />
                     <br />

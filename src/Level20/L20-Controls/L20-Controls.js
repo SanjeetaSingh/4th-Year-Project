@@ -33,10 +33,6 @@ const Level20Controls = () => {
     // To sum up the values of the commands array
     let total = 0
 
-    //To see if a command is used or not
-    let used = false
-
-
     // Tor store input values
     let [val3, setVal3] = useState(0)
 
@@ -126,13 +122,12 @@ const Level20Controls = () => {
 
 
     /**
-       * Adds a string to an array to that
-       * represents the if statement. This
-       * will be compared in the submit method
-       * that will move the dog object at the end
+       * Adds a string represents
+       * the remove() method and 
+       * shows the string on the panel which 
+       * does actions accordingly.
        */
     function addBall() {
-        used = true
         let up = "if"
 
         moves.push(up)
@@ -147,7 +142,7 @@ const Level20Controls = () => {
 
         if (pressed !== true) {
             if (list.length <= 1) {
-                document.getElementById("action").innerHTML += "&emsp;" + "&emsp;" + item + "<br/>"
+                document.getElementById("action").innerHTML += "&emsp; &emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
@@ -172,7 +167,12 @@ const Level20Controls = () => {
     })
 
 
-    const addingBall = async () => {
+    /**
+     * Method displays the food in the 
+     * array when sequence is done and is
+     * correct.
+     */
+    const addingFood = async () => {
         let bone = document.getElementById('foodTop')
         if (val3 === 3) {
             reachedGoal = true
@@ -210,7 +210,7 @@ const Level20Controls = () => {
         <div class="level13Contain">
             <h2>Level 20:</h2>
 
-          
+
             <div class="borderPanel">
 
                 <div class="toppart16">
@@ -249,7 +249,7 @@ const Level20Controls = () => {
                 <button type='submit' class="button" onClick={addBall} disabled={pressed === true}>Remove Ball</button>
 
                 <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>
-                <button type='submit' class="buttonSub" onClick={addingBall} disabled={pressed === true} > Submit</button>
+                <button type='submit' class="buttonSub" onClick={addingFood} disabled={pressed === true} > Submit</button>
             </div>
 
 
