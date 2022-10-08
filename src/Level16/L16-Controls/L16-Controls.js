@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import varInformation from '../../Informations/varInformation';
+import varInformation from '../../Informations/varinformationstepsrc';
 import ifInformation from '../../Informations/ifInformation';
 import forInformation from '../../Informations/forInformation';
 import hint from '../../Informations/hint';
@@ -59,14 +59,14 @@ const Level16Controls = () => {
         let bone = document.getElementById('food')
         if (bone !== null) {
             bone.style.visibility = 'hidden'
-        
+
         }
     })
 
     let bone = document.getElementById('food')
     if (bone !== null) {
         bone.style.visibility = 'hidden'
-       
+
     }
 
     /**
@@ -148,7 +148,7 @@ const Level16Controls = () => {
             bone.style.visibility = 'visible'
 
         }
-    
+
         pawCheck()
 
     }
@@ -607,22 +607,12 @@ const Level16Controls = () => {
         document.getElementById("count").innerHTML = "/5"
     }
 
+   
     return (
-        <div class="level13Contain">
+        <div class="level16Contain">
             <h2>Level 16:</h2>
 
-            <div class="speech16" >
-                The dog has hid his bone and you have to help him find it and you don't know the location of the bone. 
-                The Bone class is shown to you this time unlike last time so you are able to see how the getter methods work. You need to just like last time call on two getter methods that are made for you "getRow()" and "getCol()" to access the row and col from the class.
-                We are introducing a for loop in this level and you must use it instead of a while loop. The variable steps will be a counter that will be passed into the for loop to determine 
-                how many time you would like to iterate through your commands . The count starts at 0 so be careful of that! The row and col varibles will be used in the if statement, if statement must call the function "bone.found()" which will let the dog pick up the bone
-                if the iteration of steps is correct.  Use the same amount or less amount of commands mentioned in the top right corner. The paw prints are a hint on which direction the bone can be.
-                <br />
 
-                <p class="hints">There is a hint button below that can get you started on if you are stuck.
-                    Click on the information buttons in the Bone class to learn about what is happening in the class and to learn about the private and public modifiers.
-                    <br /> Good luck! <br /> (To learn more about for, understand the for loop condition, how variables work and about if statments click the i's below)</p>
-            </div>
             <div class="borderPanel">
 
                 <div class="toppart16">
@@ -630,12 +620,17 @@ const Level16Controls = () => {
                         <p data-testid="counter" id="count" class="number">0/5</p>
 
                     </div>
-                    <button class="seemingly-inner-button-hint" onClick={hint} disabled={pressed === true}>
+                    <div>
+                       
+                    </div>
+                    <button class="seemingly-inner-button-hint16" onClick={hint} disabled={pressed === true}>
                         Hint
                     </button>
+                
                     <p class="titles">Enter Sequence:</p>
 
                     <div class='buttons-wrapper12'>
+                        
                         <button class="seemingly-inner-button12" onClick={varInformation} disabled={pressed === true}>
                             <i class="fa fa-info" ></i>   &nbsp;Variables
                         </button>
@@ -645,11 +640,11 @@ const Level16Controls = () => {
                         <p class="bones">Bone bone = new Bone()</p>
                     </div>
                     <form class="var">
-                        int row =  <input id="var1" class="input" size="5" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
+                        int row =  <input id="var1" class="input" size="10" onChange={e => setVal1(parseInt(e.target.value))}></input>   ; <br />
                         <br />
-                        int col = <input id="var2" class="input" size="5" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;  <br />
+                        int col = <input id="var2" class="input" size="10" onChange={e => setVal2(parseInt(e.target.value))}></input>  ;  <br />
                         <br />
-                        &nbsp; int steps =  <input id="var3" class="input" size="5" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
+                        &nbsp; int steps =  <input id="var3" class="input" size="10" onChange={e => setVal3(parseInt(e.target.value))}></input>  ;
                         <br /><br />
                     </form>
                     <p id="action" class="lists"></p>
@@ -658,7 +653,7 @@ const Level16Controls = () => {
 
             </div>
 
-            <div class="outside13">
+            <div class="outside16">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

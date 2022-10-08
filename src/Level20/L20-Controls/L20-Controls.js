@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Popup from 'react-popup';
 import "../../Style/Control.css"
-import varInformation from '../../Informations/varInformation';
+import varInformation from '../../Informations/varinformationindexrem';
 import arraylistInformation from '../../Informations/arraylistInformationremove';
 
 
@@ -72,7 +72,7 @@ const Level20Controls = () => {
                                 text: 'Okay',
                                 className: 'success',
                                 action: function () {
-                                    window.location.replace("/level2")
+                                    window.location.replace("/level21")
                                     Popup.clearQueue();
                                     Popup.close()
                                 }
@@ -210,17 +210,7 @@ const Level20Controls = () => {
         <div class="level13Contain">
             <h2>Level 20:</h2>
 
-            <div class="speech16" >
-                This level uses the collection arraylist again and the top row of the board is a visual reprsentation of an arraylist with index 0 - 4.  This arraylist is declared at the
-                start of the code below, click the information button to learn more about how the arraylist collections works. The dog wants to remove his bone from the arraylist to play with!
-                For this level you have to help the dog remove his bone from the arraylist adn when you have successfully removed the bone it will disapear from the arraylist. Don't get confused 
-                by the balls and bowl of food at the top of the board, these items are a part of the arraylist. You don't need to move the dog, you will need to enter the correct array index 
-                in the input field which will remove the item at the specified index.
-                <br />
-                <p class="hints">
-                Click on the information buttons to learn how variables work and about arrlist collections.
-                    <br /> Good luck! <br /> </p>
-            </div>
+          
             <div class="borderPanel">
 
                 <div class="toppart16">
@@ -255,7 +245,7 @@ const Level20Controls = () => {
 
             </div>
 
-            <div class="outside13">
+            <div class="outside20">
                 <button type='submit' class="button" onClick={addBall} disabled={pressed === true}>Remove Ball</button>
 
                 <button type='submit' class="buttonClear" onClick={clearAll} disabled={pressed === true}>Clear</button>

@@ -32,7 +32,7 @@ const Level6Board = () => {
 
     return (
         <div className="container" >
-            <div className="boardcontainer2">
+            <div className="boardcontainer4">
                 <div className="board6" >
                     {renderBoxes()}
                 </div>

@@ -1,6 +1,7 @@
 import React from "react"
 import "../../Style/Board.css"
 import Panel from "../L14-Panel/L14-Panel"
+import "../../Style/Control.css"
 
 const state = {
     board: Array(16).fill(null),
@@ -35,7 +36,12 @@ const Level14Board = () => {
 
     return (
         <div className="container" >
-            <div className="boardcontainer2">
+            <div className="boardcontainer14">
+            <div class="speech13" >
+                Varibles again! The variable in this level is setting a boolean to either true or false. In the input field type either true or false and
+                this boolean will be used in the if statement to check if the cat is present or not and when to bark. Use the same amount or less amount of commands mentioned in the top right corner.
+                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
+            </div>
                 <div className="board14" >
                     {renderBoxes()}
                 </div>

@@ -849,9 +849,9 @@ const Level11Controls = () => {
 
     return (
         <div class="level5Contain">
-            <h2>Level 11:</h2>
+             <h2 class ="h26">Level 11:</h2>
 
-            <div class="speech" >
+            <div class="speech6" >
                 Your aim for this level is to help the dog get to the both of the food bowls, you have to use the while command to limit
                 the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
                 You have to use the same number or less number of commands mentioned in the top right corner.
@@ -859,7 +859,7 @@ const Level11Controls = () => {
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart6">
                     <div class="containing">
                         <p data-testid="counter" id="count" class="number">0/5</p>
                     </div>
@@ -870,7 +870,7 @@ const Level11Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside6">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

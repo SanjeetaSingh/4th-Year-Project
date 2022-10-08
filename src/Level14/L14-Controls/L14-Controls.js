@@ -978,13 +978,7 @@ const Level14Controls = () => {
 
     return (
         <div class="level13Contain">
-            <h2>Level 14:</h2>
-
-            <div class="speech13" >
-                Varibles again! The variable in this level is setting a boolean to either true or false. In the input field type either true or false and
-                this boolean will be used in the if statement to check if the cat is present or not and when to bark. Use the same amount or less amount of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
-            </div>
+            <h2 class="h26">Level 14:</h2>
             <div class="borderPanel">
 
                 <div class="toppart13">
@@ -1001,7 +995,7 @@ const Level14Controls = () => {
                     </div>
 
                     <form class="var14">
-                        boolean catPresent =  <input id="var1" class="input" size="5" onChange={e => setVal1(e.target.value)}></input>  ;  &nbsp; &nbsp;  /**Hint: We want to check if the cat is true**/
+                        boolean catPresent =  <input id="var1" class="input" size="5" onChange={e => setVal1(e.target.value)}></input>  ;  &nbsp;  /**Hint: Check if the cat is true**/
 
                         <br />
                     </form>

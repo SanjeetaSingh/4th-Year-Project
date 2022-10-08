@@ -469,7 +469,7 @@ const Level10Controls = () => {
                 document.getElementById('food').src = "assets/dog.png"
                 let change = document.getElementById('food')
                 change.style.visibility = 'visible';
-                if (count <= 7) {
+                if (count <= 5) {
                     <div>
                         {Popup.clearQueue()}
                         {Popup.create({
@@ -532,16 +532,16 @@ const Level10Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -566,16 +566,16 @@ const Level10Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -599,16 +599,16 @@ const Level10Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -633,16 +633,16 @@ const Level10Controls = () => {
         const lastVal = Object.keys(list).pop()
         const item = list[lastVal]
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -747,16 +747,16 @@ const Level10Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -789,7 +789,7 @@ const Level10Controls = () => {
             const catRow2 = parseInt(catBox2.getAttribute('data-row'))
             const catCol2 = parseInt(catBox2.getAttribute('data-col'))
 
-            if ((row === catRow && col === catCol) && (row === catRow2 && col === catCol2)) {
+            if ((row === catRow && col === catCol) || (row === catRow2 && col === catCol2)) {
                 const change = document.getElementById('catOne')
                 await delay(100)
                 change.style.visibility = 'hidden'
@@ -817,17 +817,17 @@ const Level10Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += "&emsp;" + item + "<br />"
                 document.getElementById("action").innerHTML += "} <br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -892,16 +892,16 @@ const Level10Controls = () => {
         const item = list[lastVal]
 
         if (pressed !== true) {
-            if (list.length <= 7) {
+            if (list.length <= 5) {
                 document.getElementById("action").innerHTML += item + "<br/>"
             }
             count += 1
             commands.push(count)
 
-            if (count <= 7) {
+            if (count <= 5) {
                 for (const element of commands) {
                     total = element
-                    document.getElementById("count").innerHTML = total + "/7"
+                    document.getElementById("count").innerHTML = total + "/5"
                 }
             }
         }
@@ -919,15 +919,15 @@ const Level10Controls = () => {
         commands = []
         count = 0
         document.getElementById("action").innerHTML = ""
-        document.getElementById("count").innerHTML = "/7"
+        document.getElementById("count").innerHTML = "/5"
     }
 
 
     return (
         <div class="level5Contain">
-            <h2>Level 10:</h2>
+            <h2 class ="h26">Level 10:</h2>
 
-            <div class="speech" >
+            <div class="speech6" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
                 the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
                 Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
@@ -935,9 +935,9 @@ const Level10Controls = () => {
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart6">
                     <div class="containing">
-                        <p data-testid="counter" id="count" class="number">0/7</p>
+                        <p data-testid="counter" id="count" class="number">0/5</p>
                     </div>
                     <p class="titles">Enter Sequence:</p>
                     <p id="action" class="lists"></p>
@@ -946,7 +946,7 @@ const Level10Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside6">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

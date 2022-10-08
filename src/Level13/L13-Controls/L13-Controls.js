@@ -737,14 +737,8 @@ const Level13Controls = () => {
 
     return (
         <div class="level13Contain">
-            <h2>Level 13:</h2>
+            <h2 class="h26">Level 13:</h2>
 
-            <div class="speech13" >
-                Varibles again! For the values of the varibles you need to set coordinates for the row and column of the bowl
-                to help the dog get to the food again. These varibales will be used in the while loop as a condtion to stop looping through the commands.
-                You have to use the if statement to avoid falling in the holes. Use the same amount or less amount of commands mentioned in the top right corner.
-                <br /> Good luck! <br /> (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
-            </div>
             <div class="borderPanel">
 
                 <div class="toppart13">
@@ -755,7 +749,7 @@ const Level13Controls = () => {
 
                     <div class='buttons-wrapper12'>
                         <button class="seemingly-inner-button12" onClick={varInformation} disabled={pressed === true}>
-                            <i class="fa fa-info" ></i>
+                            <i class="fa fa-info" ></i> Variables
                         </button>
                         <p class="subtitles">Variable Declaration</p>
                     </div>
@@ -773,7 +767,7 @@ const Level13Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside13">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

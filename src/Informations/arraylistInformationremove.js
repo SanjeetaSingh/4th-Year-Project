@@ -33,8 +33,8 @@ const arraylistInformation = () => {
                         and more.
                     </div>
                     <br />
-                    <b>i.e </b> In this level we are storing the bone Object with the remove() method. When the add method is called it adds
-                    the bone Object to the list.
+                    <b>i.e </b> In this level we are removing the bone Object with the remove() method.  The remove method is called it removes
+                    the bone Object from the list.
                 </p>,
                 buttons: {
                     right: [{

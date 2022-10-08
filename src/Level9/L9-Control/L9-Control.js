@@ -68,18 +68,14 @@ const Level9Controls = () => {
 
     const [cats, setCats] = useState("")
 
-    autoMoves = ["rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat",
-        "rightCat", "downCat", "rightCat", "leftCat", "upCat", "leftCat"]
+    for (let i = 0; i < 30; i++) {
+        autoMoves.push("rightCat")
+        autoMoves.push("downCat")
+        autoMoves.push("rightCat")
+        autoMoves.push("leftCat")
+        autoMoves.push("upCat")
+        autoMoves.push("leftCat")
+    }
 
     /**
      * Submits the sequence that the user
@@ -977,7 +973,7 @@ const Level9Controls = () => {
         <div class="level5Contain">
             <h2>Level 9:</h2>
 
-            <div class="speech" >
+            <div class="speech6" >
                 Your aim for this level is to help the dog get to the food, you have to use the while command to limit
                 the amount of times you repeat the commands. You have use the if statement to avoid the moving cat and reach the food.
                 Use the else if to jump over the hole obstacle and use the same number or less number of commands mentioned in the top right corner.
@@ -985,7 +981,7 @@ const Level9Controls = () => {
             </div>
             <div class="borderPanel">
 
-                <div class="toppart">
+                <div class="toppart6">
                     <div class="containing">
                         <p data-testid="counter" id="count" class="number">0/7</p>
                     </div>
@@ -996,7 +992,7 @@ const Level9Controls = () => {
 
             </div>
 
-            <div class="outside">
+            <div class="outside6">
                 <button type='submit' class="button" onClick={addLeft} disabled={pressed === true} >Left</button>
                 <button type='submit' class="button" onClick={addUp} disabled={pressed === true} >Up</button>
                 <button type='submit' class="button" onClick={addDown} disabled={pressed === true} >Down</button>

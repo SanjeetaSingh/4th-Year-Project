@@ -7,7 +7,7 @@ import '../Style/Information.css'
 * The information tab for the the user learn 
 * more about variables definiton 
 */
-const varInformation = () => {
+const varInformationsteps = () => {
 
 
     return (
@@ -20,7 +20,8 @@ const varInformation = () => {
                     Every variable is assigned a data type that designates the type and quantity of value it can hold.
                     <br />
                     <br />
-                    <b>i.e </b> In this level we are storing the row and column value of the bowl and then calling on those variables in the while loop.
+                    <b>i.e </b> In this level we are intitalising the steps variables that will be used as the number of times
+                    the commands will iterate using the for loop.
                     <br />
                     <br />
                     <b>Syntax:</b>
@@ -64,4 +65,4 @@ const varInformation = () => {
     );
 }
 
-export default varInformation;
+export default varInformationsteps;

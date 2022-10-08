@@ -27,11 +27,9 @@ const L13Check = async () => {
 
 
         if (row === bowlRow1 && col === bowlCol1) {
-            document.getElementById('food').src = "assets/dog.png"
-            let change = document.getElementById('food')
-            // await delay(100)
+            const change = document.getElementById('dog');
             change.style.visibility = 'hidden'
-
+            document.getElementById('food').src = "assets/dog.png"
         }
     }
 

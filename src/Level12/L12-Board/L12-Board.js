@@ -1,6 +1,7 @@
 import React from "react"
 import "../../Style/Board.css"
 import Panel from "../L12-Panel/L12-Panel"
+import "../../Style/Control.css"
 
 const state = {
     board: Array(9).fill(null),
@@ -33,12 +34,18 @@ const Level12Board = () => {
     return (
         <div className="container" >
             <div className="boardcontainer2">
+                <div class="speech12" >
+                    This level introduces variables! For the values of the varibles you need to set coordinates for the row and column of the bowl
+                    to help the dog get to the food. These varibales will be used in the while loop as a condtion to stop looping through the commands.
+                    You have to use the same amount or less amount of commands mentioned in the top right corner.
+                    <br /> Good luck! <br /> (To learn more about while and to understand the while loop condition and the how variables work click the i below)
+                </div>
 
                 <div class="numbers">
-                    col &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp; col &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                     <br />
                     <br />
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     2 &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                 </div>
