@@ -1,5 +1,6 @@
 import { render, screen, cleanup, wrapper, getByTestId, fireEvent } from '@testing-library/react'
 import Level1 from '../../Level1/Controls/Controls'
+
 import Level2 from '../../Level2/L2-Control/Level-2-Control'
 import Level3 from '../../Level3/L3-Contol/Contol-3'
 import Level4 from '../../Level4/L4-Control/L4-Control'
@@ -89,7 +90,7 @@ test('checking value of command count for level 10', () => {
     const { getByTestId } = render(<Level10 />)
 
     const elements = getByTestId("counter")
-    expect(elements).toHaveTextContent("0/7")
+    expect(elements).toHaveTextContent("0/5")
 })
 
 test('checking value of command count for level 11', () => {

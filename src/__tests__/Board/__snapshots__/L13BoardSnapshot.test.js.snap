@@ -5,8 +5,17 @@ exports[`snapshot test level 13 1`] = `
   className="container"
 >
   <div
-    className="boardcontainer2"
+    className="boardcontainer13"
   >
+    <div
+      class="speech13"
+    >
+      Varibles again! For the values of the varibles you need to set coordinates for the row and column of the bowl to help the dog get to the food again. These varibales will be used in the while loop as a condtion to stop looping through the commands. You have to use the if statement to avoid falling in the holes. Use the same amount or less amount of commands mentioned in the top right corner.
+      <br />
+       Good luck! 
+      <br />
+       (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
+    </div>
     <div
       className="board13"
     >
@@ -94,18 +103,11 @@ exports[`snapshot test level 13 1`] = `
       <div
         class="level13Contain"
       >
-        <h2>
+        <h2
+          class="h26"
+        >
           Level 13:
         </h2>
-        <div
-          class="speech13"
-        >
-          Varibles again! For the values of the varibles you need to set coordinates for the row and column of the bowl to help the dog get to the food again. These varibales will be used in the while loop as a condtion to stop looping through the commands. You have to use the if statement to avoid falling in the holes. Use the same amount or less amount of commands mentioned in the top right corner.
-          <br />
-           Good luck! 
-          <br />
-           (To learn more about while, understand the while loop condition, how variables work and about if statements click the i below)
-        </div>
         <div
           class="borderPanel"
         >
@@ -140,6 +142,7 @@ exports[`snapshot test level 13 1`] = `
                 <i
                   class="fa fa-info"
                 />
+                 Variables
               </button>
               <p
                 class="subtitles"
@@ -178,7 +181,7 @@ exports[`snapshot test level 13 1`] = `
           </div>
         </div>
         <div
-          class="outside"
+          class="outside13"
         >
           <button
             class="button"

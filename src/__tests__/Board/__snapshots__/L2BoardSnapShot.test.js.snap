@@ -133,7 +133,7 @@ exports[`snapshot test level 2 1`] = `
           Level 2:
         </h2>
         <div
-          class="speech"
+          class="speech2"
         >
           Hi there! Your aim for this level is to help the dog get past the obstacles present. You HAVE to use the if statement that will allow you to pass the cat. The cat can only be passed if the dog barks. Use the commands below to create a sequence to get the food bowls. The limit of commands this time is 5. Also be careful of the hole if the dog falls in the hole you will lose
           <br />
@@ -145,7 +145,7 @@ exports[`snapshot test level 2 1`] = `
           class="borderPanel"
         >
           <div
-            class="toppart"
+            class="toppart2"
           >
             <div
               class="containing"
@@ -170,7 +170,7 @@ exports[`snapshot test level 2 1`] = `
           </div>
         </div>
         <div
-          class="outside"
+          class="outside2"
         >
           <button
             class="button"
