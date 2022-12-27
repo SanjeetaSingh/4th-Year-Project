@@ -8,7 +8,7 @@ const state = {
 
 /**
  * Class constucts the grid board with 
- * the dog and food object on it.
+ * the dog and food object on it. 
  * 
  * @returns a grid board
  */
